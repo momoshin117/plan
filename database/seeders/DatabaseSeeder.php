@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ParkingCarSeeder::class,
             PrefectureSeeder::class,
+            SpotMasterSeeder::class,
         ]);
         
         // \App\Models\User::factory(10)->create();
