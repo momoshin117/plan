@@ -18,4 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/parking_cars/', [ParkingCarController::class, 'index']); 
+Route::post('/parking_cars',[ParkingCarController::class,'store']);
+
+Route::get('/parking_cars', [ParkingCarController::class, 'index']); 
+
+
+Route::get('/parking_cars/create', [ParkingCarController::class, 'create']); 
+
+Route::get('/parking_cars/{parking_car}', [ParkingCarController::class, 'index']); 

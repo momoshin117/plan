@@ -15,6 +15,7 @@
             @endforeach
            
        </div>
+       <a href='/parking_cars/create'>新規作成</a>
        
    </body>
 </html>
