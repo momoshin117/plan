@@ -21,6 +21,6 @@ class ParkingCarController extends Controller
     {
         $input=$request['parking_cars'];
         $parking_car->fill($input)->save;
-        return redirect('/parking_cars/'.$parking_car->id);
+        return redirect('/parking_cars');
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ParkingCarController;
+use App\Http\Controllers\TravelPlanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,8 @@ Route::get('/parking_cars', [ParkingCarController::class, 'index']);
 
 Route::get('/parking_cars/create', [ParkingCarController::class, 'create']); 
 
-Route::get('/parking_cars/{parking_car}', [ParkingCarController::class, 'index']); 
+
+//プラン名登録
+
+Route::get('/myplan/name/index', [TravelPlanController::class, 'index']); 
+Route::get('/myplan/name/create', [TravelPlanController::class, 'create']); 
