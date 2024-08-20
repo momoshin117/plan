@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ParkingCar extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'number'
+    ];
 }
