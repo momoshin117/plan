@@ -20,7 +20,25 @@ class ParkingCarController extends Controller
     public function store(Request $request,ParkingCar $parking_car)
     {
         $input=$request['parking_cars'];
-        $parking_car->fill($input)->save;
+        $parking_car->fill($input) ->save();
+        return redirect('/parking_cars');
+    }
+    
+    public function edit(ParkingCar $parking_car)
+    {
+        return view('parking_cars.edit') ->with(['parking_car'=>$parking_car]);
+    }
+    
+    public function update(Request $request,ParkingCar $parking_car)
+    {
+        $input_2=$request['parking_car'];
+        $parking_car->fill($input_2) ->save();
+        return redirect('/parking_cars');
+    }
+    
+    public function delete(ParkingCar $parking_car)
+    {
+        $parking_car->delete();
         return redirect('/parking_cars');
     }
 }

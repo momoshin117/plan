@@ -9,6 +9,8 @@ class ParkingCar extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'number'
+        'number',
+        'updated_at',
+        'created_at'
     ];
 }

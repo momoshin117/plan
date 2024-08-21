@@ -19,12 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+//管理画面(駐車台数設定)
 Route::post('/parking_cars',[ParkingCarController::class,'store']);
 
 Route::get('/parking_cars', [ParkingCarController::class, 'index']); 
 
-
 Route::get('/parking_cars/create', [ParkingCarController::class, 'create']); 
+Route::get('/parking_cars/edit/{parking_car}', [ParkingCarController::class, 'edit']); 
+Route::delete('/parking_cars/delete/{parking_car}', [ParkingCarController::class, 'delete']); 
+Route::put('/parking_cars/{parking_car}', [ParkingCarController::class, 'update']);
 
 
 //プラン名登録
