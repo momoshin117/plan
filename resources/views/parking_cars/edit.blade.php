@@ -9,11 +9,13 @@
    </head>
    <body>
        <h1>駐車台数設定</h1>
-       <form action='/parking_cars' method='POST'>
+       <form action='/parking_cars/{{$parking_car->id}}' method='POST'>
            @csrf
+           @method('PUT')
            <div class="number">
-               <input type="text" name="parking_cars[number]" placeholder="区分けの選択肢：(例)5台以下"></input>
-               <input type="submit" value="保存"></input>
+               <input type="text" name="parking_car[number]" value={{$parking_car->number}} ></input>
+               <input type="submit" value="更新"></input>
+               
            </div>
        </form>
        
