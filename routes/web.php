@@ -35,3 +35,6 @@ Route::put('/parking_cars/{parking_car}', [ParkingCarController::class, 'update'
 
 Route::get('/myplan/name/index', [TravelPlanController::class, 'index']); 
 Route::get('/myplan/name/create', [TravelPlanController::class, 'create']); 
+
+Route::get('/myplan/name/{travel_plan}', [TravelPlanController::class, 'show']);
+Route::post('/myplan/name/travel_plan', [TravelPlanController::class, 'store']);

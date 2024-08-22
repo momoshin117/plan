@@ -9,31 +9,37 @@
    </head>
    <body>
        <h1>新規日程登録</h1>
-       <form action='/parking_cars' method='POST'>
+       <form action='/myplan/name/travel_plan' method='POST'>
            @csrf
            
-           <div class="plan_name">
+           <div class="plan">
                
-               <p>プラン名</p>
-                <input type="text" name="travel_plan[plan_name]" placeholder="2408_北海道旅行"></input>
-            
-               <p>開始日</p>
+               <div class="plan_name">
+                   <p>プラン名</p>
+                   <input type="text" name="travel_plan[plan_name]" placeholder="2408_北海道旅行"></input>
+               </div>
                
-               <p>期間</p>
+               <div class="departure_date">
+                   <p>開始日</p>
+                   <input type="text" name="travel_plan[departure_date]" placeholder="20240823"></input>
+               </div>
+               
                <div class="long">
-                    <input type="text" name="travel_plan[plan_name]" placeholder="2408_北海道旅行"></input>
-                   
-                       
-                   
+                   <p>期間</p>
+                   <input type="text" name="travel_plan[long]" placeholder="2">日</input>
+                   <p>※日帰りの場合は1と入力</p>
                
-               
+               <div class="money">
+                   <p>予算(1人あたり)</p>
+                   <input type="text" name="travel_plan[money]" placeholder="10,000">円</input>
+                   
+               </div>
+               <div class="disclose">
+                  <p>公開設定</p>
+                  <input type="radio" name="travel_plan[disclose]" value="公開">公開
+                  <input type="radio" name="travel_plan[disclose]" value="非公開">非公開
+               </div>
 
-               
-               <p>予算(1人あたり)</p>
-               
-               <p>公開設定</p>
-               
-               
                <input type="submit" value="保存"></input>
                
            </div>
