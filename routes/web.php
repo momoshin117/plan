@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ParkingCarController;
 use App\Http\Controllers\TravelPlanController;
@@ -19,22 +20,39 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-//管理画面(駐車台数設定)
-Route::post('/parking_cars',[ParkingCarController::class,'store']);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-Route::get('/parking_cars', [ParkingCarController::class, 'index']); 
-
-Route::get('/parking_cars/create', [ParkingCarController::class, 'create']); 
-Route::get('/parking_cars/edit/{parking_car}', [ParkingCarController::class, 'edit']); 
-Route::delete('/parking_cars/delete/{parking_car}', [ParkingCarController::class, 'delete']); 
-Route::put('/parking_cars/{parking_car}', [ParkingCarController::class, 'update']);
 
 
 //プラン名登録
 
-Route::get('/myplan/name/index', [TravelPlanController::class, 'index']); 
-Route::get('/myplan/name/create', [TravelPlanController::class, 'create']); 
+Route::controller(TravelPlanController::class)->middleware(['auth'])->group(function(){
+    Route::get('/myplan/name/index','index')->name('travel_plans');
+    Route::get('/myplan/name/create','create'); 
 
-Route::get('/myplan/name/{travel_plan}', [TravelPlanController::class, 'show']);
-Route::post('/myplan/name/travel_plan', [TravelPlanController::class, 'store']);
+    Route::get('/myplan/name/{travel_plan}','show');
+    Route::post('/myplan/name/travel_plan', 'store');
+});
+
+
+
+//管理画面(駐車台数設定)
+
+Route::controller(ParkingCarController::class)->middleware(['auth'])->group(function(){
+    Route::post('/parking_cars','store');
+    Route::get('/parking_cars', 'index'); 
+    Route::get('/parking_cars/create','create'); 
+    Route::get('/parking_cars/edit/{parking_car}', 'edit'); 
+    Route::delete('/parking_cars/delete/{parking_car}', 'delete'); 
+    Route::put('/parking_cars/{parking_car}', 'update');
+});
+
+require __DIR__.'/auth.php';
