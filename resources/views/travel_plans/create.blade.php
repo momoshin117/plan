@@ -6,7 +6,7 @@
    </x-slot>
     
    <h1>新規日程登録</h1>
-   <form action='/myplan/name/travel_plan' method='POST'>
+   <form action='/myplan/name' method='POST'>
       @csrf
            
       <div class="plan">

@@ -33,7 +33,26 @@
          <p>{{$travel_plan ->disclose}}</p>
       </div>
    </div>
-           
+   
+   <a href='/myplan/name/{{$travel_plan ->id}}/edit'>編集</a>
+   
+   <form action="/myplan/name/{{ $travel_plan->id }}" id="form_{{ $travel_plan->id }}" method="post">
+      @csrf
+      @method('DELETE')
+      
+      <button type="button" onclick="deletePlan({{ $travel_plan->id }})">削除</button> 
+　 </form>
+　 
    <a href='/myplan/name/index'>戻る</a>
+   
+   <script>
+    function deletePlan(id) {
+        'use strict'
+
+        if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+            document.getElementById(`form_${id}`).submit();
+        }
+    }
+   </script>
 
 </x-app-layout>

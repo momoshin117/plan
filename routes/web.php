@@ -40,7 +40,10 @@ Route::controller(TravelPlanController::class)->middleware(['auth'])->group(func
     Route::get('/myplan/name/create','create'); 
 
     Route::get('/myplan/name/{travel_plan}','show');
-    Route::post('/myplan/name/travel_plan', 'store');
+    Route::post('/myplan/name', 'store');
+    Route::get('/myplan/name/{travel_plan}/edit','edit');
+    Route::PUT('/myplan/name/{travel_plan}','update');
+    Route::delete('/myplan/name/{travel_plan}','delete');
 });
 
 

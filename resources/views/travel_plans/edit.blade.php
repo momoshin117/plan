@@ -1,0 +1,50 @@
+<x-app-layout>
+   <x-slot name="header">
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+         新規日程編集
+      </h2>
+   </x-slot>
+    
+   <h1>新規日程編集</h1>
+   <form action='/myplan/name/{{$travel_plan ->id}}' method='POST'>
+      @csrf
+      @method('PUT')
+           
+      <div class="plan">
+
+         <div class="plan_name">
+            <p>プラン名</p>
+            <input type="text" name="travel_plan[plan_name]" value="{{$travel_plan ->plan_name}}"></input>
+         </div>
+               
+         <div class="departure_date">
+            <p>開始日</p>
+            <input type="text" name="travel_plan[departure_date]" value="{{$travel_plan ->departure_date}}"></input>
+         </div>
+               
+         <div class="long">
+            <p>期間</p>
+            <input type="text" name="travel_plan[long]" value="{{$travel_plan ->long}}">日</input>
+            <p>※日帰りの場合は1と入力</p>
+         </div>
+
+         <div class="money">
+            <p>予算(1人あたり)</p>
+            <input type="text" name="travel_plan[money]" value="{{$travel_plan ->money}}">円</input>
+
+         </div>
+         <div class="disclose">
+            <p>公開設定</p>
+            <input type="radio" name="travel_plan[disclose]" value="公開" {{$travel_plan->disclose=='公開' ? 'checked' :''}}>公開
+            <input type="radio" name="travel_plan[disclose]" value="非公開"{{$travel_plan->disclose=='非公開' ? 'checked' :''}}>非公開
+            
+         </div>
+
+         <input type="submit" value="更新"></input>
+               
+      </div>
+   </form>
+   
+   <a href='/myplan/name/index'>戻る</a>
+   
+</x-app-layout>
