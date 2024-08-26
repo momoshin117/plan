@@ -13,7 +13,7 @@
     <div class='travel_plans'>
         @foreach($travel_plans as $travel_plan)
             <p class='travel_plan'>{{$travel_plan->departure_date}}{{$travel_plan->plan_name}}</p>
-            <a href='/myplan/name/{travel_plan}'>プラン詳細</a>
+            <a href='/myplan/name/{{$travel_plan->id}}'>プラン詳細</a>
                 
         @endforeach
            
