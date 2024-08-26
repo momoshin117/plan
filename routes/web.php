@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ParkingCarController;
 use App\Http\Controllers\TravelPlanController;
+use App\Http\Controllers\LoginWithGoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,5 +55,13 @@ Route::controller(ParkingCarController::class)->middleware(['auth'])->group(func
     Route::delete('/parking_cars/delete/{parking_car}', 'delete'); 
     Route::put('/parking_cars/{parking_car}', 'update');
 });
+
+//Googleログイン
+
+Route::get('/auth/google', [LoginWithGoogleController::class, 'redirectToGoogle'])
+    ->name('login.google');
+
+Route::get('/auth/google/callback', [LoginWithGoogleController::class, 'handleGoogleCallback'])
+    ->name('login.google.callback');
 
 require __DIR__.'/auth.php';
