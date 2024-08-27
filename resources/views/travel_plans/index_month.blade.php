@@ -1,35 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            マイプラン一覧
+            マイプラン一覧({{$day["year"]}}年{{$day["month"]}}月)
         </h2>
     </x-slot>
     <h1>マイプラン一覧</h1>
-    
-    <form action='/myplan/name/month' method='POST'>
-      @csrf
-        <input type="text" name="departure[year]" placeholder="2024">年</input>
-        
-        <select name="departure[month]">
-            <option value="">--選択してください--</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-        </select>
-        月
-        
-        <input type="submit" value="絞り込み"></input>
-    </form>  
-    
+       
     <div class='new_plan'>
         <a href='/myplan/name/create'>新規プラン登録</a>   
     </div>
@@ -46,10 +22,6 @@
 　          </p>
         @endforeach
            
-    </div>
-    
-    <div class='paginate'>
-        {{ $travel_plans->links() }}
     </div>
     
     <script>
