@@ -44,6 +44,8 @@ Route::controller(TravelPlanController::class)->middleware(['auth'])->group(func
     Route::get('/myplan/name/{travel_plan}/edit','edit');
     Route::PUT('/myplan/name/{travel_plan}','update');
     Route::delete('/myplan/name/{travel_plan}','delete');
+    
+    Route::post('/myplan/name/month', 'month');
 });
 
 
