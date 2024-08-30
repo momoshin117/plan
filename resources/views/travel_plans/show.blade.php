@@ -47,20 +47,20 @@
 　 <h2>登録スポット一覧</h2>
 　 <a href='/myplan/spot/{{$travel_plan ->id}}/create'>新規スポット登録</a>
 　 
-　 <div class='travel_plans'>
+　 <div class='travel_plan_spots'>
 　    
-        @foreach($travel_plans as $travel_plan)
+        @foreach($travel_plan_spots as $travel_plan_spot)
         
             <h4>スポット名</h4>
-            <p>{{$travel_plan->spot_master->spot_name}}</p>
+            <p>{{$travel_plan_spot->spot_master->spot_name}}</p>
             <h4>到着日時</h4>
-            <p>{{$travel_plan->arrive_date}}　{{$travel_plan->arrive_time}}</p>
+            <p>{{$travel_plan_spot->arrive_date}}　{{$travel_plan_spot->arrive_time}}</p>
             
             <h4>出発日時</h4>
-            <p>{{$travel_plan->departure_date}}　{{$travel_plan->departure_time}}</p>
+            <p>{{$travel_plan_spot->departure_date}}　{{$travel_plan_spot->departure_time}}</p>
             
             <h4>料金(1人あたり)</h4>
-            <p>{{$travel_plan->money}}円</p>
+            <p>{{$travel_plan_spot->money}}円</p>
         @endforeach
            
     </div>

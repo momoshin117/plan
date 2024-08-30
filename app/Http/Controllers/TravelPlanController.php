@@ -23,10 +23,10 @@ class TravelPlanController extends Controller
     
     public function show(TravelPlan $travel_plan)
     {
-        $t = TravelPlanSpot::where('travel_plan_id','=',$travel_plan->id)->get();
+        $travel_plan_spot= TravelPlanSpot::where('travel_plan_id','=',$travel_plan->id)->get();
         return view('travel_plans.show') ->with([
             'travel_plan'=>$travel_plan,
-            'travel_plans'=>$t
+            'travel_plan_spots'=>$travel_plan_spot
             ]);
     }
     
