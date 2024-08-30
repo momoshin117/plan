@@ -24,6 +24,8 @@
            
     </div>
     
+    <a href='/myplan/name/index'>戻る</a>
+    
     <script>
     function deletePlan(id) {
         'use strict'

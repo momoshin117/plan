@@ -36,7 +36,7 @@
        
     <div class='travel_plans'>
         @foreach($travel_plans as $travel_plan)
-            <p>{{$travel_plan->departure_date}}　{{$travel_plan->plan_name}}　　
+            <p>{{$travel_plan->departure_date}}　{{$travel_plan->plan_name}}　
                 <a href='/myplan/name/{{$travel_plan->id}}'>プラン詳細</a>
                 <form action="/myplan/name/{{ $travel_plan->id }}" id="form_{{ $travel_plan->id }}" method="post">
                     @csrf

@@ -34,6 +34,7 @@
       </div>
    </div>
    
+   
    <a href='/myplan/name/{{$travel_plan ->id}}/edit'>編集</a>
    
    <form action="/myplan/name/{{ $travel_plan->id }}" id="form_{{ $travel_plan->id }}" method="post">
@@ -42,6 +43,28 @@
       
       <button type="button" onclick="deletePlan({{ $travel_plan->id }})">削除</button> 
 　 </form>
+　 
+　 <h2>登録スポット一覧</h2>
+　 <a href='/myplan/spot/{{$travel_plan ->id}}/create'>新規スポット登録</a>
+　 
+　 <div class='travel_plans'>
+　    
+        @foreach($travel_plans as $travel_plan)
+        
+            <h4>スポット名</h4>
+            <p>{{$travel_plan->spot_master->spot_name}}</p>
+            <h4>到着日時</h4>
+            <p>{{$travel_plan->arrive_date}}　{{$travel_plan->arrive_time}}</p>
+            
+            <h4>出発日時</h4>
+            <p>{{$travel_plan->departure_date}}　{{$travel_plan->departure_time}}</p>
+            
+            <h4>料金(1人あたり)</h4>
+            <p>{{$travel_plan->money}}円</p>
+        @endforeach
+           
+    </div>
+　 
 　 
    <a href='/myplan/name/index'>戻る</a>
    

@@ -14,6 +14,10 @@ class TravelPlan extends Model
         return $this->orderBy('departure_date', 'ASC')->paginate($limit_count);
     }
     
+    public function travel_plan_spots(){
+        return $this ->hasMany(TravelPlanSpot::class)->with('spot_master');
+    }
+    
     protected $fillable=[
         'plan_name',
         'user_id',

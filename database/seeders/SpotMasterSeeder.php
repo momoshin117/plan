@@ -24,8 +24,6 @@ class SpotMasterSeeder extends Seeder
                 'parking_car_id' =>'4',
                 'foot' => '徒歩不可',
                 'bus' => '1',
-                'reserve_url' =>'https://www.snowtomamu.jp/summer/reserve/',
-                'review_url' =>'https://www.snowtomamu.jp/summer/',
          ]);
         //
     }
