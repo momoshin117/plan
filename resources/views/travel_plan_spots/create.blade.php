@@ -11,7 +11,12 @@
            
       <div class="spot_name">
          <p>スポット名</p>
-         <input type="text" name="travel_plan_spot[spot_name]" placeholder="星野リゾートトマム"></input>
+         <select name="travel_plan_spot[spot_name]">
+            <option value="">--選択してください--</option>
+            @foreach($travel_plan_spots as $travel_plan_spot)
+            <option value="{{$travel_plan_spot->spot_master->id}}">{{$travel_plan_spot->spot_master->spot_name}}</option>
+            @endforeach
+         </select>
       </div>
       
       <div class="arrive_date">

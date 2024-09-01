@@ -26,9 +26,11 @@ class TravelPlanSpotController extends Controller
         ]);
     }
     
-    public function create()
+    public function create(TravelPlanSpot $travel_plan_spot)
     {
-        return view('travel_plan_spots.create');
+        return view('travel_plan_spots.create') ->with([
+            'travel_plan_spots'=>$travel_plan_spot->get()
+            ]);
     }
     
     public function store(Request $request,TravelPlanSpot $travel_plan_spot)
