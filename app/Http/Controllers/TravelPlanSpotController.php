@@ -12,9 +12,9 @@ class TravelPlanSpotController extends Controller
 {
     public function create($travel_plan_id)
     {
-        $travel_plan_spot=TravelPlanSpot::with('spot_master')->get();
+        $spot_master=SpotMaster::get();
         return view('travel_plan_spots.create') ->with([
-            'travel_plan_spots' =>$travel_plan_spot,
+            'spot_masters' =>$spot_master,
             'travel_plan' =>$travel_plan_id
         ]);
     }
@@ -30,12 +30,12 @@ class TravelPlanSpotController extends Controller
     
     public function edit(TravelPlanSpot $travel_plan_spot)
     {
-        $travel_plan_spot_ent=TravelPlanSpot::with('spot_master')->get();
+        $spot_master=SpotMaster::get();
         
         return view('travel_plan_spots.edit') ->with
         ([
             'travel_plan_spot'=>$travel_plan_spot,
-            'spot_masters'=>$travel_plan_spot_ent
+            'spot_masters'=>$spot_master
             
         ]);    
     }

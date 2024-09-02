@@ -20,7 +20,11 @@
             <option value="{{$travel_plan_spot->spot_master->id}}">{{$travel_plan_spot->spot_master->spot_name}}</option>
             
             @foreach($spot_masters as $spot_master)
-            <option value="{{$spot_master->spot_master->id}}">{{$spot_master->spot_master->spot_name}}</option>
+            
+            @if($travel_plan_spot->spot_master->id != $spot_master->id)
+            <option value="{{$spot_master->id}}">{{$spot_master->spot_name}}</option>
+            @endif
+            
             @endforeach
             
          </select>

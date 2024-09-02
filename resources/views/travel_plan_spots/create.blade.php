@@ -17,8 +17,8 @@
          <p>スポット名</p>
          <select name="travel_plan_spot[spot_master_id]">
             <option value="">--選択してください--</option>
-            @foreach($travel_plan_spots as $travel_plan_spot)
-            <option value="{{$travel_plan_spot->spot_master->id}}">{{$travel_plan_spot->spot_master->spot_name}}</option>
+            @foreach($spot_masters as $spot_master)
+            <option value="{{$spot_master->id}}">{{$spot_master->spot_name}}</option>
             @endforeach
          </select>
       </div>
