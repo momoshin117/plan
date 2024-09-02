@@ -55,7 +55,7 @@ Route::controller(TravelPlanSpotController::class)->middleware(['auth'])->group(
     Route::get('/myplan/spot/{travel_plan_id}/create','create');
     Route::post('/myplan/spot/store','store');
     Route::get('/myplan/spot/{travel_plan_spot}/edit','edit');
-    Route::get('/myplan/spot/{travel_plan_spot}/delete','delete');
+    Route::delete('/myplan/spot/{travel_plan_spot}/delete','delete');
     Route::PUT('/myplan/spot/{travel_plan_spot}/update','update');
 
 });

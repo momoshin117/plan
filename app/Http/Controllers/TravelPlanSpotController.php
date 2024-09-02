@@ -47,6 +47,13 @@ class TravelPlanSpotController extends Controller
         
         return redirect('/myplan/name/'.$travel_plan_spot->travel_plan_id);
     }
+    
+    public function delete (TravelPlanSpot $travel_plan_spot)
+    {
+        $travel_plan_id=$travel_plan_spot->travel_plan_id;
+        $travel_plan_spot->delete();
+        return redirect('/myplan/name/'.$travel_plan_id);
+    }
 
     
     
