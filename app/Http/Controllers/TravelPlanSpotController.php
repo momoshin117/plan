@@ -16,7 +16,7 @@ class TravelPlanSpotController extends Controller
         return view('travel_plan_spots.create') ->with([
             'travel_plan_spots' =>$travel_plan_spot,
             'travel_plan' =>$travel_plan_id
-            ]);
+        ]);
     }
     
     public function store(Request $request,TravelPlanSpot $travel_plan_spot)
@@ -27,6 +27,27 @@ class TravelPlanSpotController extends Controller
         
         return redirect('/myplan/name/'.$travel_plan_spot->travel_plan_id);
     }
+    
+    public function edit(TravelPlanSpot $travel_plan_spot)
+    {
+        $travel_plan_spot_ent=TravelPlanSpot::with('spot_master')->get();
+        
+        return view('travel_plan_spots.edit') ->with
+        ([
+            'travel_plan_spot'=>$travel_plan_spot,
+            'spot_masters'=>$travel_plan_spot_ent
+            
+        ]);    
+    }
+    
+    public function update(Request $request,TravelPlanSpot $travel_plan_spot)
+    {
+        $input=$request['travel_plan_spot'];
+        $travel_plan_spot->fill($input)->save();
+        
+        return redirect('/myplan/name/'.$travel_plan_spot->travel_plan_id);
+    }
+
     
     
     

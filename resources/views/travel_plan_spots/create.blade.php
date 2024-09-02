@@ -50,6 +50,6 @@
 
    </form>
    
-   <a href='/myplan/spot/index'>戻る</a>
+   <a href='/myplan/name/{{$travel_plan}}'>戻る</a>
    
 </x-app-layout>

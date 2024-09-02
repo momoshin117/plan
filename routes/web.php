@@ -49,11 +49,21 @@ Route::controller(TravelPlanController::class)->middleware(['auth'])->group(func
     Route::post('/myplan/name/month', 'month');
 });
 
+
+
 Route::controller(TravelPlanSpotController::class)->middleware(['auth'])->group(function(){
     Route::get('/myplan/spot/{travel_plan_id}/create','create');
     Route::post('/myplan/spot/store','store');
+    Route::get('/myplan/spot/{travel_plan_spot}/edit','edit');
+    Route::get('/myplan/spot/{travel_plan_spot}/delete','delete');
+    Route::PUT('/myplan/spot/{travel_plan_spot}/update','update');
 
 });
+
+
+
+
+
 
 //管理画面(駐車台数設定)
 
