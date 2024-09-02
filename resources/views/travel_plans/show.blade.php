@@ -63,7 +63,13 @@
             <p>{{$travel_plan_spot->money}}円</p>
             
             <a href='/myplan/spot/{{$travel_plan_spot->id}}/edit'>編集</a>
-            <a href='/myplan/spot/{{$travel_plan_spot->id}}/delete'>削除</a>
+            
+            <form action="/myplan/spot/{{ $travel_plan_spot->id }}/delete" id="form_{{ $travel_plan_spot->id }}" method="post">
+               @csrf
+               @method('DELETE')
+      
+               <button type="button" onclick="deletePlan({{ $travel_plan_spot->id }})">削除</button> 
+　          </form>
             
         @endforeach
            
