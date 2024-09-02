@@ -61,6 +61,7 @@
             
             <h4>料金(1人あたり)</h4>
             <p>{{$travel_plan_spot->money}}円</p>
+            
         @endforeach
            
     </div>
