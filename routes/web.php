@@ -4,8 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ParkingCarController;
 use App\Http\Controllers\TravelPlanController;
-use App\Http\Controllers\LoginWithGoogleController;
 use App\Http\Controllers\TravelPlanSpotController;
+use App\Http\Controllers\LoginWithGoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,17 +49,11 @@ Route::controller(TravelPlanController::class)->middleware(['auth'])->group(func
     Route::post('/myplan/name/month', 'month');
 });
 
-//スポット登録
 Route::controller(TravelPlanSpotController::class)->middleware(['auth'])->group(function(){
-    Route::get('/myplan/spot/{travel_spot_create}/create','create'); 
-    Route::get('/myplan/spot/{travel_plan_spot}','show');
-    
-    Route::get('/myplan/spot','store');
-    Route::post('/myplan/spot','store'); 
-    
+    Route::get('/myplan/spot/{travel_plan_id}/create','create');
+    Route::post('/myplan/spot/store','store');
 
 });
-
 
 //管理画面(駐車台数設定)
 
