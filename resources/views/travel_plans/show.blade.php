@@ -62,6 +62,9 @@
             <h4>料金(1人あたり)</h4>
             <p>{{$travel_plan_spot->money}}円</p>
             
+            <a href='/myplan/spot/{{$travel_plan_spot->id}}/edit'>編集</a>
+            <a href='/myplan/spot/{{$travel_plan_spot->id}}/delete'>削除</a>
+            
         @endforeach
            
     </div>
