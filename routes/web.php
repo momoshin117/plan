@@ -51,11 +51,14 @@ Route::controller(TravelPlanController::class)->middleware(['auth'])->group(func
 
 //スポット登録
 Route::controller(TravelPlanSpotController::class)->middleware(['auth'])->group(function(){
-    Route::get('/myplan/spot/{travel_spot_create}/create','create'); 
+   /* Route::get('/myplan/spot/{travel_spot_create}/create','create'); 
     Route::get('/myplan/spot/{travel_plan_spot}','show');
+    */
+    Route::get('/myplan/spot/{travel_plan}/create','create');
+    Route::get('/myplan/spot/{travel_plan_spot}/edit','edit');
+    Route::get('/myplan/spot/{travel_plan}/delete','delete');
     
-    Route::get('/myplan/spot','store');
-    Route::post('/myplan/spot','store'); 
+    Route::post('/myplan/spot','store');
     
 
 });

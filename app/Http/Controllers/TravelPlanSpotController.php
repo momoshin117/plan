@@ -9,7 +9,7 @@ use App\Models\TravelPlan;
 
 class TravelPlanSpotController extends Controller
 {
-    public function index(TravelPlanSpot $travel_plan_spot)
+   /* public function index(TravelPlanSpot $travel_plan_spot)
     {
     
         return view('travel_plan_spots.index') ->with([
@@ -25,11 +25,13 @@ class TravelPlanSpotController extends Controller
             'travel_plan_spot'=>$travel_plan_spot,
         ]);
     }
+    */
     
-    public function create(TravelPlanSpot $travel_plan_spot)
+    public function create(TravelPlanSpot $travel_plan_spot,$travel_plan)
     {
         return view('travel_plan_spots.create') ->with([
-            'travel_plan_spots'=>$travel_plan_spot->get()
+            'travel_plan_spots'=>$travel_plan_spot->get(),
+            'travel_plan_id'=>$travel_plan
             ]);
     }
     
@@ -38,6 +40,16 @@ class TravelPlanSpotController extends Controller
         $input=$request['travel_plan_spot'];
         $travel_plan_spot->fill($input)->save();
         
-        return redirect('/myplan/spot/'.$travel_plan_spot->id);
+        return redirect('/myplan/name/'.$travel_plan_spot->id);
     }
+    
+    public function edit(TravelPlanSpot $travel_plan_spot)
+    {
+        return view('travel_plan_spots.edit')->with([
+            'travel_plan_spot'=>$travel_plan_spot,
+            
+        ]);
+        
+    }
+    
 }

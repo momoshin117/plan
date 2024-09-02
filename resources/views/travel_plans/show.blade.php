@@ -49,7 +49,7 @@
 　 
 　 <div class='travel_plan_spots'>
 　    
-        @foreach($travel_plan_spots as $travel_plan_spot)
+        @foreach($travel_plan_spots->travel_plan_spots as $travel_plan_spot)
         
             <h4>スポット名</h4>
             <p>{{$travel_plan_spot->spot_master->spot_name}}</p>
@@ -61,6 +61,10 @@
             
             <h4>料金(1人あたり)</h4>
             <p>{{$travel_plan_spot->money}}円</p>
+            
+            <a href='/myplan/spot/{{$travel_plan_spot->id}}/edit'>編集</a>
+            <a href='/myplan/spot/{{$travel_plan->id}}/delete'>削除</a>
+              
         @endforeach
            
     </div>
