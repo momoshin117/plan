@@ -7,6 +7,7 @@ use App\Models\TravelPlan;
 use App\Models\User;
 use App\Models\TravelPlanSpot;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\TravelPlanRequest;
 
 
 class TravelPlanController extends Controller
@@ -24,7 +25,7 @@ class TravelPlanController extends Controller
     public function show($travel_plan)
     {
         $travel_plan_ent= TravelPlan::with('travel_plan_spots')->find($travel_plan);
-        $money_total=TravelPlanSpot::selectRaw('SUM(money) as total')->where('travel_plan_id','=',$travel_plan)->get();
+        $money_total=TravelPlanSpot::selectRaw('SUM(money) as total')->where('travel_plan_id','=',$travel_plan)->first();
         
         return view('travel_plans.show') ->with([
             'travel_plan'=>$travel_plan_ent,
@@ -33,7 +34,7 @@ class TravelPlanController extends Controller
             ]);
     }
     
-    public function store(Request $request, TravelPlan $travel_plan)
+    public function store(TravelPlanRequest $request, TravelPlan $travel_plan)
     {
         $input=$request['travel_plan'];
         $travel_plan->user_id = \Auth::id();

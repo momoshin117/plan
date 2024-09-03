@@ -27,7 +27,7 @@
          <h3>予算(1人あたり)</h3>
          <p>{{$travel_plan ->money}}</p>
          <h3>使用金額(1人あたり)</h3>
-         <p>{{$money_total}}円</p>
+         <p>{{$money_total->total}}円</p>
       </div>
       
       
