@@ -26,6 +26,7 @@
             @endif
             
             @endforeach
+            <p class="spot_master_id__error" style="color:red">{{ $errors->first('travel_plan_spot.spot_master_id') }}</p>
             
          </select>
       </div>
@@ -33,24 +34,29 @@
       <div class="arrive_date">
          <p>到着日時</p>
          <input type="text" name="travel_plan_spot[arrive_date]" value={{$travel_plan_spot->arrive_date}}></input>
+         <p class="arrive_date__error" style="color:red">{{ $errors->first('travel_plan_spot.arrive_date') }}</p>
       </div>
       
       <div class="arrive_time">
-         <input type="text" name="travel_plan_spot[arrive_time]" value={{$travel_plan_spot->arrive_time}}></input>
+         <input type="text" name="travel_plan_spot[arrive_time]" value={{substr($travel_plan_spot->arrive_time,0,5)}}></input>
+         <p class="arrive_time__error" style="color:red">{{ $errors->first('travel_plan_spot.arrive_time') }}</p>
       </div>
       
       <div class="departure_date">
          <p>出発日時</p>
          <input type="text" name="travel_plan_spot[departure_date]" value={{$travel_plan_spot->departure_date}}></input>
+         <p class="departure_date__error" style="color:red">{{ $errors->first('travel_plan_spot.departure_date') }}</p>
       </div>
       
       <div class="departure_time">
-         <input type="text" name="travel_plan_spot[departure_time]" value={{$travel_plan_spot->arrive_time}}></input>
+         <input type="text" name="travel_plan_spot[departure_time]" value={{substr($travel_plan_spot->arrive_time,0,5)}}></input>
+         <p class="departure_time__error" style="color:red">{{ $errors->first('travel_plan_spot.departure_time') }}</p>
       </div>
       
       <div class="money">
          <p>1人あたりの料金</p>
          <input type="text" name="travel_plan_spot[money]" value={{$travel_plan_spot->money}}>円</input>
+         <p class="money__error" style="color:red">{{ $errors->first('travel_plan_spot.money') }}</p>
       </div>
       
       <input type="submit" value="更新"></input>

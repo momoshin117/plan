@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\TravelPlanSpot;
 use App\Models\TravelPlan;
 use App\Models\SpotMaster;
+use App\Http\Requests\TravelPlanSpotRequest;
 
 
 class TravelPlanSpotController extends Controller
@@ -19,7 +20,7 @@ class TravelPlanSpotController extends Controller
         ]);
     }
     
-    public function store(Request $request,TravelPlanSpot $travel_plan_spot)
+    public function store(TravelPlanSpotRequest $request,TravelPlanSpot $travel_plan_spot)
     {
         $input=$request['travel_plan_spot'];
         $travel_plan_spot->fill($input)->save();
@@ -40,7 +41,7 @@ class TravelPlanSpotController extends Controller
         ]);    
     }
     
-    public function update(Request $request,TravelPlanSpot $travel_plan_spot)
+    public function update(TravelPlanSpotRequest $request,TravelPlanSpot $travel_plan_spot)
     {
         $input=$request['travel_plan_spot'];
         $travel_plan_spot->fill($input)->save();
