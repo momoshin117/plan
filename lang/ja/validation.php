@@ -202,7 +202,15 @@ return [
         'travel_plan.departure_date'=>'出発日',
         'travel_plan.long'=>'期間',
         'travel_plan.money'=>'予算',
-        'travel_plan.disclose'=>'公開設定'
+        'travel_plan.disclose'=>'公開設定',
+        
+        //travel_plan_spots
+        'travel_plan_spot.spot_master_id'=>'スポット名',
+        'travel_plan_spot.arrive_date'=>'到着日',
+        'travel_plan_spot.arrive_time'=>'到着時間',
+        'travel_plan_spot.departure_date'=>'出発日',
+        'travel_plan_spot.departure_time'=>'出発時間',
+        'travel_plan_spot.money'=>'料金'
         
         ],
 

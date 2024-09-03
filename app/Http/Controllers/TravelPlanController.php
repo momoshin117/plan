@@ -46,7 +46,7 @@ class TravelPlanController extends Controller
     {
         return view('travel_plans.edit') ->with(['travel_plan'=>$travel_plan]);
     }
-    public function update (Request $request, TravelPlan $travel_plan)
+    public function update (TravelPlanRequest $request, TravelPlan $travel_plan)
     {
         $input=$request['travel_plan'];
         $travel_plan->fill($input)->save();
