@@ -26,7 +26,11 @@
       <div class="money">
          <h3>予算(1人あたり)</h3>
          <p>{{$travel_plan ->money}}</p>
+         <h3>使用金額(1人あたり)</h3>
+         <p>{{$money_total}}円</p>
       </div>
+      
+      
                
       <div class="disclose">
          <h3>公開設定</h3>
@@ -51,13 +55,23 @@
 　    
         @foreach($travel_plan_spots as $travel_plan_spot)
         
+            <h3>●{{$loop->iteration}}個目のスポット</h3>
+            <h4>ジャンル</h4>
+            <p>{{$travel_plan_spot->spot_master->category_id}}</p>
             <h4>スポット名</h4>
             <p>{{$travel_plan_spot->spot_master->spot_name}}</p>
+            
+            <h4>滞在日時</h4>
+            <p>{{$travel_plan_spot->arrive_date}}　{{substr($travel_plan_spot->arrive_time,0,5)}}～{{$travel_plan_spot->departure_date}}　{{substr($travel_plan_spot->departure_time,0,5)}}</p>
+            
+            <!--
             <h4>到着日時</h4>
             <p>{{$travel_plan_spot->arrive_date}}　{{$travel_plan_spot->arrive_time}}</p>
             
             <h4>出発日時</h4>
             <p>{{$travel_plan_spot->departure_date}}　{{$travel_plan_spot->departure_time}}</p>
+            
+            -->
             
             <h4>料金(1人あたり)</h4>
             <p>{{$travel_plan_spot->money}}円</p>

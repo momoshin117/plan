@@ -18,6 +18,7 @@ class TravelPlanSpot extends Model
         return $this->belongsTo(SpotMaster::class);
     }
     
+    
     protected $fillable=[
         'travel_plan_id',
         'spot_master_id',

@@ -9,8 +9,18 @@ class SpotMaster extends Model
 {
     use HasFactory;
     
-    public function travel_plan_spots()   
-{
-    return $this->hasMany(TravelPlanSpot::class);  
-}
+    public function travel_plan_spots()
+    {
+        return $this->hasMany(TravelPlanSpot::class);  
+    }
+
+    public function category()
+    {
+        return $this ->belongsTo(Category::class);
+    }
+    
+    public function prefecture(){
+        return $this ->belongsTo(Prefecture::class);
+    }
+    
 }
