@@ -56,7 +56,11 @@
       <div class="money">
          <p>1人あたりの料金</p>
          <input type="text" name="travel_plan_spot[money]" value={{$travel_plan_spot->money}}>円</input>
+          <h6>※使える金額は残り{{$use_money}}円以内</h6>
          <p class="money__error" style="color:red">{{ $errors->first('travel_plan_spot.money') }}</p>
+         
+         <input type="hidden" name="travel_plan_spot[use_money]" value={{$use_money}}></input>
+         
       </div>
       
       <input type="submit" value="更新"></input>
