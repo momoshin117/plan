@@ -9,7 +9,7 @@ class TravelPlan extends Model
 {
     use HasFactory;
     
-    public function getPaginateByLimit(int $limit_count = 10)
+    public function getPaginateByLimit(int $limit_count = 5)
     {
         return $this->orderBy('departure_date', 'ASC')->paginate($limit_count);
     }
@@ -17,6 +17,7 @@ class TravelPlan extends Model
     public function travel_plan_spots(){
         return $this ->hasMany(TravelPlanSpot::class)->with('spot_master');
     }
+    
     
     protected $fillable=[
         'plan_name',
