@@ -6,7 +6,7 @@
    </x-slot>
     
    <h1>新規旅行スポット登録</h1>
-   <form action='/myplan/spot/store' method='POST'>
+   <form action='/myplan/spot/store?use_money={{$use_money}}' method='POST'>
       @csrf
       
       <div class="travel_plan_id">
@@ -14,7 +14,7 @@
       </div>
            
       <div class="spot_name">
-         <p>スポット名</p>
+         <h4>スポット名</h4>
          <select name="travel_plan_spot[spot_master_id]">
             <option value="">--選択してください--</option>
             @foreach($spot_masters as $spot_master)
@@ -25,7 +25,7 @@
       </div>
       
       <div class="arrive_date">
-         <p>到着日時</p>
+         <h4>到着日時</h4>
          <input type="text" name="travel_plan_spot[arrive_date]" placeholder="20240809" value={{old('travel_plan_spot.arrive_date')}}></input>
          <p class="arrive_date__error" style="color:red">{{ $errors->first('travel_plan_spot.arrive_date') }}</p>
       </div>
@@ -36,7 +36,7 @@
       </div>
       
       <div class="departure_date">
-         <p>出発日時</p>
+         <h4>出発日時</h4>
          <input type="text" name="travel_plan_spot[departure_date]" placeholder="20240810" value={{old('travel_plan_spot.departure_date')}}></input>
          <p class="departure_date__error" style="color:red">{{ $errors->first('travel_plan_spot.departure_date') }}</p>
       
@@ -46,9 +46,14 @@
       </div>
       
       <div class="money">
-         <p>1人あたりの料金</p>
+         <h4>1人あたりの料金</h4>
+         
          <input type="text" name="travel_plan_spot[money]" placeholder="1000" value={{old('travel_plan_spot.money')}}>円</input>
+         <h6>※使える金額は残り{{$use_money}}円以内</h6>
          <p class="money__error" style="color:red">{{ $errors->first('travel_plan_spot.money') }}</p>
+         
+         <input type="hidden" name="travel_plan_spot[use_money]" value={{$use_money}}></input>
+      </div>
       </div>
       
       <input type="submit" value="保存"></input>

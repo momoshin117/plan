@@ -11,32 +11,41 @@ use App\Http\Requests\TravelPlanSpotRequest;
 
 class TravelPlanSpotController extends Controller
 {
-    public function create($travel_plan_id)
+    public function create($travel_plan_id,Request $request)
     {
         $spot_master=SpotMaster::get();
+        $budget=$request->budget;
+        $total=$request->total;
+        $use_money=($budget-$total);
+    
         return view('travel_plan_spots.create') ->with([
             'spot_masters' =>$spot_master,
-            'travel_plan' =>$travel_plan_id
+            'travel_plan' =>$travel_plan_id,
+            'use_money' =>$use_money
         ]);
     }
     
     public function store(TravelPlanSpotRequest $request,TravelPlanSpot $travel_plan_spot)
     {
+       
         $input=$request['travel_plan_spot'];
         $travel_plan_spot->fill($input)->save();
-        
         
         return redirect('/myplan/name/'.$travel_plan_spot->travel_plan_id);
     }
     
-    public function edit(TravelPlanSpot $travel_plan_spot)
+    public function edit(TravelPlanSpot $travel_plan_spot,Request $request)
     {
         $spot_master=SpotMaster::get();
+        $budget=$request->budget;
+        $total=$request->total;
+        $use_money=($budget-$total);
         
         return view('travel_plan_spots.edit') ->with
         ([
             'travel_plan_spot'=>$travel_plan_spot,
-            'spot_masters'=>$spot_master
+            'spot_masters'=>$spot_master,
+             'use_money' =>$use_money
             
         ]);    
     }

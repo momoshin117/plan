@@ -40,7 +40,9 @@ return [
     'date' => ':attribute は日付で入力される必要があります。',
     
     'date_equals' => 'The :attribute field must be a date equal to :date.',
-    'date_format' => 'The :attribute field must match the format :format.',
+    //'date_format' => 'The :attribute field must match the format :format.',
+    'date_format' => ':attributeは:formatの形で入力される必要があります。',
+    
     'decimal' => 'The :attribute field must have :decimal decimal places.',
     'declined' => 'The :attribute field must be declined.',
     'declined_if' => 'The :attribute field must be declined when :other is :value.',
@@ -92,7 +94,10 @@ return [
     'lte' => [
         'array' => 'The :attribute field must not have more than :value items.',
         'file' => 'The :attribute field must be less than or equal to :value kilobytes.',
-        'numeric' => 'The :attribute field must be less than or equal to :value.',
+        
+        //'numeric' => 'The :attribute field must be less than or equal to :value.',
+        'numeric' => '予算超過です。:attributeは:value円以下である必要があります。',
+        
         'string' => 'The :attribute field must be less than or equal to :value characters.',
     ],
     'mac_address' => 'The :attribute field must be a valid MAC address.',
@@ -213,5 +218,9 @@ return [
         'travel_plan_spot.money'=>'料金'
         
         ],
+    
+    'format' => [
+        'H:i' =>'○:○'
+        ]
 
 ];

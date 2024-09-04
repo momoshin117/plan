@@ -49,7 +49,7 @@
 　 </form>
 　 
 　 <h2>登録スポット一覧</h2>
-　 <a href='/myplan/spot/{{$travel_plan ->id}}/create'>新規スポット登録</a>
+　 <a href='/myplan/spot/{{$travel_plan ->id}}/create?budget={{$travel_plan->money}}&total={{$money_total->total}}'>新規スポット登録</a>
 　 
 　 <div class='travel_plan_spots'>
 　    
@@ -76,7 +76,7 @@
             <h4>料金(1人あたり)</h4>
             <p>{{$travel_plan_spot->money}}円</p>
             
-            <a href='/myplan/spot/{{$travel_plan_spot->id}}/edit'>編集</a>
+            <a href='/myplan/spot/{{$travel_plan_spot->id}}/edit?budget={{$travel_plan->money}}&total={{$money_total->total}}'>編集</a>
             
             <form action="/myplan/spot/{{ $travel_plan_spot->id }}/delete" id="form_{{ $travel_plan_spot->id }}" method="post">
                @csrf
