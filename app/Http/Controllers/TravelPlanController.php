@@ -25,11 +25,12 @@ class TravelPlanController extends Controller
     public function show($travel_plan)
     {
         $travel_plan_ent= TravelPlan::with('travel_plan_spots')->find($travel_plan);
+        $travel_plan_spot=TravelPlanSpot::where('travel_plan_id','=',$travel_plan)->orderBy('arrive_date','asc')->orderBy('arrive_time', 'asc')->get();
         $money_total=TravelPlanSpot::selectRaw('SUM(money) as total')->where('travel_plan_id','=',$travel_plan)->first();
         
         return view('travel_plans.show') ->with([
             'travel_plan'=>$travel_plan_ent,
-            'travel_plan_spots'=>$travel_plan_ent ->travel_plan_spots,
+            'travel_plan_spots'=>$travel_plan_spot,
             'money_total'=>$money_total
             ]);
     }

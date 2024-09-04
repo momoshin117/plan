@@ -19,6 +19,7 @@ class TravelPlanSpot extends Model
     }
     
     
+    
     protected $fillable=[
         'travel_plan_id',
         'spot_master_id',

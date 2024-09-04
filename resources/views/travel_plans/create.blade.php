@@ -19,7 +19,7 @@
                
          <div class="departure_date">
             <p>出発日</p>
-            <input type="text" name="travel_plan[departure_date]" placeholder="20240823" value={{old('travel_plan.departure_date')}}></input>
+            <input type="text" name="travel_plan[departure_date]" placeholder="2024/8/23" value={{old('travel_plan.departure_date')}}></input>
             <p class="departure_date__error" style="color:red">{{ $errors->first('travel_plan.departure_date') }}</p>
          </div>
                

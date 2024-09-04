@@ -26,18 +26,18 @@
       
       <div class="arrive_date">
          <h4>到着日時</h4>
-         <input type="text" name="travel_plan_spot[arrive_date]" placeholder="20240809" value={{old('travel_plan_spot.arrive_date')}}></input>
+         <input type="text" name="travel_plan_spot[arrive_date]" placeholder="2024/8/9" value={{old('travel_plan_spot.arrive_date')}}></input>
          <p class="arrive_date__error" style="color:red">{{ $errors->first('travel_plan_spot.arrive_date') }}</p>
       </div>
       
       <div class="arrive_time">
-         <input type="text" name="travel_plan_spot[arrive_time]" placeholder="10:00" value={{old('travel_plan_spot.arrive_time')}}></input>
+         <input type="text" name="travel_plan_spot[arrive_time]" placeholder="09:00" value={{old('travel_plan_spot.arrive_time')}}></input>
          <p class="arrive_time__error" style="color:red">{{ $errors->first('travel_plan_spot.arrive_time') }}</p>
       </div>
       
       <div class="departure_date">
          <h4>出発日時</h4>
-         <input type="text" name="travel_plan_spot[departure_date]" placeholder="20240810" value={{old('travel_plan_spot.departure_date')}}></input>
+         <input type="text" name="travel_plan_spot[departure_date]" placeholder="2024/8/10" value={{old('travel_plan_spot.departure_date')}}></input>
          <p class="departure_date__error" style="color:red">{{ $errors->first('travel_plan_spot.departure_date') }}</p>
       
       <div class="departure_time">
