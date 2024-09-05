@@ -52,8 +52,6 @@ class TravelPlanSpotController extends Controller
             $search_departure[]=strtotime($search->departure_date.$search->departure_time);
         }
         
-        
-        //$forNum =(Count($search_arrive));
 
         for($i=0;$i<$searchs_count;$i++){
             if($search_departure[$i]<$registar_arrive || $search_arrive[$i]>$registar_departure){
@@ -113,42 +111,4 @@ class TravelPlanSpotController extends Controller
         return redirect('/myplan/name/'.$travel_plan_id);
     }
 
-    
-    
-    
-    /*public function index(TravelPlanSpot $travel_plan_spot)
-    {
-    
-        return view('travel_plan_spots.index') ->with([
-            
-            'travel_plan_spots' => $travel_plan_spot->get()
-            
-        ]);
-    }
-    
-    public function show($travel_plan)
-    {
-        $travel_plan_ent=TravelPlan::with('travel_plan_spot')->find($travel_plan);
-        return view('travel_plans.show') ->with([
-            'travel_plan'=>$travel_plan_ent,
-            'travel_plan_spots'=>$travel_plan_ent->travel_plan_spots
-        ]);
-    }
-    
-    public function create(TravelPlanSpot $travel_plan_spot)
-    {
-        return view('travel_plan_spots.create') ->with([
-            'travel_plan_spots'=>$travel_plan_spot->get()
-            ]);
-    }
-    
-    public function store(Request $request,TravelPlanSpot $travel_plan_spot)
-    {
-        $input=$request['travel_plan_spot'];
-        $travel_plan_spot->fill($input)->save();
-        
-        return redirect('/myplan/spot/'.$travel_plan_spot->id);
-    
-    }
-*/
 }
