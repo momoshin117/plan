@@ -17,25 +17,71 @@ class TravelPlanSpotController extends Controller
         $budget=$request->budget;
         $total=$request->total;
         $use_money=($budget-$total);
-    
+        
+        $first_day=$request->first_day;
+        $long=$request->long;
+        $last_day=date('Y-m-d',strtotime($first_day.$long."day"));
+  
         return view('travel_plan_spots.create') ->with([
             'spot_masters' =>$spot_master,
             'travel_plan' =>$travel_plan_id,
-            'use_money' =>$use_money
+            'use_money' =>$use_money,
+            'first_day'=>$first_day,
+            'last_day'=>$last_day,
         ]);
     }
     
     public function store(TravelPlanSpotRequest $request,TravelPlanSpot $travel_plan_spot)
     {
        
+        $first_day=$request->first_day;
+        $last_day=$request->last_day;
         $input=$request['travel_plan_spot'];
-        $travel_plan_spot->fill($input)->save();
+        $travel_plan_spot->fill($input);
         
-        return redirect('/myplan/name/'.$travel_plan_spot->travel_plan_id);
+        $registar_arrive=strtotime($travel_plan_spot->arrive_date.$travel_plan_spot->arrive_time);
+        $registar_departure=strtotime($travel_plan_spot->departure_date.$travel_plan_spot->departure_time);
+        
+        $searchs_count=TravelPlanSpot::where('travel_plan_id','=',$travel_plan_spot->travel_plan_id)->count();
+    
+        $searchs=TravelPlanSpot::where('travel_plan_id','=',$travel_plan_spot->travel_plan_id)->get();
+        
+        
+        foreach($searchs as $search){
+            $search_arrive[]=strtotime($search->arrive_date.$search->arrive_time);
+            $search_departure[]=strtotime($search->departure_date.$search->departure_time);
+        }
+        
+        
+        //$forNum =(Count($search_arrive));
+
+        for($i=0;$i<$searchs_count;$i++){
+            if($search_departure[$i]<$registar_arrive || $search_arrive[$i]>$registar_departure){
+                
+            }
+            else{
+                $spot_master=SpotMaster::get();
+                return view('travel_plan_spots.create') ->with([
+                    'spot_masters' =>$spot_master,
+                    'travel_plan' =>$travel_plan_spot->travel_plan_id,
+                    'use_money' =>$request->use_money,
+                    'first_day'=>$first_day,
+                    'last_day'=>$last_day
+                ]);
+            }
+        }
+            
+        $travel_plan_spot->save();
+            return redirect('/myplan/name/'.$travel_plan_spot->travel_plan_id);
     }
     
     public function edit(TravelPlanSpot $travel_plan_spot,Request $request)
     {
+        $first_day=$request->first_day;
+        $long=$request->long;
+        $last_day=date('Y-m-d',strtotime($first_day.$long."day"));
+        
+        
         $spot_master=SpotMaster::get();
         $budget=$request->budget;
         $total=$request->total;
@@ -45,7 +91,9 @@ class TravelPlanSpotController extends Controller
         ([
             'travel_plan_spot'=>$travel_plan_spot,
             'spot_masters'=>$spot_master,
-             'use_money' =>$use_money
+            'use_money' =>$use_money,
+            'first_day'=>$first_day,
+            'last_day'=>$last_day
             
         ]);    
     }
