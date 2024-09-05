@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ParkingCarController;
 use App\Http\Controllers\TravelPlanController;
 use App\Http\Controllers\TravelPlanSpotController;
+use App\Http\Controllers\SpotMasterController;
 use App\Http\Controllers\LoginWithGoogleController;
 
 /*
@@ -61,7 +62,10 @@ Route::controller(TravelPlanSpotController::class)->middleware(['auth'])->group(
 });
 
 
-
+//施設詳細情報
+Route::controller(SpotMasterController::class)->middleware(['auth'])->group(function(){
+    Route::get('/spot_master/{spot_master}/show','show');
+});
 
 
 
