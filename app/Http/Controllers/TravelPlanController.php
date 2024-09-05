@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\TravelPlan;
 use App\Models\User;
 use App\Models\TravelPlanSpot;
+use App\Models\SpotMaster;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\TravelPlanRequest;
 
