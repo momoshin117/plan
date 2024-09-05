@@ -24,9 +24,9 @@ class TravelPlanSpotRequest extends FormRequest
     {
         return [
             'travel_plan_spot.spot_master_id'=>'required|integer',
-            'travel_plan_spot.arrive_date'=>'required|date',
+            'travel_plan_spot.arrive_date'=>'required|date|after_or_equal:travel_plan_spot.plan_first_day|before_or_equal:travel_plan_spot.plan_last_day',
             'travel_plan_spot.arrive_time'=>'required|date_format:H:i',
-            'travel_plan_spot.departure_date'=>'required|date',
+            'travel_plan_spot.departure_date'=>'required|date|after_or_equal:travel_plan_spot.plan_first_day|after_or_equal:travel_plan_spot.arrive_date|before_or_equal:travel_plan_spot.plan_last_day',
             'travel_plan_spot.departure_time'=>'required|date_format:H:i',
             'travel_plan_spot.money'=>'required|integer|lte:travel_plan_spot.use_money'
             

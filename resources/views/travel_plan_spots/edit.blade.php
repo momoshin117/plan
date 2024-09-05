@@ -12,6 +12,8 @@
       
       <div class="travel_plan_id">
          <input type="hidden" name="travel_plan_spot[travel_plan_id]" value={{$travel_plan_spot->travel_plan_id}}></input>
+         <input type="hidden" name="travel_plan_spot[plan_first_day]" value={{$first_day}}></input>
+         <input type="hidden" name="travel_plan_spot[plan_last_day]" value={{$last_day}}></input> 
       </div>
            
       <div class="spot_name">

@@ -17,14 +17,21 @@ return [
     'accepted_if' => 'The :attribute field must be accepted when :other is :value.',
     'active_url' => 'The :attribute field must be a valid URL.',
     'after' => 'The :attribute field must be a date after :date.',
-    'after_or_equal' => 'The :attribute field must be a date after or equal to :date.',
+    
+    //'after_or_equal' => 'The :attribute field must be a date after or equal to :date.',
+    'after_or_equal' => ':attributeは :dateと同日もしくは後の日付にする必要があります。.',
+    
     'alpha' => 'The :attribute field must only contain letters.',
     'alpha_dash' => 'The :attribute field must only contain letters, numbers, dashes, and underscores.',
     'alpha_num' => 'The :attribute field must only contain letters and numbers.',
     'array' => 'The :attribute field must be an array.',
     'ascii' => 'The :attribute field must only contain single-byte alphanumeric characters and symbols.',
     'before' => 'The :attribute field must be a date before :date.',
-    'before_or_equal' => 'The :attribute field must be a date before or equal to :date.',
+    
+
+    //'before_or_equal' => 'The :attribute field must be a date before or equal to :date.',
+    'before_or_equal' => ':attributeは :dateと同日もしくは前の日付にする必要があります。.',
+    
     'between' => [
         'array' => 'The :attribute field must have between :min and :max items.',
         'file' => 'The :attribute field must be between :min and :max kilobytes.',
@@ -215,12 +222,16 @@ return [
         'travel_plan_spot.arrive_time'=>'到着時間',
         'travel_plan_spot.departure_date'=>'出発日',
         'travel_plan_spot.departure_time'=>'出発時間',
-        'travel_plan_spot.money'=>'料金'
+        'travel_plan_spot.money'=>'料金',
+        
+        'travel_plan_spot.plan_first_day' => 'プラン初日',
+        'travel_plan_spot.plan_last_day' =>'プラン最終日'
+        
         
         ],
     
-    'format' => [
+    /*'format' => [
         'H:i' =>'○:○'
-        ]
-
+        ],
+    */
 ];
