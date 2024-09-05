@@ -59,7 +59,7 @@
             <h4>ジャンル</h4>
             <p>{{$travel_plan_spot->spot_master->category->category}}</p>
             <h4>スポット名</h4>
-            <p>{{$travel_plan_spot->spot_master->spot_name}}</p>
+            <a href='/spot_master/{{$travel_plan_spot->spot_master_id}}/show?travel_plan_id={{$travel_plan->id}}'>{{$travel_plan_spot->spot_master->spot_name}}</p>
             
             <h4>滞在日時</h4>
             <p>{{$travel_plan_spot->arrive_date}}　{{substr($travel_plan_spot->arrive_time,0,5)}}～{{$travel_plan_spot->departure_date}}　{{substr($travel_plan_spot->departure_time,0,5)}}</p>

@@ -23,4 +23,8 @@ class SpotMaster extends Model
         return $this ->belongsTo(Prefecture::class);
     }
     
+     public function parking_car(){
+        return $this ->belongsTo(ParkingCar::class);
+    }
+    
 }
