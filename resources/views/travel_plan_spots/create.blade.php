@@ -6,7 +6,7 @@
    </x-slot>
     
    <h1>新規旅行スポット登録</h1>
-   <form action='/myplan/spot/store?use_money={{$use_money}}&first_day={{$first_day}}&last_day={{$last_day}}' method='POST'>
+   <form action='/myplan/spot/store' method='POST'>
       @csrf
       
       <div class="travel_plan_id">

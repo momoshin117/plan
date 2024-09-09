@@ -33,11 +33,9 @@ class TravelPlanSpotController extends Controller
     
     public function store(TravelPlanSpotRequest $request,TravelPlanSpot $travel_plan_spot)
     {
-       
-        $first_day=$request->first_day;
-        $last_day=$request->last_day;
         $input=$request['travel_plan_spot'];
         $travel_plan_spot->fill($input);
+        
         
         $registar_arrive=strtotime($travel_plan_spot->arrive_date.$travel_plan_spot->arrive_time);
         $registar_departure=strtotime($travel_plan_spot->departure_date.$travel_plan_spot->departure_time);
@@ -52,21 +50,20 @@ class TravelPlanSpotController extends Controller
             $search_departure[]=strtotime($search->departure_date.$search->departure_time);
         }
         
+        $count_else=0;
 
         for($i=0;$i<$searchs_count;$i++){
             if($search_departure[$i]<$registar_arrive || $search_arrive[$i]>$registar_departure){
                 
             }
             else{
-                $spot_master=SpotMaster::get();
-                return view('travel_plan_spots.create') ->with([
-                    'spot_masters' =>$spot_master,
-                    'travel_plan' =>$travel_plan_spot->travel_plan_id,
-                    'use_money' =>$request->use_money,
-                    'first_day'=>$first_day,
-                    'last_day'=>$last_day
-                ]);
+                session()->flash('flashWarning', '重複した予定があります。確認してください。');
+                $count_else++;
             }
+        }
+        
+        if($count_else ==0){
+            session()->flash('flashSuccess', '登録が完了しました。');
         }
             
         $travel_plan_spot->save();
@@ -99,8 +96,38 @@ class TravelPlanSpotController extends Controller
     public function update(TravelPlanSpotRequest $request,TravelPlanSpot $travel_plan_spot)
     {
         $input=$request['travel_plan_spot'];
-        $travel_plan_spot->fill($input)->save();
+        $travel_plan_spot->fill($input);
         
+        $registar_arrive=strtotime($travel_plan_spot->arrive_date.$travel_plan_spot->arrive_time);
+        $registar_departure=strtotime($travel_plan_spot->departure_date.$travel_plan_spot->departure_time);
+        
+        $searchs_count=TravelPlanSpot::where('travel_plan_id','=',$travel_plan_spot->travel_plan_id)->count();
+    
+        $searchs=TravelPlanSpot::where('travel_plan_id','=',$travel_plan_spot->travel_plan_id)->get();
+        
+        
+        foreach($searchs as $search){
+            $search_arrive[]=strtotime($search->arrive_date.$search->arrive_time);
+            $search_departure[]=strtotime($search->departure_date.$search->departure_time);
+        }
+        
+        $count_else=0;
+
+        for($i=0;$i<$searchs_count;$i++){
+            if($search_departure[$i]<$registar_arrive || $search_arrive[$i]>$registar_departure){
+                
+            }
+            else{
+                session()->flash('flashWarning', '重複した予定があります。確認してください。');
+                $count_else++;
+            }
+        }
+        
+        if($count_else ==0){
+            session()->flash('flashSuccess', '登録が完了しました。');
+        }
+            
+        $travel_plan_spot->save();
         return redirect('/myplan/name/'.$travel_plan_spot->travel_plan_id);
     }
     
