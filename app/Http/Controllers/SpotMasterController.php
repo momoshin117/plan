@@ -14,7 +14,7 @@ class SpotMasterController extends Controller
       
     
         $client = new \GuzzleHttp\Client();
-        $url = 'https://app.rakuten.co.jp/services/api/Travel/HotelDetailSearch/20170426?';
+        $url = 'https://app.rakuten.co.jp/services/api/Travel/HotelDetailSearch/20170426';
         
         
         $response = $client->request(
@@ -23,23 +23,25 @@ class SpotMasterController extends Controller
             
             [
                 'query' =>[
+                    'format' =>'json',
                     'hotelNo' => '30110',
-                    'applicationID' => config('services.rakuten_travel.id'),
-                    'format' =>'json'
+                    'applicationID' => config('services.rakuten_travel.id')
+                    
                 ]
                 
             ],
-            
+          
         );
         
-        dd($response);
         
         $rakuten = json_decode($response->getBody(), true);
+        
+        dd($rakuten);
 
         return view('spot_masters.show')->with([
             'spot_master'=>$spot_master,
             'travel_plan_id'=>$travel_plan_id,
-           // 'rakuten'=>$rakuten
+            'rakuten'=>$rakuten
         ]);
         
     }
