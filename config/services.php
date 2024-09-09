@@ -36,5 +36,12 @@ return [
         'client_secret' => env('GOOGLE_SECRET'),
         'redirect' => env('GOOGLE_REDIRECT_URI'),
     ],
+    
+    'rakuten_travel' =>[
+        'id' =>env('RAKUTEN_TRAVEL_ID'),
+        'secret' =>env('RAKUTEN_TRAVEL_SECRET'),
+        
+    ],
+
 
 ];

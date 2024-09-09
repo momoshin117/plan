@@ -24,6 +24,9 @@ class SpotMasterSeeder extends Seeder
                 'parking_car_id' =>'4',
                 'foot' => '徒歩不可',
                 'bus' => '1',
+                'hotel_price_min'=>'12728',
+                'hotel_food' =>'夕朝食',
+                'rakuten_hotel_id' => '30110',
          ]);
         //
     }

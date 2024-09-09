@@ -50,7 +50,7 @@ Route::controller(TravelPlanController::class)->middleware(['auth'])->group(func
     Route::post('/myplan/name/month', 'month');
 });
 
-
+//訪問スポット登録
 
 Route::controller(TravelPlanSpotController::class)->middleware(['auth'])->group(function(){
     Route::get('/myplan/spot/{travel_plan_id}/create','create');
@@ -61,6 +61,11 @@ Route::controller(TravelPlanSpotController::class)->middleware(['auth'])->group(
 
 });
 
+
+/*口コミ登録
+Route::controller(ReviewController::class)->middleware(['auth'])->group(function(){
+    Route::get('/review/index','index')
+*/
 
 //施設詳細情報
 Route::controller(SpotMasterController::class)->middleware(['auth'])->group(function(){

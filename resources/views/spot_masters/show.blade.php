@@ -23,13 +23,15 @@
       
       @if ( $spot_master->category->category =='ホテル')
       
-      <div class="hotel_price">
+      <div class="hotel_price_min">
          <h2>宿泊料金(1泊)</h2>
+         <p>最低{{$spot_master->hotel_price_min}}円から</p>
       
       </div>
       
       <div class="hotel_food">
          <h2>食事プラン</h2>
+         <p>{{$spot_master->hotel_food}}</p>
       </div>
       
       <div class="hotel_bath">
