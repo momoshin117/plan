@@ -52,21 +52,20 @@ class TravelPlanSpotController extends Controller
             $search_departure[]=strtotime($search->departure_date.$search->departure_time);
         }
         
+        $count_else=0;
 
         for($i=0;$i<$searchs_count;$i++){
             if($search_departure[$i]<$registar_arrive || $search_arrive[$i]>$registar_departure){
                 
             }
             else{
-                $spot_master=SpotMaster::get();
-                return view('travel_plan_spots.create') ->with([
-                    'spot_masters' =>$spot_master,
-                    'travel_plan' =>$travel_plan_spot->travel_plan_id,
-                    'use_money' =>$request->use_money,
-                    'first_day'=>$first_day,
-                    'last_day'=>$last_day
-                ]);
+                session()->flash('flashWarning', '重複した予定があります。確認してください。');
+                $count_else++;
             }
+        }
+        
+        if($count_else ==0){
+            session()->flash('flashSuccess', '登録が完了しました。');
         }
             
         $travel_plan_spot->save();
