@@ -42,6 +42,10 @@ return [
         'secret' =>env('RAKUTEN_TRAVEL_SECRET'),
         
     ],
+    
+    'google_map'=>[
+        'key'=>env('GOOGLE_MAP_KEY')
+    ],
 
 
 ];

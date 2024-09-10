@@ -69,6 +69,16 @@
          </div>
          
       </div>
+      <h2>地図</h2>
+      
+      <div id="js_latitude" hidden>{{$rakuten['latitude']}}</div>
+      <div id="js_longitude" hidden>{{$rakuten['longitude']}}</div>
+      <div id="js_spot_name"hidden>{{$spot_master->spot_name}}</div>
+      
+      <div id="map" style="height:500px">
+      </div>
+      <script src="{{ asset('/js/map.js') }}"></script>
+	   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs71O1xxNaUP29kGqfppDjKL7spnygXY4&callback=initMap"></script>
       
       <div class="tel">
          <h2>連絡先</h2>
@@ -77,6 +87,12 @@
       
       <div class="reserve_url">
          <a href='{{$rakuten['planListUrl']}}'>予約URL</a>
+      </div>
+      
+      <div class="picture">
+         <h2>施設写真</h2>
+         <img src="{{$rakuten['hotelImageUrl']}}" alt="画像が読み込めません。">
+         <img src="{{$rakuten['roomImageUrl']}}" alt="画像が読み込めません。">
       </div>
    
       @endif

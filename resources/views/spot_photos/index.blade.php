@@ -11,7 +11,7 @@
       <h4>スポット名</h4>
       <p>{{$spot_photo->spot_master->spot_name}}</p>
       
-      <h4>画像URL</h4>
+      <h4>画像</h4>
       <div>
          <img src="{{$spot_photo->path}}" alt="画像が読み込めません。">
       </div>
