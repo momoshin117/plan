@@ -7,6 +7,7 @@ use App\Http\Controllers\TravelPlanController;
 use App\Http\Controllers\TravelPlanSpotController;
 use App\Http\Controllers\SpotMasterController;
 use App\Http\Controllers\LoginWithGoogleController;
+use App\Http\Controllers\SpotPhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,6 +84,13 @@ Route::controller(ParkingCarController::class)->middleware(['auth'])->group(func
     Route::get('/parking_cars/edit/{parking_car}', 'edit'); 
     Route::delete('/parking_cars/delete/{parking_car}', 'delete'); 
     Route::put('/parking_cars/{parking_car}', 'update');
+});
+
+//管理画面(スポットマスターへの画像挿入)
+Route::controller(SpotPhotoController::class)->middleware(['auth'])->group(function(){
+    Route::get('/maneger/spot_photo/create','create');
+    Route::post('/maneger/spot_photo/store','store');
+    Route::get('/manager/spot_photo/index','index');
 });
 
 //Googleログイン
