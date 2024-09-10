@@ -22,10 +22,13 @@
       </div>
       
       @if ( $spot_master->category->category =='ホテル')
-      
+      <div class="hotel_info">
+         <h2>ホテルの特徴</h2>
+         <p>{{$rakuten['hotelSpecial']}}</p>
+      </div>
       <div class="hotel_price_min">
          <h2>宿泊料金(1泊)</h2>
-         <p>最低{{$spot_master->hotel_price_min}}円から</p>
+         <p>最低{{$rakuten['hotelMinCharge']}}円から</p>
       
       </div>
       
@@ -41,6 +44,39 @@
          @else
          <p>なし</p>
          @endif
+      </div>
+      
+      <div class="access">
+         <h2>交通アクセス</h2>
+            <p>{{$rakuten['access']}}</p>
+         </div>
+         <div class="parking_cars">
+            <h4>駐車場有無</h4>
+            <p>{{$rakuten['parkingInformation']}}</p>
+         </div>
+         <div class="nearest_station">
+            <h4>最寄り駅</h4>
+            <p>{{$rakuten['nearestStation']}}駅</p>
+         </div>
+         
+         <div class="bus">
+            <h4>シャトルバス有無</h4>
+            @if( $spot_master->bus =='1')
+            <p>あり</p>
+            @else
+            <p>なし</p>
+            @endif
+         </div>
+         
+      </div>
+      
+      <div class="tel">
+         <h2>連絡先</h2>
+         <p>TEL:{{$rakuten['telephoneNo']}}</p>
+      </div>
+      
+      <div class="reserve_url">
+         <a href='{{$rakuten['planListUrl']}}'>予約URL</a>
       </div>
    
       @endif
@@ -77,6 +113,7 @@
       
       @endif
       
+      @if($spot_master->category->category =='レストラン' || $spot_master->category->category =='観光スポット')
       <div class="access">
          <h2>交通アクセス</h2>
          <div class="parking_cars">
@@ -99,19 +136,19 @@
          </div>
          
       </div>
-      
-      @if ( $spot_master->category->category =='ホテル')
-      <div class="reserve_url">
-         <h2>予約URL</h2>
-         <p>{{$spot_master->reserve_url}}</p>
-      </div>
       @endif
       
-      <dic class="review_url">
-         <h2>口コミURL</h2>
-         <p>{{$spot_master->review_url}}</p>
-      </dic>
-   
+      @if ( $spot_master->category->category =='ホテル')
+      <div class="review">
+         <h2>口コミ</h2>
+         <div class="review_point">
+            <h4>{{$rakuten['reviewAverage']}}点({{$rakuten['reviewCount']}}件)</h4>
+         </div>
+         <div class="review_url">
+            <a href='{{$rakuten['reviewUrl']}}'>口コミURL</a>
+         </div>
+      </div>
+      @endif
    </div>
 　 
    <a href='/myplan/name/{{$travel_plan_id}}'>戻る</a>

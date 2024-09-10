@@ -27,4 +27,9 @@ class SpotMaster extends Model
         return $this ->belongsTo(ParkingCar::class);
     }
     
+    public function spot_photos()
+    {
+        return $this->hasMany(SpotPhoto::class);  
+    }
+    
 }
