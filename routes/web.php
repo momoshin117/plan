@@ -91,6 +91,7 @@ Route::controller(SpotPhotoController::class)->middleware(['auth'])->group(funct
     Route::get('/maneger/spot_photo/create','create');
     Route::post('/maneger/spot_photo/store','store');
     Route::get('/manager/spot_photo/index','index');
+    Route::delete('/maneger/spot_photo/{spot_photo}/delete','delete');
 });
 
 //Googleログイン

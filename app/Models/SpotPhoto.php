@@ -13,4 +13,10 @@ class SpotPhoto extends Model
     {
         return $this ->belongsTo(SpotMaster::class);
     }
+    protected $fillable = [
+        'spot_master_id',
+        'path',
+        'updated_at',
+        'created_at'
+    ];
 }
