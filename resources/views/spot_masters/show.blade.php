@@ -77,8 +77,31 @@
       
       <div id="map" style="height:500px">
       </div>
-      <script src="{{ asset('/js/map.js') }}"></script>
-	   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs71O1xxNaUP29kGqfppDjKL7spnygXY4&callback=initMap"></script>
+	   
+      <script>
+         function initMap() {
+            
+            var latitude = @json($rakuten['latitude']);
+            var longitude = @json($rakuten['longitude']);
+            var MyLatLng = new google.maps.LatLng (latitude,longitude);
+            var Options = {
+               zoom: 15,      
+               center: MyLatLng, 
+               mapTypeId: 'roadmap' 
+            };
+
+            var map = new google.maps.Map(document.getElementById('map'), Options);
+            
+
+            new google.maps.Marker({
+               position: MyLatLng,
+               map,
+               title: @json($spot_master->spot_name),
+            });
+         }
+      </script>
+      <script src={{$google_map_url}}></script>
+      
       
       <div class="tel">
          <h2>連絡先</h2>
@@ -168,5 +191,7 @@
    </div>
 　 
    <a href='/myplan/name/{{$travel_plan_id}}'>戻る</a>
+   
+   
 
 </x-app-layout>
