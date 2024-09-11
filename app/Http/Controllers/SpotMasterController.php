@@ -11,7 +11,7 @@ class SpotMasterController extends Controller
     {
         $travel_plan_id=$request->travel_plan_id;
         $spot_master=SpotMaster::with('category','prefecture','parking_car')->find($spot_master_id);
-      
+        $google_map_url='https://maps.googleapis.com/maps/api/js?key='.config('services.google_map.key').'&callback=initMap';
     
         if($spot_master->category->category=="ホテル"){
             $client = new \GuzzleHttp\Client();
@@ -30,7 +30,8 @@ class SpotMasterController extends Controller
         return view('spot_masters.show')->with([
             'spot_master'=>$spot_master,
             'travel_plan_id'=>$travel_plan_id,
-            'rakuten'=>$rakuten_hotel_basic_info
+            'rakuten'=>$rakuten_hotel_basic_info,
+            'google_map_url' =>$google_map_url
         ]);
         
     }
