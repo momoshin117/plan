@@ -31,5 +31,8 @@ class SpotMaster extends Model
     {
         return $this->hasMany(SpotPhoto::class);  
     }
-    
+    public function spot_reviews()
+    {
+        return $this->hasMany(SpotReview::class);  
+    }
 }

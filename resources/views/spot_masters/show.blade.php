@@ -223,8 +223,10 @@
       @endif
    </div>
 　 
-   <a href='/myplan/name/{{$travel_plan_id}}'>戻る</a>
-   
-   
+　 @if($travel_plan_id ==0)
+　    <a href='/review/index'>戻る</a>
+　 @else
+      <a href='/myplan/name/{{$travel_plan_id}}'>戻る</a>
+   @endif
 
 </x-app-layout>
