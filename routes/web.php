@@ -8,6 +8,7 @@ use App\Http\Controllers\TravelPlanSpotController;
 use App\Http\Controllers\SpotMasterController;
 use App\Http\Controllers\LoginWithGoogleController;
 use App\Http\Controllers\SpotPhotoController;
+use App\Http\Controllers\SpotReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,10 +64,17 @@ Route::controller(TravelPlanSpotController::class)->middleware(['auth'])->group(
 });
 
 
-/*口コミ登録
-Route::controller(ReviewController::class)->middleware(['auth'])->group(function(){
-    Route::get('/review/index','index')
-*/
+//口コミ登録
+Route::controller(SpotReviewController::class)->middleware(['auth'])->group(function(){
+    Route::get('/review/index','index');
+    Route::get('/review/create','create');
+    Route::post('/review/store','store');
+    Route::get('/review/{spot_review}/show','show');
+    Route::get('/review/{spot_review}/edit','edit');
+    Route::put('/review/{spot_review}/update','update');
+    Route::delete('/review/{spot_review}/delete','delete');
+});
+
 
 //施設詳細情報
 Route::controller(SpotMasterController::class)->middleware(['auth'])->group(function(){

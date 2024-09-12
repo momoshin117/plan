@@ -14,5 +14,11 @@ class Prefecture extends Model
         return $this->hasMany(SpotMaster::class);
         
     }
+    
+    public function spot_reviews()
+    {
+        return $this->hasMany(SpotReview::class);
+        
+    }
 
 }

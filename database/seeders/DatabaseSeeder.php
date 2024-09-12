@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             PrefectureSeeder::class,
             SpotMasterSeeder::class,
             TravelPlanSpotSeeder::class,
+            SpotReviewSeeder::class,
         ]);
         
         // \App\Models\User::factory(10)->create();
