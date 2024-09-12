@@ -24,15 +24,21 @@ class SpotMasterController extends Controller
             );
         
             $rakuten = json_decode($response->getBody(), true);
+            $rakuten_hotel_basic_info=$rakuten['hotels'][0]['hotel'][0]['hotelBasicInfo'];
+            
+            return view('spot_masters.show')->with([
+                'spot_master'=>$spot_master,
+                'travel_plan_id'=>$travel_plan_id,
+                'google_map_url' =>$google_map_url,
+                'rakuten'=>$rakuten_hotel_basic_info,
+            ]);
+            
+        }else{
+            return view('spot_masters.show')->with([
+                'spot_master'=>$spot_master,
+                'travel_plan_id'=>$travel_plan_id,
+                'google_map_url' =>$google_map_url,
+            ]);    
         };
-        $rakuten_hotel_basic_info=$rakuten['hotels'][0]['hotel'][0]['hotelBasicInfo'];
-        
-        return view('spot_masters.show')->with([
-            'spot_master'=>$spot_master,
-            'travel_plan_id'=>$travel_plan_id,
-            'rakuten'=>$rakuten_hotel_basic_info,
-            'google_map_url' =>$google_map_url
-        ]);
-        
     }
 }
