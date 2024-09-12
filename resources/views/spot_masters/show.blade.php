@@ -70,11 +70,6 @@
          
       </div>
       <h2>地図</h2>
-      
-      <div id="js_latitude" hidden>{{$rakuten['latitude']}}</div>
-      <div id="js_longitude" hidden>{{$rakuten['longitude']}}</div>
-      <div id="js_spot_name"hidden>{{$spot_master->spot_name}}</div>
-      
       <div id="map" style="height:500px">
       </div>
 	   
@@ -128,7 +123,7 @@
       </div>
       
       <div class="open_time">
-         <h2>定休日</h2>
+         <h2>営業時間</h2>
          <p>{{$spot_master->open_time}}</p>
       </div>
       
@@ -137,7 +132,7 @@
       @if($spot_master->category->category =='観光スポット' )
       
       <div class="entrance_fee">
-         <h2>席数</h2>
+         <h2>入場料金</h2>
          <p>{{$spot_master->entrance_fee}}</p>
       </div>
       
@@ -173,6 +168,34 @@
             <p>なし</p>
             @endif
          </div>
+         
+         <h2>地図</h2>
+         <div id="map" style="height:500px">
+         </div>
+	   
+         <script>
+            function initMap() {
+            
+               var latitude = @json($spot_master->latitude);
+               var longitude = @json($spot_master->longitude);
+               var MyLatLng = new google.maps.LatLng (latitude,longitude);
+               var Options = {
+                  zoom: 15,      
+                  center: MyLatLng, 
+                  mapTypeId: 'roadmap' 
+               };
+
+               var map = new google.maps.Map(document.getElementById('map'), Options);
+            
+
+               new google.maps.Marker({
+                  position: MyLatLng,
+                  map,
+                  title: @json($spot_master->spot_name),
+               });
+            }
+         </script>
+         <script src={{$google_map_url}}></script>
          
       </div>
       @endif
