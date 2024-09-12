@@ -111,6 +111,9 @@
          <h2>施設写真</h2>
          <img src="{{$rakuten['hotelImageUrl']}}" alt="画像が読み込めません。">
          <img src="{{$rakuten['roomImageUrl']}}" alt="画像が読み込めません。">
+         @foreach($spot_photos as $spot_photo)
+            <img src="{{$spot_photo->path}}" alt="画像が読み込めません。">
+         @endforeach
       </div>
    
       @endif
@@ -196,6 +199,13 @@
             }
          </script>
          <script src={{$google_map_url}}></script>
+         
+         <div class="picture">
+            <h2>施設写真</h2>
+            @foreach($spot_photos as $spot_photo)
+               <img src="{{$spot_photo->path}}" alt="画像が読み込めません。">
+            @endforeach
+      </div>
          
       </div>
       @endif
