@@ -17,8 +17,12 @@ class SpotReviewController extends Controller
     }
     
     public function show(SpotReview $spot_review){
+        
+        $spot_review_photos=SpotReviewPhoto::where('spot_review_id','=',$spot_review->id)->get();
+            
         return view('spot_reviews.show')->with([
-            'spot_review'=>$spot_review
+            'spot_review'=>$spot_review,
+            'spot_review_photos' =>$spot_review_photos,
         ]);
     }
     

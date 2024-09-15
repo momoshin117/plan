@@ -14,7 +14,7 @@
       <p>{{$spot_review->spot_master->category->category}}</p>
       
       <h4>施設名</h4>
-      <p>{{$spot_review->spot_master->spot_name}}</p>
+      <a href='/spot_master/{{$spot_review->spot_master_id}}/show?travel_plan_id=0'>{{$spot_review->spot_master->spot_name}}</a>
       
       <h4>口コミ</h4>
       <h6>点数</h6>
@@ -23,11 +23,18 @@
       <h6>内容</h6>
       <p>{{$spot_review->commment}}</p>
       
-      <!--　
-      あとで作成
-      <h6>画像</h4>
+      <h6>画像</h6>
+      <div class="spot_review_photo">
+         @foreach($spot_review_photos as $spot_review_photo)
+            <img src="{{ $spot_review_photo->path }}" alt="画像が読み込めません。">
+         @endforeach
+      </div>
       
-      -->
+      <div class="create_photo">
+         <a href="/review/photo/create?spot_review_id={{$spot_review->id}}">口コミ画僧登録(任意)</a>
+      </div>
+      
+      <br>
       <div class="edit">
          <a href="/review/{{$spot_review->id}}/edit">編集</a>
       </div>

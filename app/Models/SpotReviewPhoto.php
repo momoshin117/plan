@@ -11,6 +11,12 @@ class SpotReviewPhoto extends Model
     
     public function spot_review()
     {
-        return $this ->belongsTo(SpotReview::class);
+        return $this ->belongsTo(SpotReview::class)->with('spot_master');
     }
+    protected $fillable = [
+        'spot_review_id',
+        'path',
+        'updated_at',
+        'cleated_at',
+    ];
 }

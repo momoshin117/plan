@@ -9,6 +9,7 @@ use App\Http\Controllers\SpotMasterController;
 use App\Http\Controllers\LoginWithGoogleController;
 use App\Http\Controllers\SpotPhotoController;
 use App\Http\Controllers\SpotReviewController;
+use App\Http\Controllers\SpotReviewPhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,18 @@ Route::controller(SpotReviewController::class)->middleware(['auth'])->group(func
     Route::get('/review/{spot_review}/edit','edit');
     Route::put('/review/{spot_review}/update','update');
     Route::delete('/review/{spot_review}/delete','delete');
+});
+
+//口コミ写真登録
+Route::controller(SpotReviewPhotoController::class)->middleware(['auth'])->group(function(){
+    Route::get('/review/photo/create','create');
+    Route::post('/review/photo/store','store');
+    /*
+    Route::get('/review/{spot_review}/show','show');
+    Route::get('/review/{spot_review}/edit','edit');
+    Route::put('/review/{spot_review}/update','update');
+    Route::delete('/review/{spot_review}/delete','delete');
+    */
 });
 
 
