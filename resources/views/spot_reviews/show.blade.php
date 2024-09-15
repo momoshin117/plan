@@ -27,6 +27,13 @@
       <div class="spot_review_photo">
          @foreach($spot_review_photos as $spot_review_photo)
             <img src="{{ $spot_review_photo->path }}" alt="画像が読み込めません。">
+            
+            <form action="/review/photo/{{ $spot_review_photo->id }}/delete" id="form_{{ $spot_review_photo->id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" onclick="deletePlan({{ $spot_review_photo->id }})">削除</button> 
+　          </form>
+            
          @endforeach
       </div>
       
@@ -46,5 +53,15 @@
       </form>
       
    <a href='/review/index'>戻る</a>
+   
+   <script>
+    function deletePlan(id) {
+        'use strict'
+
+        if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+            document.getElementById(`form_${id}`).submit();
+        }
+    }
+   </script>  
   
 </x-app-layout>

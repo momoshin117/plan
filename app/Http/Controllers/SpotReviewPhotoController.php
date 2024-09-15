@@ -34,4 +34,17 @@ class SpotReviewPhotoController extends Controller
             'spot_review_photos' =>$spot_review_photos,
         ]);
     }
+    
+    public function delete(SpotReviewPhoto $spot_review_photo){
+        $spot_review_id=$spot_review_photo->spot_review->id;
+        $spot_review_photo->delete();
+        
+        $spot_review = SpotReview::with('spot_master')->find($spot_review_id);
+        $spot_review_photos=SpotReviewPhoto::where('spot_review_id','=',$spot_review->id)->get();
+        
+        return redirect('/review/'.$spot_review->id.'/show')->with([
+            'spot_review'=>$spot_review,
+            'spot_review_photos' =>$spot_review_photos,
+        ]);
+    }
 }
