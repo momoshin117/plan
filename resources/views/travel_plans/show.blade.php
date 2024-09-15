@@ -31,22 +31,24 @@
       </div>
       
       
-               
-      <div class="disclose">
-         <h3>公開設定</h3>
-         <p>{{$travel_plan ->disclose}}</p>
-      </div>
+      @if($user_id== $travel_plan->user_id)         
+         <div class="disclose">
+            <h3>公開設定</h3>
+            <p>{{$travel_plan ->disclose}}</p>
+         </div>
+      @endif
    </div>
    
+   @if($user_id== $travel_plan->user_id)
+      <a href='/myplan/name/{{$travel_plan ->id}}/edit'>編集</a>
    
-   <a href='/myplan/name/{{$travel_plan ->id}}/edit'>編集</a>
-   
-   <form action="/myplan/name/{{ $travel_plan->id }}" id="form_{{ $travel_plan->id }}" method="post">
-      @csrf
-      @method('DELETE')
+      <form action="/myplan/name/{{ $travel_plan->id }}" id="form_{{ $travel_plan->id }}" method="post">
+         @csrf
+         @method('DELETE')
       
-      <button type="button" onclick="deletePlan({{ $travel_plan->id }})">削除</button> 
-　 </form>
+         <button type="button" onclick="deletePlan({{ $travel_plan->id }})">削除</button> 
+　    </form>
+　 @endif
 　 
 　 <h2>登録スポット一覧</h2>
 　 <a href='/myplan/spot/{{$travel_plan ->id}}/create?budget={{$travel_plan->money}}&total={{$money_total->total}}&first_day={{$travel_plan ->departure_date}}&long={{$travel_plan ->long}}'>新規スポット登録</a>
@@ -67,15 +69,16 @@
             <h4>料金(1人あたり)</h4>
             <p>{{$travel_plan_spot->money}}円</p>
             
-            <a href='/myplan/spot/{{$travel_plan_spot->id}}/edit?budget={{$travel_plan->money}}&total={{$money_total->total}}&first_day={{$travel_plan ->departure_date}}&long={{$travel_plan ->long}}'>編集</a>
+            @if($user_id== $travel_plan->user_id)
+               <a href='/myplan/spot/{{$travel_plan_spot->id}}/edit?budget={{$travel_plan->money}}&total={{$money_total->total}}&first_day={{$travel_plan ->departure_date}}&long={{$travel_plan ->long}}'>編集</a>
             
-            <form action="/myplan/spot/{{ $travel_plan_spot->id }}/delete" id="form_{{ $travel_plan_spot->id }}" method="post">
-               @csrf
-               @method('DELETE')
+               <form action="/myplan/spot/{{ $travel_plan_spot->id }}/delete" id="form_{{ $travel_plan_spot->id }}" method="post">
+                  @csrf
+                  @method('DELETE')
       
-               <button type="button" onclick="deletePlan({{ $travel_plan_spot->id }})">削除</button> 
-　          </form>
-            
+                  <button type="button" onclick="deletePlan({{ $travel_plan_spot->id }})">削除</button> 
+　             </form>
+            @endif
         @endforeach
            
    </div>

@@ -48,4 +48,9 @@ class User extends Authenticatable
         return $this->hasMany(SpotReview::class);
         
     }
+    public function travel_plans()
+    {
+        return $this->hasMany(TravelPlan::class);
+        
+    }
 }

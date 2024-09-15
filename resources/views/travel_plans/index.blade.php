@@ -4,7 +4,6 @@
             マイプラン一覧
         </h2>
     </x-slot>
-    <h1>マイプラン一覧</h1>
     
     <form action='/myplan/name/month' method='POST'>
       @csrf
@@ -35,17 +34,20 @@
     </div>
        
     <div class='travel_plans'>
+       
+            <p>自分が登録したプラン一覧</p>
         @foreach($travel_plans as $travel_plan)
-            <p>{{$travel_plan->departure_date}}　{{$travel_plan->plan_name}}　
-                <a href='/myplan/name/{{$travel_plan->id}}'>プラン詳細</a>
-                <form action="/myplan/name/{{ $travel_plan->id }}" id="form_{{ $travel_plan->id }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="button" onclick="deletePlan({{ $travel_plan->id }})">削除</button> 
-　              </form>
-　          </p>
-        @endforeach
-           
+            @if($user_id == $travel_plan->user_id)
+                <p>{{$travel_plan->departure_date}}　{{$travel_plan->plan_name}}　
+                    <a href='/myplan/name/{{$travel_plan->id}}'>プラン詳細</a>
+                    <form action="/myplan/name/{{ $travel_plan->id }}" id="form_{{ $travel_plan->id }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" onclick="deletePlan({{ $travel_plan->id }})">削除</button> 
+　                  </form>
+　              </p>
+            @endif
+        @endforeach   
     </div>
     
     <div class='paginate'>

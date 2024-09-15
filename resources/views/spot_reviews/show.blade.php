@@ -31,29 +31,21 @@
          @foreach($spot_review_photos as $spot_review_photo)
             <img src="{{ $spot_review_photo->path }}" alt="画像が読み込めません。">
             
-            <form action="/review/photo/{{ $spot_review_photo->id }}/delete" id="form_{{ $spot_review_photo->id }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="button" onclick="deletePlan({{ $spot_review_photo->id }})">削除</button> 
-　          </form>
-            
+            @if($user_id==$spot_review->user_id)
+               <form action="/review/photo/{{ $spot_review_photo->id }}/delete" id="form_{{ $spot_review_photo->id }}" method="post">
+                   @csrf
+                   @method('DELETE')
+                   <button type="button" onclick="deletePlan({{ $spot_review_photo->id }})">削除</button> 
+　             </form>
+　          @endif
          @endforeach
       </div>
       
-      <div class="create_photo">
-         <a href="/review/photo/create?spot_review_id={{$spot_review->id}}">口コミ画僧登録(任意)</a>
-      </div>
-      
-      <br>
-      <div class="edit">
-         <a href="/review/{{$spot_review->id}}/edit">編集</a>
-      </div>
-      
-      <form action="/review/{{$spot_review->id}}/delete"  method="post">
-         @csrf
-         @method('DELETE')
-         <button type="submit">削除</button> 
-      </form>
+      @if($user_id==$spot_review->user_id)
+         <div class="create_photo">
+            <a href="/review/photo/create?spot_review_id={{$spot_review->id}}">口コミ画僧登録(任意)</a>
+         </div>
+      @endif
       
    <a href='/review/index'>戻る</a>
    

@@ -12,19 +12,22 @@ use App\Models\User;
 class SpotReviewController extends Controller
 {
     public function index(SpotReview $spot_review){
+        $user_id= Auth::id();
         
         return view('spot_reviews.index')->with([
-            'spot_reviews'=>$spot_review->getPaginateByLimit()
+            'spot_reviews'=>$spot_review->getPaginateByLimit(),
+            'user_id' =>$user_id,
         ]);
     }
     
     public function show(SpotReview $spot_review){
-        
         $spot_review_photos=SpotReviewPhoto::where('spot_review_id','=',$spot_review->id)->get();
+        $user_id= Auth::id();
             
         return view('spot_reviews.show')->with([
             'spot_review'=>$spot_review,
             'spot_review_photos' =>$spot_review_photos,
+            'user_id' =>$user_id,
         ]);
     }
     
