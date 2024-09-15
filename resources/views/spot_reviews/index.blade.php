@@ -29,6 +29,10 @@
       
       <h6>内容</h6>
       <p>{{$spot_review->commment}}</p>
+      
+      <h6>登録ユーザー名</h6>
+      <p>{{$spot_review->user->name}}</p>
+      
       <div class="show">
          <a href="/review/{{$spot_review->id}}/show">詳細</a>
       </div>

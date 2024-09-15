@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\SpotReview;
 use App\Models\SpotReviewPhoto;
 use App\Models\SpotMaster;
+use App\Models\User;
 
 class SpotReviewController extends Controller
 {
@@ -28,9 +30,11 @@ class SpotReviewController extends Controller
     
     public function create(){
         $spot_master=SpotMaster::get();
+        $user = Auth::user();
         
         return view('spot_reviews.create')->with([
             'spot_masters' =>$spot_master,
+            'user' =>$user,
         ]);
     }
     

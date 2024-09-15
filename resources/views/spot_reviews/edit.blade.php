@@ -37,9 +37,10 @@
             <textarea name="spot_review[commment]">{{$spot_review->commment}}</textarea>
         </div>
         
-        <div class="nickname">
-            <h4>ニックネーム</h4>
-            <input type="text" name="spot_review[nickname]" value={{$spot_review->nickname}}></input>
+        <div class="user_name">
+            <h4>ユーザー名</h4>
+            <input type="hidden" name="spot_review[user_id]" value="{{$spot_review->user_id}}"></input>
+            {{$spot_review->user->name}}
         </div>
         
         <h4>公開設定</h4>
