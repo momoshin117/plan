@@ -80,6 +80,7 @@ Route::controller(SpotReviewController::class)->middleware(['auth'])->group(func
 Route::controller(SpotReviewPhotoController::class)->middleware(['auth'])->group(function(){
     Route::get('/review/photo/create','create');
     Route::post('/review/photo/store','store');
+    Route::delete('/review/photo/{spot_review_photo}/delete','delete');
     /*
     Route::get('/review/{spot_review}/show','show');
     Route::get('/review/{spot_review}/edit','edit');
