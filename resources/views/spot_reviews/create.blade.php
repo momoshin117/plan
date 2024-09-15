@@ -36,9 +36,10 @@
             <textarea name="spot_review[commment]" placeholder="スタッフの対応が良かった。"></textarea>
         </div>
         
-        <div class="nickname">
-            <h4>ニックネーム</h4>
-            <input type="text" name="spot_review[nickname]" placeholder="タロウ"></input>
+        <div class="user_name">
+            <h4>ユーザー名</h4>
+            <input type="hidden" name="spot_review[user_id]" value="{{$user->id}}"></input>
+            <p>{{$user->name}}</p>
         </div>
         
         <h4>公開設定</h4>

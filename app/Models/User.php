@@ -42,4 +42,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    
+    public function spot_reviews()
+    {
+        return $this->hasMany(SpotReview::class);
+        
+    }
+    public function travel_plans()
+    {
+        return $this->hasMany(TravelPlan::class);
+        
+    }
 }

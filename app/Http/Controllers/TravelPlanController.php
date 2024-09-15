@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\TravelPlan;
 use App\Models\User;
 use App\Models\TravelPlanSpot;
@@ -15,7 +16,11 @@ class TravelPlanController extends Controller
 {
      public function index(TravelPlan $travel_plan)
     {
-        return view('travel_plans.index') ->with(['travel_plans'=>$travel_plan ->getPaginateByLimit()]);
+        $user_id= Auth::id();
+        return view('travel_plans.index') ->with([
+            'travel_plans'=>$travel_plan ->getPaginateByLimit(),
+            'user_id'=>$user_id
+        ]);
     }
     
     public function create()
@@ -25,6 +30,7 @@ class TravelPlanController extends Controller
     
     public function show($travel_plan)
     {
+        $user_id= Auth::id();
         $travel_plan_ent= TravelPlan::with('travel_plan_spots')->find($travel_plan);
         $travel_plan_spot=TravelPlanSpot::where('travel_plan_id','=',$travel_plan)->orderBy('arrive_date','asc')->orderBy('arrive_time', 'asc')->get();
         $money_total=TravelPlanSpot::selectRaw('SUM(money) as total')->where('travel_plan_id','=',$travel_plan)->first();
@@ -32,8 +38,9 @@ class TravelPlanController extends Controller
         return view('travel_plans.show') ->with([
             'travel_plan'=>$travel_plan_ent,
             'travel_plan_spots'=>$travel_plan_spot,
-            'money_total'=>$money_total
-            ]);
+            'money_total'=>$money_total,
+            'user_id'=>$user_id
+        ]);
     }
     
     public function store(TravelPlanRequest $request, TravelPlan $travel_plan)

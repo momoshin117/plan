@@ -11,11 +11,15 @@ class TravelPlan extends Model
     
     public function getPaginateByLimit(int $limit_count = 5)
     {
-        return $this->orderBy('departure_date', 'ASC')->paginate($limit_count);
+        return $this::with('user')->orderBy('departure_date', 'ASC')->paginate($limit_count);
     }
     
     public function travel_plan_spots(){
         return $this ->hasMany(TravelPlanSpot::class)->with('spot_master');
+    }
+    
+    public function user(){
+        return $this ->belongsTo(User::class);
     }
     
     
