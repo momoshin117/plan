@@ -4,6 +4,12 @@
             マイプラン一覧({{$day["year"]}}年{{$day["month"]}}月)
         </h2>
     </x-slot>
+    
+    <div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+    <div class="p-6 text-gray-900">
+        
     <h1>マイプラン一覧</h1>
        
     <div class='new_plan'>
@@ -35,4 +41,10 @@
         }
     }
    </script>  
+   
+   </div>
+   </div>
+   </div>
+   </div>
+   
 </x-app-layout>

@@ -17,10 +17,10 @@ class SpotReviewSeeder extends Seeder
         DB::table('spot_reviews')->truncate();
         
         DB::table('spot_reviews')->insert([
+                'user_id' =>'1',
                 'spot_master_id' => '1',
                 'score' =>'5',
                 'commment' => '景色がきれいでした。',
-                'nickname' => 'リンゴ',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
          ]);

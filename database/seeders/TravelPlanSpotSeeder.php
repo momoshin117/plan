@@ -14,6 +14,8 @@ class TravelPlanSpotSeeder extends Seeder
      */
     public function run(): void
     {
+        DB::table('travel_plan_spots')->truncate();
+        
         DB::table('travel_plan_spots')->insert([
                 'travel_plan_id' => '5',
                 'spot_master_id' => '1',

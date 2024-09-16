@@ -21,12 +21,15 @@ use App\Http\Controllers\SpotReviewPhotoController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+/*
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+*/
+
+Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -81,12 +84,6 @@ Route::controller(SpotReviewPhotoController::class)->middleware(['auth'])->group
     Route::get('/review/photo/create','create');
     Route::post('/review/photo/store','store');
     Route::delete('/review/photo/{spot_review_photo}/delete','delete');
-    /*
-    Route::get('/review/{spot_review}/show','show');
-    Route::get('/review/{spot_review}/edit','edit');
-    Route::put('/review/{spot_review}/update','update');
-    Route::delete('/review/{spot_review}/delete','delete');
-    */
 });
 
 
@@ -99,7 +96,7 @@ Route::controller(SpotMasterController::class)->middleware(['auth'])->group(func
 
 //管理画面(駐車台数設定)
 
-Route::controller(ParkingCarController::class)->middleware(['auth'])->group(function(){
+Route::controller(ParkingCarController::class)->middleware(['auth','can:admin'])->group(function(){
     Route::post('/parking_cars','store');
     Route::get('/parking_cars', 'index'); 
     Route::get('/parking_cars/create','create'); 
@@ -109,7 +106,7 @@ Route::controller(ParkingCarController::class)->middleware(['auth'])->group(func
 });
 
 //管理画面(スポットマスターへの画像挿入)
-Route::controller(SpotPhotoController::class)->middleware(['auth'])->group(function(){
+Route::controller(SpotPhotoController::class)->middleware(['auth','can:admin'])->group(function(){
     Route::get('/maneger/spot_photo/create','create');
     Route::post('/maneger/spot_photo/store','store');
     Route::get('/manager/spot_photo/index','index');
