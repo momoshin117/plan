@@ -172,7 +172,9 @@ return [
     'starts_with' => 'The :attribute field must start with one of the following: :values.',
     'string' => 'The :attribute field must be a string.',
     'timezone' => 'The :attribute field must be a valid timezone.',
-    'unique' => 'The :attribute has already been taken.',
+    
+    //'unique' => 'The :attribute has already been taken.',
+    'unique' => 'この:attributeはすでに他のユーザーが使用しているため、登録できません。',
     'uploaded' => 'The :attribute failed to upload.',
     'uppercase' => 'The :attribute field must be uppercase.',
     'url' => 'The :attribute field must be a valid URL.',
@@ -225,8 +227,10 @@ return [
         'travel_plan_spot.money'=>'料金',
         
         'travel_plan_spot.plan_first_day' => 'プラン初日',
-        'travel_plan_spot.plan_last_day' =>'プラン最終日'
+        'travel_plan_spot.plan_last_day' =>'プラン最終日',
         
+        //user
+        'user.nickname' =>'ニックネーム',
         
         ],
     

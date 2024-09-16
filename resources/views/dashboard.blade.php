@@ -18,6 +18,11 @@
                     <a href='/review/index'>②口コミ投稿</a>
                     <br>
                     <br>
+                    ユーザー設定
+                    <br>
+                    <a href='/user/nickname/index'>ニックネーム設定</a>
+                    <br>
+                    <br>
                     
                     @can('admin')
                     管理者画面

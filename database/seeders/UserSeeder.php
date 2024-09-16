@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         
         DB::table('users')->insert([
             'role_id' => '0',
-            'name' => '管理者',
+            'name' => '管理者用アカウント01',
             'email' => 'admin@gmail.com',
             'password' =>Hash::make('admin'),
             'created_at' => new DateTime(),

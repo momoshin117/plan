@@ -10,6 +10,7 @@ use App\Http\Controllers\LoginWithGoogleController;
 use App\Http\Controllers\SpotPhotoController;
 use App\Http\Controllers\SpotReviewController;
 use App\Http\Controllers\SpotReviewPhotoController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,6 +112,15 @@ Route::controller(SpotPhotoController::class)->middleware(['auth','can:admin'])-
     Route::post('/maneger/spot_photo/store','store');
     Route::get('/manager/spot_photo/index','index');
     Route::delete('/maneger/spot_photo/{spot_photo}/delete','delete');
+});
+
+//ニックネーム登録
+Route::controller(UserController::class)->middleware(['auth'])->group(function(){
+    Route::get('/user/nickname/index','index');
+    Route::get('/user/nickname/create','create');
+    Route::post('/user/nickname/store','store');
+    Route::get('/user/nickname/edit','edit');
+    Route::put('/user/nickname/update','update');
 });
 
 //Googleログイン
