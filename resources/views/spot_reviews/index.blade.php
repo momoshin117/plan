@@ -12,13 +12,18 @@
    
    <h2>口コミ(一覧)</h2>
    
-   <a href='/review/create'>新規作成</a>
+   @if($user->nickname=='')
+   <p style="color:red">警告：ニックネームが未登録なため、口コミが登録できません。下記URLからニックネームを登録してください。</p>
+   <a href='/user/nickname/create'>ニックネーム登録</a>
+   
+   @else
+   <a href='/review/create'>新規口コミ投稿</a>
    
    <h2>過去に自分が登録したもの</h2>
    
    @foreach($spot_reviews as $spot_review)
    
-      @if($user_id==$spot_review->user_id)
+      @if($user->id == $spot_review->user_id)
          <h3>●{{$loop->iteration}}個目の口コミ</h3>
          <h4>更新日時</h4>
          <p>{{$spot_review->updated_at->format("Y-m-d　H:i")}}</p>
@@ -36,8 +41,8 @@
          <h6>内容</h6>
          <p>{{$spot_review->commment}}</p>
       
-         <h6>登録ユーザー名</h6>
-         <p>{{$spot_review->user->name}}</p>
+         <h6>ニックネーム</h6>
+         <p>{{$spot_review->user->nickname}}</p>
       
          <div class="show">
             <a href="/review/{{$spot_review->id}}/show">詳細</a>
@@ -68,6 +73,7 @@
          }
       }
    </script>
+   @endif
    
    </div>
    </div>

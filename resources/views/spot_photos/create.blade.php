@@ -30,6 +30,8 @@
         <input type="submit" value="保存"></input>
         
     </form>
+    
+    <a href='/manager/spot_photo/index'>戻る</a>
        
     </div>
     </div>
