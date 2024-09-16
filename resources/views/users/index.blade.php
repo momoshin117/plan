@@ -37,6 +37,18 @@
    </div>
    <a href='/user/nickname/edit'>編集</a>
    @endif
+   <br>
+   <br>
+   @can('admin')
+      管理者画面(全ユーザーのニックネーム一覧)
+      <br>
+      <div class="user_nickname_index">
+         <h2>使用ニックネーム一覧</h2>
+         @foreach($user_alls as $user_all)
+         <p>{{$user_all->nickname}}　(Id:{{$user_all->id}}、ユーザー名：{{$user_all->name}})</p>
+         @endforeach
+      </div>
+   @endcan
    
    </div>
    </div>

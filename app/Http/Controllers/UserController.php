@@ -12,8 +12,11 @@ class UserController extends Controller
     public function index(User $user){
         $user_id= Auth::id();
         
+        $user_alls=User::get();
+        
         return view('users.index') ->with([
             'user' =>$user->find($user_id),
+            'user_alls'=>$user_alls,
         ]);
     }
     
@@ -34,8 +37,11 @@ class UserController extends Controller
         $input=$request['user'];
         $user->fill($input)->save();
         
+        $user_alls=User::get();
+        
         return view('users.index') ->with([
-            'user'=>$user,    
+            'user'=>$user,
+            'user_alls'=>$user_alls,
         ]);
     }
     
@@ -55,8 +61,11 @@ class UserController extends Controller
         $input=$request['user'];
         $user->fill($input)->save();
         
+        $user_alls=User::get();
+        
         return view('users.index') ->with([
-            'user'=>$user,    
+            'user'=>$user,
+            'user_alls'=>$user_alls,
         ]);
     }
 }
