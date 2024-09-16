@@ -5,6 +5,11 @@
         </h2>
     </x-slot>
     
+    <div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+    <div class="p-6 text-gray-900">
+    
     <form action='/myplan/name/month' method='POST'>
       @csrf
         <input type="text" name="departure[year]" placeholder="2024">年</input>
@@ -62,5 +67,10 @@
             document.getElementById(`form_${id}`).submit();
         }
     }
-   </script>  
+   </script>
+   
+    </div>
+    </div>
+    </div>
+    </div>
 </x-app-layout>

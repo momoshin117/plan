@@ -4,6 +4,10 @@
          施設詳細情報({{$spot_master->category->category}})
       </h2>
    </x-slot>
+   <div class="py-12">
+   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+   <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+   <div class="p-6 text-gray-900">
       
    <h1>施設詳細情報({{$spot_master->category->category}})</h1>
    
@@ -228,5 +232,9 @@
 　 @else
       <a href='/myplan/name/{{$travel_plan_id}}'>戻る</a>
    @endif
+   </div>
+   </div>
+   </div>
+   </div>
 
 </x-app-layout>
