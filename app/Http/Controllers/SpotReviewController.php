@@ -12,11 +12,11 @@ use App\Models\User;
 class SpotReviewController extends Controller
 {
     public function index(SpotReview $spot_review){
-        $user_id= Auth::id();
+        $user= Auth::user();
         
         return view('spot_reviews.index')->with([
             'spot_reviews'=>$spot_review->getPaginateByLimit(),
-            'user_id' =>$user_id,
+            'user' =>$user,
         ]);
     }
     

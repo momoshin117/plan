@@ -43,9 +43,9 @@
         </div>
         
         <div class="user_name">
-            <h4>ユーザー名</h4>
+            <h4>ニックネーム</h4>
             <input type="hidden" name="spot_review[user_id]" value="{{$spot_review->user_id}}"></input>
-            {{$spot_review->user->name}}
+            {{$spot_review->user->nickname}}
         </div>
         
         <h4>公開設定</h4>

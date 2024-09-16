@@ -28,8 +28,8 @@
       <h6>内容</h6>
       <p>{{$spot_review->commment}}</p>
       
-      <h6>登録ユーザー名</h6>
-      <p>{{$spot_review->user->name}}</p>
+      <h6>ニックネーム</h6>
+      <p>{{$spot_review->user->nickname}}</p>
       
       <h6>画像</h6>
       <div class="spot_review_photo">
