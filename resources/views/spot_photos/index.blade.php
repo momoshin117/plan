@@ -12,6 +12,8 @@
    
    <h1>管理者画面(スポットマスターへの画像挿入)</h1>
    
+   <a href='/maneger/spot_photo/create'>新規作成</a>
+   
    @foreach($spot_photos as $spot_photo)
       <h4>スポット名</h4>
       <p>{{$spot_photo->spot_master->spot_name}}</p>
@@ -27,8 +29,6 @@
       </form>
       
    @endforeach
-   
-   <a href='/maneger/spot_photo/create'>新規作成</a>
    
    </div>
    </div>

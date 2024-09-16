@@ -48,7 +48,7 @@
       
       @if($user_id==$spot_review->user_id)
          <div class="create_photo">
-            <a href="/review/photo/create?spot_review_id={{$spot_review->id}}">口コミ画僧登録(任意)</a>
+            <a href="/review/photo/create?spot_review_id={{$spot_review->id}}">口コミ画像登録(任意)</a>
          </div>
       @endif
       
