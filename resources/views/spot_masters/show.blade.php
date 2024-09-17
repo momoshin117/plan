@@ -222,15 +222,17 @@
          </div>
          <div class="review_recently">
             <h6>　最新の口コミ(更新日：{{substr($spot_review_recently->updated_at,0,16)}})</h6>
+            <p>　　投稿者：{{$spot_review_recently->user->nickname}}</p>
             <p>　　点数：{{$spot_review_recently->score}}点</p>
             <p>　　コメント：{{$spot_review_recently->commment}}</p>
          </div>
          <div class="review_picture">
             <h6>　　投稿画像</h6>
             @foreach($spot_review_recently->spot_review_photos as $spot_review_photo)
-                  <img src="{{$spot_review_photo->path}}"alt="画像が読み込めません。">
+               <img src="{{$spot_review_photo->path}}"alt="画像が読み込めません。">
             @endforeach
          </div>
+         <a href='/spot_master/review/{{$spot_master->id}}/show'>口コミ詳細</a>
       </div>
       
       

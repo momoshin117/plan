@@ -17,7 +17,7 @@ class SpotMasterController extends Controller
         $google_map_url='https://maps.googleapis.com/maps/api/js?key='.config('services.google_map.key').'&callback=initMap';
         $spot_photo=SpotPhoto::with('spot_master')->where('spot_master_id','=',$spot_master_id)->get();
         
-        $spot_review_recently=SpotReview::with('spot_review_photos')->where('spot_master_id','=',$spot_master_id)->orderBy('updated_at','desc')->first();
+        $spot_review_recently=SpotReview::with('spot_review_photos','user')->where('spot_master_id','=',$spot_master_id)->orderBy('updated_at','desc')->first();
         $avg_spot_review_score=Spotreview::where('spot_master_id','=',$spot_master_id)->avg('score');
         $count_spot_review_score=Spotreview::where('spot_master_id','=',$spot_master_id)->count();
     
