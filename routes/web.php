@@ -11,6 +11,7 @@ use App\Http\Controllers\SpotPhotoController;
 use App\Http\Controllers\SpotReviewController;
 use App\Http\Controllers\SpotReviewPhotoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SpotMasterReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,6 +94,10 @@ Route::controller(SpotMasterController::class)->middleware(['auth'])->group(func
     Route::get('/spot_master/{spot_master}/show','show');
 });
 
+//口コミ(施設詳細)
+Route::controller(SpotMasterReviewController::class)->middleware(['auth'])->group(function(){
+    Route::get('/spot_master/review/{spot_master}/show','show');
+});
 
 
 //管理画面(駐車台数設定)
