@@ -112,7 +112,8 @@ return [
         'array' => 'The :attribute field must not have more than :max items.',
         'file' => 'The :attribute field must not be greater than :max kilobytes.',
         'numeric' => 'The :attribute field must not be greater than :max.',
-        'string' => 'The :attribute field must not be greater than :max characters.',
+        //'string' => 'The :attribute field must not be greater than :max characters.',
+        'string' => ':attributeは:max文字未満にする必要があります。',
     ],
     'max_digits' => 'The :attribute field must not have more than :max digits.',
     'mimes' => 'The :attribute field must be a file of type: :values.',
@@ -229,8 +230,16 @@ return [
         'travel_plan_spot.plan_first_day' => 'プラン初日',
         'travel_plan_spot.plan_last_day' =>'プラン最終日',
         
-        //user
+        //users
         'user.nickname' =>'ニックネーム',
+        
+        //spot_reviews
+        'spot_review.spot_master_id' =>'場所',
+        'spot_review.score' =>'点数',
+        'spot_review.comment' =>'コメント',
+        
+        //spot_review_photos
+        'path' =>'画像',
         
         ],
     

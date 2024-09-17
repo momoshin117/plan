@@ -22,12 +22,13 @@
                 <option value="{{$spot_master->id}}">{{$spot_master->spot_name}}</option>
                 @endforeach
             </select>
+            <p class="spot_name__error" style="color:red">{{ $errors->first('spot_review.spot_master_id') }}</p>
         </div>
         
         <h4>口コミ</h4>
         <div class="score">
             <h6>・点数(5点満点。良い：5点。悪い：1点)</h6>
-             <select name="spot_review[score]">
+            <select name="spot_review[score]">
                 <option value="{{$spot_review->score}}">{{$spot_review->score}}点</option>
                 <option value="5">5点</option>
                 <option value="4">4点</option>
@@ -35,11 +36,13 @@
                 <option value="2">2点</option>
                 <option value="1">1点</option>
             </select>
+            <p class="score__error" style="color:red">{{ $errors->first('spot_review.score') }}</p>
         </div>
         
         <div class="commment">
             <h6>・コメント</h6>
-            <textarea name="spot_review[commment]">{{$spot_review->commment}}</textarea>
+            <textarea name="spot_review[comment]">{{$spot_review->comment}}</textarea>
+            <p class="comment__error" style="color:red">{{ $errors->first('spot_review.comment') }}</p>
         </div>
         
         <div class="user_name">

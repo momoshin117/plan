@@ -21,7 +21,7 @@
             <p>{{$spot_review->score}}点</p>
       
             <h6>内容</h6>
-            <p>{{$spot_review->commment}}</p>
+            <p>{{$spot_review->comment}}</p>
     </div>
     
     <form action='/review/photo/store' method='POST' enctype="multipart/form-data">
@@ -30,6 +30,7 @@
         
         <div class="path">
             <input type="file" name="path">
+            <p class="path__error" style="color:red">{{ $errors->first('path') }}</p>
         </div>
         
         <input type="submit" value="保存"></input>

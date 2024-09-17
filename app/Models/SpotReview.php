@@ -36,7 +36,7 @@ class SpotReview extends Model
         'user_id',
         'spot_master_id',
         'score',
-        'commment',
+        'comment',
         'nickname',
         'updated_at',
         'cleated_at'

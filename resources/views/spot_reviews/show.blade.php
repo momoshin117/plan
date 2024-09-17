@@ -13,7 +13,7 @@
    <h2>口コミ(詳細)</h2>
    
       <h4>更新日時</h4>
-      <p>{{$spot_review->updated_at}}</p>
+      <p>{{$spot_review->updated_at->format("Y-m-d　H:i")}}</p>
       
       <h4>ジャンル</h4>
       <p>{{$spot_review->spot_master->category->category}}</p>
@@ -26,7 +26,7 @@
       <p>{{$spot_review->score}}点</p>
       
       <h6>内容</h6>
-      <p>{{$spot_review->commment}}</p>
+      <p>{{$spot_review->comment}}</p>
       
       <h6>ニックネーム</h6>
       <p>{{$spot_review->user->nickname}}</p>
