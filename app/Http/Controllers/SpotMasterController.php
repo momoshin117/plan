@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SpotMaster;
 use App\Models\SpotPhoto;
+use App\Models\SpotReview;
 
 class SpotMasterController extends Controller
 {
@@ -12,9 +13,13 @@ class SpotMasterController extends Controller
     {
         $travel_plan_id=$request->travel_plan_id;
         $spot_master=SpotMaster::with('category','prefecture','parking_car')->find($spot_master_id);
-        $google_map_url='https://maps.googleapis.com/maps/api/js?key='.config('services.google_map.key').'&callback=initMap';
         
+        $google_map_url='https://maps.googleapis.com/maps/api/js?key='.config('services.google_map.key').'&callback=initMap';
         $spot_photo=SpotPhoto::with('spot_master')->where('spot_master_id','=',$spot_master_id)->get();
+        
+        $spot_review_recently=SpotReview::with('spot_review_photos')->where('spot_master_id','=',$spot_master_id)->orderBy('updated_at','desc')->first();
+        $avg_spot_review_score=Spotreview::where('spot_master_id','=',$spot_master_id)->avg('score');
+        $count_spot_review_score=Spotreview::where('spot_master_id','=',$spot_master_id)->count();
     
         if($spot_master->category->category=="ホテル"){
             $client = new \GuzzleHttp\Client();
@@ -35,6 +40,10 @@ class SpotMasterController extends Controller
                 'travel_plan_id'=>$travel_plan_id,
                 'google_map_url' =>$google_map_url,
                 'rakuten'=>$rakuten_hotel_basic_info,
+                'spot_review_recently'=>$spot_review_recently,
+                'avg_spot_review_score'=>$avg_spot_review_score,
+                'count_spot_review_score'=>$count_spot_review_score,
+                
             ]);
             
         }else{
@@ -43,6 +52,9 @@ class SpotMasterController extends Controller
                 'spot_photos'=>$spot_photo,
                 'travel_plan_id'=>$travel_plan_id,
                 'google_map_url' =>$google_map_url,
+                'spot_review_recently'=>$spot_review_recently,
+                'avg_spot_review_score'=>$avg_spot_review_score,
+                'count_spot_review_score'=>$count_spot_review_score,
             ]);    
         };
     }
