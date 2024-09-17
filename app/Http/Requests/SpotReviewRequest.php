@@ -4,18 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class SpotReviewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
-     */
-    /*
-    public function authorize(): bool
-    {
-        return false;
-    }
     */
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,7 +17,9 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user.nickname'=>'required|string|max:20|unique:users,nickname',
+            'spot_review.spot_master_id'=>'required',
+            'spot_review.score'=>'required',
+            'spot_review.comment'=>'required|string|max:4000',
         ];
     }
 }

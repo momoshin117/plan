@@ -20,7 +20,7 @@ class SpotReviewSeeder extends Seeder
                 'user_id' =>'1',
                 'spot_master_id' => '1',
                 'score' =>'5',
-                'commment' => '景色がきれいでした。',
+                'comment' => '景色がきれいでした。',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
          ]);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\SpotReviewPhotoRequest;
 use App\Models\SpotReview;
 use App\Models\SpotReviewPhoto;
 use Cloudinary;
@@ -18,7 +19,7 @@ class SpotReviewPhotoController extends Controller
         ]);
     }
     
-    public function store(Request $request,SpotReviewPhoto $spot_review_photo){
+    public function store(SpotReviewPhotoRequest $request,SpotReviewPhoto $spot_review_photo){
         
         $input = $request['spot_review_photo'];
         $image_url = Cloudinary::upload($request->file('path')->getRealPath())->getSecurePath();

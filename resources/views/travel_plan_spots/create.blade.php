@@ -25,7 +25,7 @@
          <select name="travel_plan_spot[spot_master_id]">
             <option value="">--選択してください--</option>
             @foreach($spot_masters as $spot_master)
-            <option value="{{$spot_master->id}}">{{$spot_master->spot_name}}</option>
+            <option value="{{$spot_master->id}}" @if( $spot_master->id == (int)old('travel_plan_spot.spot_master_id')) selected @endif>{{$spot_master->spot_name}}</option>
             @endforeach
          </select>
          <p class="spot_master_id__error" style="color:red">{{ $errors->first('travel_plan_spot.spot_master_id') }}</p>

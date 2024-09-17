@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\SpotReviewRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\SpotReview;
 use App\Models\SpotReviewPhoto;
@@ -41,7 +41,7 @@ class SpotReviewController extends Controller
         ]);
     }
     
-    public function store(Request $request,SpotReview $spot_review){
+    public function store(SpotReviewRequest $request,SpotReview $spot_review){
         
         $input=$request['spot_review'];
         $spot_review->fill($input)->save();
@@ -60,7 +60,7 @@ class SpotReviewController extends Controller
         ]);
     }
     
-    public function update(Request $request,SpotReview $spot_review){
+    public function update(SpotReviewRequest $request,SpotReview $spot_review){
         $input=$request['spot_review'];
         $spot_review->fill($input)->save();
         

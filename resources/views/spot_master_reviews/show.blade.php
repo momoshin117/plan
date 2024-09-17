@@ -22,7 +22,7 @@
          @foreach($spot_reviews as $spot_review)
             <h4>●{{$loop->iteration}}個目の投稿</h4>
             <div class="review_updated_at">
-               <h4>・投稿日：{{substr($spot_review->updated_at,0,16)}}</h4>
+               <h4>・投稿日：{{$spot_review->updated_at->format("Y-m-d　H:i")}}</h4>
             </div>
             <div class="review_nickname">
                <h4>・投稿者：{{$spot_review->user->nickname}}</h4>

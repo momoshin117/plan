@@ -221,10 +221,10 @@
             <h6>{{substr($avg_spot_review_score,0,4)}}点({{$count_spot_review_score}}件)</h6>
          </div>
          <div class="review_recently">
-            <h6>　最新の口コミ(更新日：{{substr($spot_review_recently->updated_at,0,16)}})</h6>
+            <h6>　最新の口コミ(更新日：{{$spot_review_recently->updated_at->format("Y-m-d　H:i")}})</h6>
             <p>　　投稿者：{{$spot_review_recently->user->nickname}}</p>
             <p>　　点数：{{$spot_review_recently->score}}点</p>
-            <p>　　コメント：{{$spot_review_recently->commment}}</p>
+            <p>　　コメント：{{$spot_review_recently->comment}}</p>
          </div>
          <div class="review_picture">
             <h6>　　投稿画像</h6>

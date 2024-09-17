@@ -39,7 +39,7 @@
          <p>{{$spot_review->score}}点</p>
       
          <h6>内容</h6>
-         <p>{{$spot_review->commment}}</p>
+         <p>{{$spot_review->comment}}</p>
       
          <h6>ニックネーム</h6>
          <p>{{$spot_review->user->nickname}}</p>
