@@ -161,7 +161,10 @@ return [
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
     'required_with_all' => 'The :attribute field is required when :values are present.',
-    'required_without' => 'The :attribute field is required when :values is not present.',
+    
+    //'required_without' => 'The :attribute field is required when :values is not present.',
+    'required_without' => ':attribute と :valuesのどちらかは必須です。',
+    
     'required_without_all' => 'The :attribute field is required when none of :values are present.',
     'same' => 'The :attribute field must match :other.',
     'size' => [
@@ -241,6 +244,10 @@ return [
         //spot_review_photos
         'path' =>'画像',
         
+        //read_spot_masters
+        'read_spot_master_search.category_id' =>'ジャンル',
+        'read_spot_master_search.prefecture_id'=>'都道府県',
+
         ],
     
     /*'format' => [
