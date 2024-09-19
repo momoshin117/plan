@@ -13,30 +13,13 @@
    <h1>スポット閲覧・検索</h1>
    <br>
    ====
-   <form action='/read/spot_master/search' method='POST'>
-      @csrf
-      <h2>【絞り込み条件】</h2>
-      <div class="category">
-         <h4>ジャンル(任意)</h4>
-         <select name="read_spot_master_search[category_id]">
-            <option value="">--絞り込みなし--</option>
-            @foreach($categories as $category)
-               <option value="{{$category->id}}">{{$category->category}}</option>
-            @endforeach
-         </select>
-      </div>
-      <div class="prefecture">
-         <h4>都道府県(任意)</h4>
-         <select name="read_spot_master_search[prefecture_id]">
-            <option value="">--絞り込みなし--</option>
-            @foreach($prefectures as $prefecture)
-               <option value="{{$prefecture->id}}">{{$prefecture->prefecture}}</option>
-            @endforeach
-         </select>
-         <p class="category__error" style="color:red">{{ $errors->first('read_spot_master_search.category_id') }}</p>
-      </div>
-      <input type="submit" value="検索"></input>
-   </form>
+   <h2>【絞り込み条件】</h2>
+   <div class="category">
+      <h4>ジャンル：{{$category->category}}</h4>
+   </div>
+   <div class="prefecture">
+      <h4>都道府県：指定なし</h4>
+   </div>
    ====
    <br>
    <br>
@@ -69,6 +52,8 @@
    @endforeach
    
    {{ $spot_masters->links() }}
+   
+   <a href='/read/spot_master/index'>戻る</a>
    
    </div>
    </div>

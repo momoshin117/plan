@@ -103,6 +103,7 @@ Route::controller(SpotMasterReviewController::class)->middleware(['auth'])->grou
 //施設閲覧
 Route::controller(ReadSpotMasterController::class)->middleware(['auth'])->group(function(){
     Route::get('/read/spot_master/index','index');
+    Route::post('/read/spot_master/search','search');
 });
 
 
