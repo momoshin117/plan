@@ -12,6 +12,8 @@ class SpotMasterController extends Controller
     public function show($spot_master_id,Request $request)
     {
         $travel_plan_id=$request->travel_plan_id;
+        $url_before=$request->before;
+        $spot_review_id=$request->spot_review_id;
         $spot_master=SpotMaster::with('category','prefecture','parking_car')->find($spot_master_id);
         
         $google_map_url='https://maps.googleapis.com/maps/api/js?key='.config('services.google_map.key').'&callback=initMap';
@@ -43,6 +45,8 @@ class SpotMasterController extends Controller
                 'spot_review_recently'=>$spot_review_recently,
                 'avg_spot_review_score'=>$avg_spot_review_score,
                 'count_spot_review_score'=>$count_spot_review_score,
+                'url_before' =>$url_before,
+                'spot_review_id'=>$spot_review_id
                 
             ]);
             
@@ -55,6 +59,8 @@ class SpotMasterController extends Controller
                 'spot_review_recently'=>$spot_review_recently,
                 'avg_spot_review_score'=>$avg_spot_review_score,
                 'count_spot_review_score'=>$count_spot_review_score,
+                'url_before' =>$url_before,
+                'spot_review_id'=>$spot_review_id
             ]);    
         };
     }

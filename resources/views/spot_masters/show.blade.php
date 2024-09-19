@@ -249,10 +249,14 @@
       @endif
    </div>
 　 
-　 @if($travel_plan_id ==0)
+　 @if($url_before=="travel_plan")
+　    <a href='/myplan/name/{{$travel_plan_id}}'>戻る</a>
+　 @elseif($url_before=="review_index")
 　    <a href='/review/index'>戻る</a>
-　 @else
-      <a href='/myplan/name/{{$travel_plan_id}}'>戻る</a>
+　 @elseif($url_before=="review_show")
+　    <a href='/review/{{$spot_review_id}}/show'>戻る</a>
+　 @elseif($url_before=="read_spot_master")
+　    <a href='/read/spot_master/index'>戻る</a>
    @endif
    </div>
    </div>

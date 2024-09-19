@@ -17,6 +17,8 @@
                     <br>
                     <a href='/review/index'>②口コミ投稿</a>
                     <br>
+                    <a href='/read/spot_master/index'>③スポット閲覧</a>
+                    <br>
                     <br>
                     ユーザー設定
                     <br>

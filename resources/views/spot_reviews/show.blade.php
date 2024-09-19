@@ -19,7 +19,7 @@
       <p>{{$spot_review->spot_master->category->category}}</p>
       
       <h4>施設名</h4>
-      <a href='/spot_master/{{$spot_review->spot_master_id}}/show?travel_plan_id=0'>{{$spot_review->spot_master->spot_name}}</a>
+      <a href='/spot_master/{{$spot_review->spot_master_id}}/show?before=review_show&spot_review_id={{$spot_review->id}}'>{{$spot_review->spot_master->spot_name}}</a>
       
       <h4>口コミ</h4>
       <h6>点数</h6>

@@ -12,6 +12,7 @@ use App\Http\Controllers\SpotReviewController;
 use App\Http\Controllers\SpotReviewPhotoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SpotMasterReviewController;
+use App\Http\Controllers\ReadSpotMasterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,6 +98,11 @@ Route::controller(SpotMasterController::class)->middleware(['auth'])->group(func
 //口コミ(施設詳細)
 Route::controller(SpotMasterReviewController::class)->middleware(['auth'])->group(function(){
     Route::get('/spot_master/review/{spot_master}/show','show');
+});
+
+//施設閲覧
+Route::controller(ReadSpotMasterController::class)->middleware(['auth'])->group(function(){
+    Route::get('/read/spot_master/index','index');
 });
 
 
