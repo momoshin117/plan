@@ -13,35 +13,17 @@
    <h1>スポット閲覧・検索</h1>
    <br>
    ====
-   <form action='/read/spot_master/search' method='POST'>
-      @csrf
-      <h2>【絞り込み条件】</h2>
+   <h2>【絞り込み条件】</h2>
       <div class="category">
-         <h4>ジャンル(任意)</h4>
-         <select name="read_spot_master_search[category_id]">
-            <option value="">--絞り込みなし--</option>
-            @foreach($categories as $category)
-               <option value="{{$category->id}}">{{$category->category}}</option>
-            @endforeach
-         </select>
+         <h4>ジャンル：{{$category->id==""?"絞り込みなし":$category->category}}</h4>
       </div>
       <div class="prefecture">
-         <h4>都道府県(任意)</h4>
-         <select name="read_spot_master_search[prefecture_id]">
-            <option value="">--絞り込みなし--</option>
-            @foreach($prefectures as $prefecture)
-               <option value="{{$prefecture->id}}">{{$prefecture->prefecture}}</option>
-            @endforeach
-         </select>
+         <h4>都道府県：{{$prefecture->id==""?"絞り込みなし":$prefecture->prefecture}}</h4>
       </div>
       <div class="favorite">
-         <br>
-         <input type="hidden" name="read_spot_master_search[favorite]" value="0">
-         <input type="checkbox" name="read_spot_master_search[favorite]" value="1">お気に入りのみ</input>
+         <p>{{$favorite_exit=="1"?"お気に入りのみ":"お気に入りでの絞り込みなし"}}</p>
       </div>
       <p class="category__error" style="color:red">{{ $errors->first('read_spot_master_search.category_id') }}</p>
-      <input type="submit" value="絞り込み"></input>
-   </form>
    ====
    <br>
    <br>
@@ -59,7 +41,7 @@
       <?php $count=0; ?>
       
       @foreach($spot_review_photos as $spot_review_photo)
-         @if($spot_review_photo->spot_review->spot_master_id ==$spot_master->id)
+         @if($spot_review_photo->spot_review->spot_master_id ==($favorite_exit==1?$spot_master->spot_master_id:$spot_master->id))
          
             @if($count <= 2)
                <div class="spot_photo">
@@ -74,6 +56,8 @@
    @endforeach
    
    {{ $spot_masters->links() }}
+    
+   <a href='/read/spot_master/index'>戻る</a>
    
    </div>
    </div>
