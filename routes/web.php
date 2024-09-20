@@ -63,6 +63,7 @@ Route::controller(TravelPlanController::class)->middleware(['auth'])->group(func
 
 Route::controller(TravelPlanSpotController::class)->middleware(['auth'])->group(function(){
     Route::get('/myplan/spot/{travel_plan_id}/create','create');
+    Route::post('/myplan/spot/{travel_plan_id}/create/search','create_search');
     Route::post('/myplan/spot/store','store');
     Route::get('/myplan/spot/{travel_plan_spot}/edit','edit');
     Route::delete('/myplan/spot/{travel_plan_spot}/delete','delete');
