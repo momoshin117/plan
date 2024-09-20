@@ -18,7 +18,7 @@ class ReadSpotMasterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'read_spot_master_search.category_id' =>'required_without:read_spot_master_search.prefecture_id'
+            'read_spot_master_search.category_id' =>'required_without_all:read_spot_master_search.prefecture_id,read_spot_master_search.favorite'
         ];
     }
 }
