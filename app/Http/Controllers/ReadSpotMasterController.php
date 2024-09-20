@@ -8,6 +8,7 @@ use App\Models\SpotMaster;
 use App\Models\SpotReviewPhoto;
 use App\Models\Category;
 use App\Models\Prefecture;
+use App\Models\Favorite;
 
 class ReadSpotMasterController extends Controller
 {

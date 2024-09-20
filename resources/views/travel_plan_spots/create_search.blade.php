@@ -13,42 +13,20 @@
    <h1>新規旅行スポット登録</h1>
    <br>
    =======
-   <h2>【スポット絞り込み】</h2>
-   <form action='/myplan/spot/{{$travel_plan}}/create/search?use_money={{$use_money}}&first_day={{$first_day}}&last_day={{$last_day}}' method='POST'>
-      @csrf
-           
+   <h2>【スポット絞り込み条件】</h2>
       <div class="category">
-         <h4>ジャンル(任意)</h4>
-         <select name="travel_plan_spot_search[category_id]">
-            <option value="">--絞り込みなし--</option>
-            @foreach($categories as $category)
-               <option value="{{$category->id}}">{{$category->category}}</option>
-            @endforeach
-         </select>
+         <h4>ジャンル：{{$category->id==""?"絞り込みなし":$category->category}}</h4>
       </div>
             
       <div class="prefecture">
-         <h4>都道府県(任意)</h4>
-         <select name="travel_plan_spot_search[prefecture_id]">
-            <option value="">--絞り込みなし--</option>
-            @foreach($prefectures as $prefecture)
-               <option value="{{$prefecture->id}}">{{$prefecture->prefecture}}</option>
-            @endforeach
-         </select>
+         <h4>都道府県：{{$prefecture->id==""?"絞り込みなし":$prefecture->prefecture}}</h4>
       </div>
-            
       <div class="favorite">
-         <br>
-         <input type="hidden" name="travel_plan_spot_search[favorite]" value="0">
-         <input type="checkbox" name="travel_plan_spot_search[favorite]" value="1">お気に入りのみ</input>
+         <p>{{$favorite_exit=="1"?"お気に入りのみ":"お気に入りでの絞り込みなし"}}</p>
       </div>
-            
-      <input type="submit" value="絞り込み"></input>
-   </form>
    <br>
    ========
    <br>
-   <h2>絞り込みなし</h2>
    <form action='/myplan/spot/store' method='POST'>
       @csrf
       <div class="travel_plan_id">
