@@ -93,6 +93,8 @@ Route::controller(SpotReviewPhotoController::class)->middleware(['auth'])->group
 //施設詳細情報
 Route::controller(SpotMasterController::class)->middleware(['auth'])->group(function(){
     Route::get('/spot_master/{spot_master}/show','show');
+    Route::post('/spot_master/{spot_master}/favotite/create','do_favorite');
+    Route::delete('/spot_master/{spot_master}/favotite/delete','dis_favorite');
 });
 
 //口コミ(施設詳細)

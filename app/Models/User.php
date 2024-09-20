@@ -55,4 +55,12 @@ class User extends Authenticatable
         return $this->hasMany(TravelPlan::class);
         
     }
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
+    public function favorite_spot_masters()
+    {
+        return $this->belongsToMany(SpotMaster::class, 'favorites', 'user_id', 'spot_master_id');
+    }
 }

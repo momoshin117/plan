@@ -35,4 +35,7 @@ class SpotMaster extends Model
     {
         return $this->hasMany(SpotReview::class);  
     }
+    public function favorites() {
+        return $this->hasMany(Favorite::class);
+    }
 }
