@@ -10,7 +10,8 @@
    <div class="p-6 text-gray-900">
       
    <h1>施設詳細情報({{$spot_master->category->category}})</h1>
-   
+   <br>
+   ==============
    <div class="favorite">
       @if($favorite_exit)
       <form action="/spot_master/{{$spot_master->id}}/favotite/delete?url_before={{$url_before}}&travel_plan_id={{$travel_plan_id}}&spot_review_id={{$spot_review_id}}" method="POST">
@@ -27,8 +28,11 @@
          
       </form>
       @endif
+      <h4>お気に入り登録者数：{{$user_count}}人中{{$favorite_count}}人</h4>
+      
    </div>
-   
+   ================
+   <br>
    <div class="spot">
       
       <div class="spot_name">

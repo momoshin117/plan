@@ -8,6 +8,7 @@ use App\Models\SpotMaster;
 use App\Models\SpotPhoto;
 use App\Models\SpotReview;
 use App\Models\Favorite;
+use App\Models\User;
 
 class SpotMasterController extends Controller
 {
@@ -16,12 +17,14 @@ class SpotMasterController extends Controller
         $user_id= Auth::id();
         $favorite_exit=Favorite::where('user_id','=',$user_id)->where('spot_master_id','=',$spot_master_id)->exists();
         
+        $favorite_count=Favorite::where('spot_master_id','=',$spot_master_id)->count();
+        $user_count=User::count();
+        
         if($favorite_exit){
             $favorite=Favorite::where('user_id','=',$user_id)->where('spot_master_id','=',$spot_master_id)->first();
         }else{
             $favorite=NULL;
         }
-        
         
         $travel_plan_id=$request->travel_plan_id;
         $url_before=$request->before;
@@ -62,6 +65,8 @@ class SpotMasterController extends Controller
                 'spot_review_id'=>$spot_review_id,
                 'favorite_exit' =>$favorite_exit,
                 'favorite' =>$favorite,
+                'favorite_count' =>$favorite_count,
+                'user_count' =>$user_count,
                 
             ]);
             
@@ -78,6 +83,8 @@ class SpotMasterController extends Controller
                 'spot_review_id'=>$spot_review_id,
                 'favorite_exit' =>$favorite_exit,
                 'favorite' =>$favorite,
+                'favorite_count' =>$favorite_count,
+                'user_count' =>$user_count,
             ]);    
         };
     }
@@ -92,8 +99,12 @@ class SpotMasterController extends Controller
         
         
         $favorite_exit=Favorite::where('user_id','=',$user_id)->where('spot_master_id','=',$spot_master_id)->exists();
-        
         $favorite=Favorite::where('user_id','=',$user_id)->where('spot_master_id','=',$spot_master_id)->first();
+        
+        $favorite_count=Favorite::where('spot_master_id','=',$spot_master_id)->count();
+        $user_count=User::count();
+        
+       
         
         $travel_plan_id=$request->travel_plan_id;
         $url_before=$request->url_before;
@@ -133,6 +144,8 @@ class SpotMasterController extends Controller
                 'spot_review_id'=>$spot_review_id,
                 'favorite_exit' =>$favorite_exit,
                 'favorite' =>$favorite,
+                'favorite_count' =>$favorite_count,
+                'user_count' =>$user_count,
                 
             ]);
             
@@ -149,6 +162,8 @@ class SpotMasterController extends Controller
                 'spot_review_id'=>$spot_review_id,
                 'favorite_exit' =>$favorite_exit,
                 'favorite' =>$favorite,
+                'favorite_count' =>$favorite_count,
+                'user_count' =>$user_count,
             ]);    
         };
         
@@ -160,8 +175,10 @@ class SpotMasterController extends Controller
         Favorite::where('user_id','=',$user_id)->where('spot_master_id','=',$spot_master_id)->delete();
         
         $favorite_exit=Favorite::where('user_id','=',$user_id)->where('spot_master_id','=',$spot_master_id)->exists();
-        
         $favorite=NULL;
+        
+        $favorite_count=Favorite::where('spot_master_id','=',$spot_master_id)->count();
+        $user_count=User::count();
         
         $travel_plan_id=$request->travel_plan_id;
         $url_before=$request->url_before;
@@ -201,6 +218,8 @@ class SpotMasterController extends Controller
                 'spot_review_id'=>$spot_review_id,
                 'favorite_exit' =>$favorite_exit,
                 'favorite' =>$favorite,
+                'favorite_count' =>$favorite_count,
+                'user_count' =>$user_count,
                 
             ]);
             
@@ -217,6 +236,8 @@ class SpotMasterController extends Controller
                 'spot_review_id'=>$spot_review_id,
                 'favorite_exit' =>$favorite_exit,
                 'favorite' =>$favorite,
+                'favorite_count' =>$favorite_count,
+                'user_count' =>$user_count,
             ]);    
         };
     }
