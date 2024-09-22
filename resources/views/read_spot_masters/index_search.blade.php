@@ -30,7 +30,7 @@
    @foreach($spot_masters as $spot_master)
       <div class="spot_name">
          <h2>●スポット名</h2>
-         <a href="/spot_master/{{$spot_master->id}}/show?before=read_spot_master">{{$spot_master->spot_name}}</a>
+         <a href="/spot_master/{{$favorite_exit==1?$spot_master->spot_master_id:$spot_master->id}}/show?before=read_spot_master">{{$spot_master->spot_name}}</a>
       </div>
       <div class="category">
          <p>　・ジャンル：{{$spot_master->category->category}}</p>
