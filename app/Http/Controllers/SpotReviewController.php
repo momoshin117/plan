@@ -46,6 +46,14 @@ class SpotReviewController extends Controller
         $input=$request['spot_review'];
         $spot_review->fill($input)->save();
         
+        $new_avg_spot_review_score=SpotReview::where('spot_master_id','=',$spot_review->spot_master_id)->avg('score');
+        $spot_review_count=SpotReview::where('spot_master_id','=',$spot_review->spot_master_id)->count();
+        
+        $spot_master=SpotMaster::find($spot_review->spot_master_id);
+        $spot_master->review_average_score=($new_avg_spot_review_score==0?0:$new_avg_spot_review_score);
+        $spot_master->review_count=$spot_review_count;
+        $spot_master->save();
+        
         return redirect('/review/'.$spot_review->id.'/show')->with([
             'spot_review' => $spot_review,
         ]);
@@ -64,12 +72,29 @@ class SpotReviewController extends Controller
         $input=$request['spot_review'];
         $spot_review->fill($input)->save();
         
+        $new_avg_spot_review_score=SpotReview::where('spot_master_id','=',$spot_review->spot_master_id)->avg('score');
+        $spot_review_count=SpotReview::where('spot_master_id','=',$spot_review->spot_master_id)->count();
+        
+        $spot_master=SpotMaster::find($spot_review->spot_master_id);
+        $spot_master->review_average_score=($new_avg_spot_review_score==0?0:$new_avg_spot_review_score);;
+        $spot_master->review_count=$spot_review_count;
+        $spot_master->save();
+        
         return redirect('/review/'.$spot_review->id.'/show')->with([
         ]);
     }
     
     public function delete(SpotReview $spot_review){
         $spot_review ->delete();
+        
+        $new_avg_spot_review_score=SpotReview::where('spot_master_id','=',$spot_review->spot_master_id)->avg('score');
+        $spot_review_count=SpotReview::where('spot_master_id','=',$spot_review->spot_master_id)->count();
+        
+        $spot_master=SpotMaster::find($spot_review->spot_master_id);
+        $spot_master->review_average_score=($new_avg_spot_review_score==0?0:$new_avg_spot_review_score);;
+        $spot_master->review_count=$spot_review_count;
+        $spot_master->save();
+        
         return redirect('/review/index');
     }
 }
