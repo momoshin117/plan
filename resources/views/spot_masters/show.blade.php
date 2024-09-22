@@ -16,13 +16,13 @@
       <form action="/spot_master/{{$spot_master->id}}/favotite/delete?url_before={{$url_before}}&travel_plan_id={{$travel_plan_id}}&spot_review_id={{$spot_review_id}}" method="POST">
          @csrf
          @method('DELETE')
-         <button type="submit" class="bg-red-500 text-white font-bold py-2 px-4 rounded">お気に入り解除</button>
+         <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">お気に入り解除</button>
          
       </form>
       @else
       <form action="/spot_master/{{$spot_master->id}}/favotite/create?url_before={{$url_before}}&spot_master_id={{$spot_master->id}}&travel_plan_id={{$travel_plan_id}}&spot_review_id={{$spot_review_id}}" method="POST">
          @csrf
-         <button type="submit" class="bg-red-500 hover:bg-red-700">お気に入り登録</button>
+         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">お気に入り登録</button>
          <input type="hidden" name="favorite[spot_master_id]" value={{$spot_master->id}}></input>
          
       </form>

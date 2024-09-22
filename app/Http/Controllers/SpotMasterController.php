@@ -22,6 +22,7 @@ class SpotMasterController extends Controller
             $favorite=NULL;
         }
         
+        
         $travel_plan_id=$request->travel_plan_id;
         $url_before=$request->before;
         $spot_review_id=$request->spot_review_id;
@@ -33,6 +34,7 @@ class SpotMasterController extends Controller
         $spot_review_recently=SpotReview::with('spot_review_photos','user')->where('spot_master_id','=',$spot_master_id)->orderBy('updated_at','desc')->first();
         $avg_spot_review_score=Spotreview::where('spot_master_id','=',$spot_master_id)->avg('score');
         $count_spot_review_score=Spotreview::where('spot_master_id','=',$spot_master_id)->count();
+        
     
         if($spot_master->category->category=="ホテル"){
             $client = new \GuzzleHttp\Client();
