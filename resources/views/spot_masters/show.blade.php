@@ -239,8 +239,11 @@
       <div class="review">
          <h2>口コミ</h2>
          <h4>●当サイト口コミ</h4>
+         @if($spot_review_recently=="")
+            <p>　このスポットの口コミはまだ登録されていません。</p>
+         @else
          <div class="review_point">
-            <h6>{{substr($avg_spot_review_score,0,4)}}点({{$count_spot_review_score}}件)</h6>
+            <h6>{{substr($spot_master->review_average_score,0,4)}}点({{$spot_master->review_count}}件)</h6>
          </div>
          <div class="review_recently">
             <h6>　最新の口コミ(更新日：{{$spot_review_recently->updated_at->format("Y-m-d　H:i")}})</h6>
@@ -255,6 +258,7 @@
             @endforeach
          </div>
          <a href='/spot_master/review/{{$spot_master->id}}/show'>口コミ詳細</a>
+         @endif
       </div>
       
       

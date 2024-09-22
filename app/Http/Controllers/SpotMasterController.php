@@ -29,15 +29,18 @@ class SpotMasterController extends Controller
         $travel_plan_id=$request->travel_plan_id;
         $url_before=$request->before;
         $spot_review_id=$request->spot_review_id;
+        
+        $new_avg_spot_review_score=SpotReview::where('spot_master_id','=',$spot_master_id)->avg('score');
+        $spot_review_count=SpotReview::where('spot_master_id','=',$spot_master_id)->count();
         $spot_master=SpotMaster::with('category','prefecture','parking_car')->find($spot_master_id);
+        $spot_master->review_average_score=($new_avg_spot_review_score==0?0:$new_avg_spot_review_score);
+        $spot_master->review_count=$spot_review_count;
+        $spot_master->save();
         
         $google_map_url='https://maps.googleapis.com/maps/api/js?key='.config('services.google_map.key').'&callback=initMap';
         $spot_photo=SpotPhoto::with('spot_master')->where('spot_master_id','=',$spot_master_id)->get();
         
         $spot_review_recently=SpotReview::with('spot_review_photos','user')->where('spot_master_id','=',$spot_master_id)->orderBy('updated_at','desc')->first();
-        $avg_spot_review_score=Spotreview::where('spot_master_id','=',$spot_master_id)->avg('score');
-        $count_spot_review_score=Spotreview::where('spot_master_id','=',$spot_master_id)->count();
-        
     
         if($spot_master->category->category=="ホテル"){
             $client = new \GuzzleHttp\Client();
@@ -59,8 +62,6 @@ class SpotMasterController extends Controller
                 'google_map_url' =>$google_map_url,
                 'rakuten'=>$rakuten_hotel_basic_info,
                 'spot_review_recently'=>$spot_review_recently,
-                'avg_spot_review_score'=>$avg_spot_review_score,
-                'count_spot_review_score'=>$count_spot_review_score,
                 'url_before' =>$url_before,
                 'spot_review_id'=>$spot_review_id,
                 'favorite_exit' =>$favorite_exit,
@@ -77,8 +78,6 @@ class SpotMasterController extends Controller
                 'travel_plan_id'=>$travel_plan_id,
                 'google_map_url' =>$google_map_url,
                 'spot_review_recently'=>$spot_review_recently,
-                'avg_spot_review_score'=>$avg_spot_review_score,
-                'count_spot_review_score'=>$count_spot_review_score,
                 'url_before' =>$url_before,
                 'spot_review_id'=>$spot_review_id,
                 'favorite_exit' =>$favorite_exit,
@@ -104,19 +103,22 @@ class SpotMasterController extends Controller
         $favorite_count=Favorite::where('spot_master_id','=',$spot_master_id)->count();
         $user_count=User::count();
         
-       
-        
         $travel_plan_id=$request->travel_plan_id;
         $url_before=$request->url_before;
         $spot_review_id=$request->spot_review_id;
+        
+        $new_avg_spot_review_score=SpotReview::where('spot_master_id','=',$spot_master_id)->avg('score');
+        $spot_review_count=SpotReview::where('spot_master_id','=',$spot_master_id)->count();
         $spot_master=SpotMaster::with('category','prefecture','parking_car')->find($spot_master_id);
+        $spot_master->review_average_score=($new_avg_spot_review_score==0?0:$new_avg_spot_review_score);
+        $spot_master->review_count=$spot_review_count;
+        $spot_master->save();
         
         $google_map_url='https://maps.googleapis.com/maps/api/js?key='.config('services.google_map.key').'&callback=initMap';
         $spot_photo=SpotPhoto::with('spot_master')->where('spot_master_id','=',$spot_master_id)->get();
         
         $spot_review_recently=SpotReview::with('spot_review_photos','user')->where('spot_master_id','=',$spot_master_id)->orderBy('updated_at','desc')->first();
-        $avg_spot_review_score=Spotreview::where('spot_master_id','=',$spot_master_id)->avg('score');
-        $count_spot_review_score=Spotreview::where('spot_master_id','=',$spot_master_id)->count();
+       
     
         if($spot_master->category->category=="ホテル"){
             $client = new \GuzzleHttp\Client();
@@ -138,8 +140,6 @@ class SpotMasterController extends Controller
                 'google_map_url' =>$google_map_url,
                 'rakuten'=>$rakuten_hotel_basic_info,
                 'spot_review_recently'=>$spot_review_recently,
-                'avg_spot_review_score'=>$avg_spot_review_score,
-                'count_spot_review_score'=>$count_spot_review_score,
                 'url_before' =>$url_before,
                 'spot_review_id'=>$spot_review_id,
                 'favorite_exit' =>$favorite_exit,
@@ -156,8 +156,6 @@ class SpotMasterController extends Controller
                 'travel_plan_id'=>$travel_plan_id,
                 'google_map_url' =>$google_map_url,
                 'spot_review_recently'=>$spot_review_recently,
-                'avg_spot_review_score'=>$avg_spot_review_score,
-                'count_spot_review_score'=>$count_spot_review_score,
                 'url_before' =>$url_before,
                 'spot_review_id'=>$spot_review_id,
                 'favorite_exit' =>$favorite_exit,
@@ -183,14 +181,18 @@ class SpotMasterController extends Controller
         $travel_plan_id=$request->travel_plan_id;
         $url_before=$request->url_before;
         $spot_review_id=$request->spot_review_id;
+        
+        $new_avg_spot_review_score=SpotReview::where('spot_master_id','=',$spot_master_id)->avg('score');
+        $spot_review_count=SpotReview::where('spot_master_id','=',$spot_master_id)->count();
         $spot_master=SpotMaster::with('category','prefecture','parking_car')->find($spot_master_id);
+        $spot_master->review_average_score=($new_avg_spot_review_score==0?0:$new_avg_spot_review_score);;
+        $spot_master->review_count=$spot_review_count;
+        $spot_master->save();
         
         $google_map_url='https://maps.googleapis.com/maps/api/js?key='.config('services.google_map.key').'&callback=initMap';
         $spot_photo=SpotPhoto::with('spot_master')->where('spot_master_id','=',$spot_master_id)->get();
         
         $spot_review_recently=SpotReview::with('spot_review_photos','user')->where('spot_master_id','=',$spot_master_id)->orderBy('updated_at','desc')->first();
-        $avg_spot_review_score=Spotreview::where('spot_master_id','=',$spot_master_id)->avg('score');
-        $count_spot_review_score=Spotreview::where('spot_master_id','=',$spot_master_id)->count();
     
         if($spot_master->category->category=="ホテル"){
             $client = new \GuzzleHttp\Client();
@@ -212,8 +214,6 @@ class SpotMasterController extends Controller
                 'google_map_url' =>$google_map_url,
                 'rakuten'=>$rakuten_hotel_basic_info,
                 'spot_review_recently'=>$spot_review_recently,
-                'avg_spot_review_score'=>$avg_spot_review_score,
-                'count_spot_review_score'=>$count_spot_review_score,
                 'url_before' =>$url_before,
                 'spot_review_id'=>$spot_review_id,
                 'favorite_exit' =>$favorite_exit,
@@ -230,8 +230,6 @@ class SpotMasterController extends Controller
                 'travel_plan_id'=>$travel_plan_id,
                 'google_map_url' =>$google_map_url,
                 'spot_review_recently'=>$spot_review_recently,
-                'avg_spot_review_score'=>$avg_spot_review_score,
-                'count_spot_review_score'=>$count_spot_review_score,
                 'url_before' =>$url_before,
                 'spot_review_id'=>$spot_review_id,
                 'favorite_exit' =>$favorite_exit,
