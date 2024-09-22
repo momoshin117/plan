@@ -44,6 +44,7 @@
    </form>
    ====
    <br>
+   口コミ評価高い順
    <br>
    @foreach($spot_masters as $spot_master)
       <div class="spot_name">

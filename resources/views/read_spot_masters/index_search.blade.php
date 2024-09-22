@@ -26,6 +26,7 @@
       <p class="category__error" style="color:red">{{ $errors->first('read_spot_master_search.category_id') }}</p>
    ====
    <br>
+   口コミ評価高い順
    <br>
    @foreach($spot_masters as $spot_master)
       <div class="spot_name">
