@@ -27,11 +27,6 @@ class SpotReview extends Model
         return $this->hasMany(SpotReviewPhoto::class);  
     }
     
-    public function getPaginateByLimit(int $limit_count = 3)
-    {
-        return $this::with('spot_master','user')->orderBy('updated_at','desc')->paginate($limit_count);
-    }
-    
     protected $fillable = [
         'user_id',
         'spot_master_id',
