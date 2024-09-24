@@ -9,6 +9,7 @@ use App\Models\SpotPhoto;
 use App\Models\SpotReview;
 use App\Models\Favorite;
 use App\Models\User;
+use App\Models\TravelPlanSpot;
 
 class SpotMasterController extends Controller
 {
@@ -42,6 +43,8 @@ class SpotMasterController extends Controller
         
         $spot_review_recently=SpotReview::with('spot_review_photos','user')->where('spot_master_id','=',$spot_master_id)->orderBy('updated_at','desc')->first();
     
+        $travel_plan_spots=TravelPlanSpot::with('travel_plan')->where('spot_master_id','=',$spot_master_id)->select('travel_plan_spots.travel_plan_id','travel_plan_spots.spot_master_id','travel_plan_spots.updated_at as travel_plan_spot_updated_at','travel_plans.user_id','travel_plans.plan_name','users.nickname')->join('travel_plans','travel_plan_spots.travel_plan_id','=','travel_plans.id')->where('disclose','=','公開')->join('users','travel_plans.user_id','=','users.id')->where('travel_plans.user_id','!=',$user_id)->orderBy('travel_plan_spot_updated_at','desc')->take(3)->get();
+        
         if($spot_master->category->category=="ホテル"){
             $client = new \GuzzleHttp\Client();
             $applicationID =config('services.rakuten_travel.id');
@@ -68,7 +71,7 @@ class SpotMasterController extends Controller
                 'favorite' =>$favorite,
                 'favorite_count' =>$favorite_count,
                 'user_count' =>$user_count,
-                
+                'travel_plan_spots'=>$travel_plan_spots,
             ]);
             
         }else{
@@ -119,6 +122,7 @@ class SpotMasterController extends Controller
         
         $spot_review_recently=SpotReview::with('spot_review_photos','user')->where('spot_master_id','=',$spot_master_id)->orderBy('updated_at','desc')->first();
        
+        $travel_plan_spots=TravelPlanSpot::with('travel_plan')->where('spot_master_id','=',$spot_master_id)->select('travel_plan_spots.travel_plan_id','travel_plan_spots.spot_master_id','travel_plan_spots.updated_at as travel_plan_spot_updated_at','travel_plans.user_id','travel_plans.plan_name','users.nickname')->join('travel_plans','travel_plan_spots.travel_plan_id','=','travel_plans.id')->where('disclose','=','公開')->join('users','travel_plans.user_id','=','users.id')->where('travel_plans.user_id','!=',$user_id)->orderBy('travel_plan_spot_updated_at','desc')->take(3)->get();
     
         if($spot_master->category->category=="ホテル"){
             $client = new \GuzzleHttp\Client();
@@ -146,6 +150,7 @@ class SpotMasterController extends Controller
                 'favorite' =>$favorite,
                 'favorite_count' =>$favorite_count,
                 'user_count' =>$user_count,
+                'travel_plan_spots'=>$travel_plan_spots,
                 
             ]);
             
@@ -162,6 +167,7 @@ class SpotMasterController extends Controller
                 'favorite' =>$favorite,
                 'favorite_count' =>$favorite_count,
                 'user_count' =>$user_count,
+                'travel_plan_spots'=>$travel_plan_spots,
             ]);    
         };
         
@@ -194,6 +200,8 @@ class SpotMasterController extends Controller
         
         $spot_review_recently=SpotReview::with('spot_review_photos','user')->where('spot_master_id','=',$spot_master_id)->orderBy('updated_at','desc')->first();
     
+        $travel_plan_spots=TravelPlanSpot::with('travel_plan')->where('spot_master_id','=',$spot_master_id)->select('travel_plan_spots.travel_plan_id','travel_plan_spots.spot_master_id','travel_plan_spots.updated_at as travel_plan_spot_updated_at','travel_plans.user_id','travel_plans.plan_name','users.nickname')->join('travel_plans','travel_plan_spots.travel_plan_id','=','travel_plans.id')->where('disclose','=','公開')->join('users','travel_plans.user_id','=','users.id')->where('travel_plans.user_id','!=',$user_id)->orderBy('travel_plan_spot_updated_at','desc')->take(3)->get();
+        
         if($spot_master->category->category=="ホテル"){
             $client = new \GuzzleHttp\Client();
             $applicationID =config('services.rakuten_travel.id');
@@ -220,6 +228,7 @@ class SpotMasterController extends Controller
                 'favorite' =>$favorite,
                 'favorite_count' =>$favorite_count,
                 'user_count' =>$user_count,
+                'travel_plan_spots'=>$travel_plan_spots,
                 
             ]);
             
@@ -236,6 +245,7 @@ class SpotMasterController extends Controller
                 'favorite' =>$favorite,
                 'favorite_count' =>$favorite_count,
                 'user_count' =>$user_count,
+                'travel_plan_spots'=>$travel_plan_spots,
             ]);    
         };
     }
