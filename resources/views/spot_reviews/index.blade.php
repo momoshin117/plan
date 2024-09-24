@@ -23,7 +23,6 @@
    
    @foreach($spot_reviews as $spot_review)
    
-      @if($user->id == $spot_review->user_id)
          <h3>===============================</h3>
          <h4>更新日時</h4>
          <p>{{$spot_review->updated_at->format("Y-m-d　H:i")}}</p>
@@ -57,7 +56,6 @@
          </form>
          <br>
          <br>
-      @endif
    
    @endforeach
    

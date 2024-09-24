@@ -13,10 +13,11 @@ class SpotReviewController extends Controller
 {
     public function index(SpotReview $spot_review){
         $user= Auth::user();
+        $spot_reviews=SpotReview::with('spot_master','user')->where('user_id','=',$user->id)->orderBy('updated_at','desc')->paginate(3);
         
         return view('spot_reviews.index')->with([
-            'spot_reviews'=>$spot_review->getPaginateByLimit(),
             'user' =>$user,
+            'spot_reviews'=>$spot_reviews
         ]);
     }
     
