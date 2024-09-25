@@ -56,7 +56,10 @@
 　 @endif
 　 
 　 <h2>登録スポット一覧</h2>
-　 <a href='/myplan/spot/{{$travel_plan ->id}}/create?budget={{$travel_plan->money}}&total={{$money_total->total}}&first_day={{$travel_plan ->departure_date}}&long={{$travel_plan ->long}}'>新規スポット登録</a>
+　 
+　 @if($user_id== $travel_plan->user_id)
+　    <a href='/myplan/spot/{{$travel_plan ->id}}/create?budget={{$travel_plan->money}}&total={{$money_total->total}}&first_day={{$travel_plan ->departure_date}}&long={{$travel_plan ->long}}'>新規スポット登録</a>
+　 @endif
 　 
 　 <div class='travel_plan_spots'>
 　    
@@ -88,7 +91,11 @@
            
    </div>
 　 
+　 @if($before=="myplan")
    <a href='/myplan/name/index'>戻る</a>
+   @else
+   <a href='/read/travel_plan/index'>戻る</a>
+   @endif
    
    <script>
     function deletePlan(id) {

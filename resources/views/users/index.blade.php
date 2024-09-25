@@ -45,7 +45,7 @@
       <div class="user_nickname_index">
          <h2>使用ニックネーム一覧</h2>
          @foreach($user_alls as $user_all)
-         <p>{{$user_all->nickname}}　(Id:{{$user_all->id}}、ユーザー名：{{$user_all->name}})</p>
+         <p>{{$user_all->nickname==""?'未登録':$user_all->nickname}}　(Id:{{$user_all->id}}、ユーザー名：{{$user_all->name}})</p>
          @endforeach
       </div>
    @endcan

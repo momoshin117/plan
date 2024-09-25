@@ -19,6 +19,8 @@
                     <br>
                     <a href='/read/spot_master/index'>③スポット閲覧</a>
                     <br>
+                    <a href='/read/travel_plan/index'>④旅行プラン閲覧</a>
+                    <br>
                     <br>
                     ユーザー設定
                     <br>

@@ -13,6 +13,7 @@ use App\Http\Controllers\SpotReviewPhotoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SpotMasterReviewController;
 use App\Http\Controllers\ReadSpotMasterController;
+use App\Http\Controllers\ReadTravelPlanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -109,6 +110,11 @@ Route::controller(ReadSpotMasterController::class)->middleware(['auth'])->group(
     Route::post('/read/spot_master/search','search');
 });
 
+//旅行プラン閲覧
+Route::controller(ReadTravelPlanController::class)->middleware(['auth'])->group(function(){
+    Route::get('/read/travel_plan/index','index');
+    Route::post('/read/travel_plan/spot_search','search');
+});
 
 //管理画面(駐車台数設定)
 
