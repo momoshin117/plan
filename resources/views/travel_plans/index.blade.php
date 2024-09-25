@@ -44,7 +44,7 @@
         @foreach($travel_plans as $travel_plan)
             @if($user_id == $travel_plan->user_id)
                 <p>{{$travel_plan->departure_date}}　{{$travel_plan->plan_name}}　
-                    <a href='/myplan/name/{{$travel_plan->id}}'>プラン詳細</a>
+                    <a href='/myplan/name/{{$travel_plan->id}}?before=myplan'>プラン詳細</a>
                     <form action="/myplan/name/{{ $travel_plan->id }}" id="form_{{ $travel_plan->id }}" method="post">
                         @csrf
                         @method('DELETE')
