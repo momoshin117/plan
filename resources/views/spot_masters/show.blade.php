@@ -137,9 +137,11 @@
          <h2>施設写真</h2>
          <img src="{{$rakuten['hotelImageUrl']}}" alt="画像が読み込めません。">
          <img src="{{$rakuten['roomImageUrl']}}" alt="画像が読み込めません。">
+         @if(isset($spot_photos))
          @foreach($spot_photos as $spot_photo)
             <img src="{{$spot_photo->path}}" alt="画像が読み込めません。">
          @endforeach
+         @endif
       </div>
    
       @endif
