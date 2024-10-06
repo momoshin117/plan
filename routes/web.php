@@ -75,7 +75,7 @@ Route::controller(TravelPlanSpotController::class)->middleware(['auth'])->group(
 
 //口コミ登録
 Route::controller(SpotReviewController::class)->middleware(['auth'])->group(function(){
-    Route::get('/review/index','index');
+    Route::get('/review/index','index')->name('reviews');
     Route::get('/review/create','create');
     Route::post('/review/store','store');
     Route::get('/review/{spot_review}/show','show');
@@ -106,13 +106,13 @@ Route::controller(SpotMasterReviewController::class)->middleware(['auth'])->grou
 
 //施設閲覧
 Route::controller(ReadSpotMasterController::class)->middleware(['auth'])->group(function(){
-    Route::get('/read/spot_master/index','index');
+    Route::get('/read/spot_master/index','index')->name('read_spot_masters');
     Route::post('/read/spot_master/search','search');
 });
 
 //旅行プラン閲覧
 Route::controller(ReadTravelPlanController::class)->middleware(['auth'])->group(function(){
-    Route::get('/read/travel_plan/index','index');
+    Route::get('/read/travel_plan/index','index')->name('read_travel_plans');
     Route::post('/read/travel_plan/spot_search','search');
 });
 

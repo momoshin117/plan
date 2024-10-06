@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('トップページ') }}
         </h2>
     </x-slot>
 
@@ -22,16 +22,16 @@
                     <a href='/read/travel_plan/index'>④旅行プラン閲覧</a>
                     <br>
                     <br>
-                    ユーザー設定
+                    【ユーザー設定】
                     <br>
                     <a href='/user/nickname/index'>ニックネーム設定</a>
                     <br>
                     <br>
                     
                     @can('admin')
-                    管理者画面
+                    【管理者画面】
                     <br>
-                    <a href='//parking_cars'>駐車場台数設定</a>
+                    <a href='/parking_cars'>駐車場台数設定</a>
                     <br>
                     <a href='/manager/spot_photo/index'>施設画像登録</a>
                     @endcan
