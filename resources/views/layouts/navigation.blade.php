@@ -13,10 +13,19 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('トップページ') }}
                     </x-nav-link>
                     <x-nav-link :href="route('travel_plans')" :active="request()->routeIs('travel_plans')">
-                        {{ __('Travel_plans') }}
+                        {{ __('①旅行プラン') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('reviews')" :active="request()->routeIs('reviews')">
+                        {{ __('②口コミ登録') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('read_spot_masters')" :active="request()->routeIs('read_spot_masters')">
+                        {{ __('③スポット閲覧') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('read_travel_plans')" :active="request()->routeIs('read_travel_plans')">
+                        {{ __('④旅行スポット閲覧') }}
                     </x-nav-link>
                     
                 </div>

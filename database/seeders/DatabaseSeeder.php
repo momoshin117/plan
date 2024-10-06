@@ -18,11 +18,11 @@ class DatabaseSeeder extends Seeder
             PrefectureSeeder::class,
             SpotMasterSeeder::class,
             FavoriteSeeder::class,
+            UserSeeder::class
             
             /*下記は初期化する場合のみ
             TravelPlanSpotSeeder::class,
             SpotReviewSeeder::class,
-            UserSeeder::class,
             */
         ]);
         
