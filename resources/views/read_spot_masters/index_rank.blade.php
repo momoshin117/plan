@@ -44,18 +44,20 @@
       </div>
       <?php $count=0; ?>
       
-      @foreach($spot_review_photos as $spot_review_photo)
-         @if($spot_review_photo->spot_review->spot_master_id ==$spot_master->id)
+      @if(isset($travel_plan_spots))
+         @foreach($spot_review_photos as $spot_review_photo)
+            @if($spot_review_photo->spot_review->spot_master_id ==$spot_master->id)
          
-            @if($count <= 2)
-               <div class="spot_photo">
-                  <img src="{{$spot_review_photo->path}}" alt="画像が読み込めません。" width="500" height="500">
-                  <?php $count++; ?>
-               </div>
-            @endif
+               @if($count <= 2)
+                  <div class="spot_photo">
+                     <img src="{{$spot_review_photo->path}}" alt="画像が読み込めません。" width="500" height="500">
+                     <?php $count++; ?>
+                  </div>
+               @endif
             
-         @endif
-      @endforeach
+            @endif
+         @endforeach
+      @endif
       <br>
    @endforeach
    
