@@ -332,6 +332,21 @@ class SpotMasterSeeder extends Seeder
         
         DB::table('spot_masters')->insert([
                 'category_id' => '3',
+                'spot_name' => 'ウミカジテラス',
+                'prefecture_id' => '47',
+                'adress' =>'豊見城市瀬長174番地6',
+                'holiday' => '無休',
+                'open_time' => '10:00～21:00',
+                'entrance_fee' => '無料',
+                'parking_car_id' =>'4',
+                'foot' => '那覇空港から車で約15分',
+                'bus' => '0',
+                'latitude'=>'26.17688173162142',
+                'longitude'=>'127.64051179751098',
+        ]);
+        
+        DB::table('spot_masters')->insert([
+                'category_id' => '3',
                 'spot_name' => '美ら海水族館',
                 'prefecture_id' => '47',
                 'adress' =>'国頭郡本部町石川424',
