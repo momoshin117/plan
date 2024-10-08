@@ -17,11 +17,13 @@ class DatabaseSeeder extends Seeder
             ParkingCarSeeder::class,
             PrefectureSeeder::class,
             SpotMasterSeeder::class,
+            SpotPhotoSeeder::class,
             FavoriteSeeder::class,
             UserSeeder::class,
             TravelPlanSeeder::class,
             TravelPlanSpotSeeder::class,
             SpotReviewSeeder::class,
+            SpotReviewPhotoSeeder::class,
             
             /*下記は初期化する場合のみ
             TravelPlanSpotSeeder::class,
