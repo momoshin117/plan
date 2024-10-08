@@ -277,12 +277,12 @@
       <br>
       <div class="travel_plan">
          <h2>●このスポットが登録されている旅行プラン(更新順。最大3件)</h2>
-         @if(isset($travel_plan_spots))
-         <p>このスポットが登録されているプランはありません。</p>
-         @else
+         @if($travel_plan_spots_isset!="")
             @foreach($travel_plan_spots as $travel_plan_spot)
                <p>・{{$travel_plan_spot->plan_name}}(作成者：{{$travel_plan_spot->nickname}}、更新日時：{{substr($travel_plan_spot->travel_plan_spot_updated_at,0,16)}})</p>
             @endforeach
+         @else
+            <p>このスポットが登録されているプランはありません。</p>
          @endif
 
       </div>

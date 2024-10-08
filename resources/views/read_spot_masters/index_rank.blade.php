@@ -43,7 +43,7 @@
       </div>
       <?php $count=0; ?>
       
-      @if(isset($travel_plan_spots))
+      @if(isset($spot_review_photos))
          @foreach($spot_review_photos as $spot_review_photo)
             @if($spot_review_photo->spot_review->spot_master_id ==$spot_master->id)
          
