@@ -46,5 +46,15 @@ class UserSeeder extends Seeder
             'updated_at' => new DateTime(),
             'nickname' =>'guest02',
         ]);
+        
+        DB::table('users')->insert([
+            'role_id' => '1',
+            'name' => 'レビュー',
+            'email' => 'review@gmail.com',
+            'password' =>Hash::make('review'),
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'nickname' =>'review',
+        ]);
     }
 }
