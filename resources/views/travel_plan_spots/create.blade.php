@@ -10,8 +10,6 @@
    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
    <div class="p-6 text-gray-900">
       
-   <h1>新規旅行スポット登録</h1>
-   <br>
    =======
    <h2>【スポット絞り込み】</h2>
    <form action='/myplan/spot/{{$travel_plan}}/create/search?use_money={{$use_money}}&first_day={{$first_day}}&last_day={{$last_day}}' method='POST'>

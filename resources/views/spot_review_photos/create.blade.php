@@ -10,9 +10,8 @@
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
     <div class="p-6 text-gray-900">
     
-    <h1>口コミ写真登録</h1>
-   
     <div class="review_registered">
+        <h2>【口コミ登録内容】</h2>
         <h4>スポット名</h4>
         <p>{{$spot_review->spot_master->spot_name}}</p>
         
@@ -23,7 +22,9 @@
             <h6>内容</h6>
             <p>{{$spot_review->comment}}</p>
     </div>
-    
+    ====
+    <br>
+    <h2>【写真登録】</h2>
     <form action='/review/photo/store' method='POST' enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="spot_review_photo[spot_review_id]" value={{$spot_review->id}}></input>

@@ -9,8 +9,6 @@
    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
    <div class="p-6 text-gray-900">
       
-   <h1>施設詳細情報({{$spot_master->category->category}})</h1>
-   <br>
    ==============
    <div class="favorite">
       @if($favorite_exit)
@@ -32,6 +30,7 @@
       
    </div>
    ================
+   <br>
    <br>
    <div class="spot">
       

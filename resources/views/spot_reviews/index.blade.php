@@ -10,7 +10,6 @@
    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
    <div class="p-6 text-gray-900">
    
-   <h2>口コミ(一覧)</h2>
    
    @if($user->nickname=='')
    <p style="color:red">警告：ニックネームが未登録なため、口コミが登録できません。下記URLからニックネームを登録してください。</p>
@@ -19,7 +18,7 @@
    @else
    <a href='/review/create'>新規口コミ投稿</a>
    
-   <h2>過去に自分が登録したもの</h2>
+   <h2>【過去に自分が登録したもの】</h2>
    
    @foreach($spot_reviews as $spot_review)
    

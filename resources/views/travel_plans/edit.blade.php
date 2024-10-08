@@ -10,7 +10,6 @@
    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
    <div class="p-6 text-gray-900">
     
-   <h1>新規日程編集</h1>
    <form action='/myplan/name/{{$travel_plan ->id}}' method='POST'>
       @csrf
       @method('PUT')

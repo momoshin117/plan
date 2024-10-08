@@ -1,7 +1,7 @@
 <x-app-layout>
    <x-slot name="header">
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-         施設口コミ詳細情報
+         施設口コミ詳細情報：{{$spot_master->spot_name}}
       </h2>
    </x-slot>
    <div class="py-12">
@@ -9,15 +9,11 @@
    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
    <div class="p-6 text-gray-900">
       
-   <h1>施設口コミ詳細情報</h1>
-   
-   <div class="spot_name">
-      <h2>施設名</h2>
-      <p>{{$spot_master->spot_name}}</p>
+   <div>
+      当サイト口コミ(最新順)
    </div>
       
    <div class="review">
-      <h2>当サイト口コミ</h2>
       <br>
          @foreach($spot_reviews as $spot_review)
             <p>===========================</p>

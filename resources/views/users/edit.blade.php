@@ -10,7 +10,6 @@
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
     <div class="p-6 text-gray-900">
     
-    <h1>ニックネーム設定(編集)</h1>
     <form action='/user/nickname/update' method='POST'>
         @csrf
         @method('PUT')
