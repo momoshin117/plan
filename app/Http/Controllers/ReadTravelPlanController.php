@@ -12,7 +12,7 @@ class ReadTravelPlanController extends Controller
 {
     public function index(){
         $user_id=Auth::id();
-        $travel_plans=TravelPlan::with('user')->where('user_id','!=',$user_id)->OrderBy('updated_at','desc')->paginate(5);
+        $travel_plans=TravelPlan::with('user')->where('user_id','!=',$user_id)->where('disclose','=','公開')->OrderBy('updated_at','desc')->paginate(5);
         $spot_masters=SpotMaster::get();
         
         return view('read_travel_plans.index')->with([

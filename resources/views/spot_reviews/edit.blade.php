@@ -10,7 +10,6 @@
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
     <div class="p-6 text-gray-900">
     
-    <h2>口コミ投稿</h2>
     <form action='/review/{{$spot_review->id}}/update' method='POST'>
         @csrf
         @method('PUT')

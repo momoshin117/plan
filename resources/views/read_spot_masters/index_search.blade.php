@@ -10,8 +10,6 @@
    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
    <div class="p-6 text-gray-900">
    
-   <h1>スポット閲覧・検索</h1>
-   <br>
    ====
    <h2>【絞り込み条件】</h2>
       <div class="category">
@@ -25,6 +23,7 @@
       </div>
       <p class="category__error" style="color:red">{{ $errors->first('read_spot_master_search.category_id') }}</p>
    ====
+   <br>
    <br>
    口コミ評価高い順
    <br>

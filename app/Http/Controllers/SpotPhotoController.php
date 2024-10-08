@@ -30,7 +30,7 @@ class SpotPhotoController extends Controller
     
     public function index(){
         
-        $spot_photo=SpotPhoto::with('spot_master')->get();
+        $spot_photo=SpotPhoto::with('spot_master')->orderBy('updated_at','desc')->paginate(10);
         
         return view('spot_photos.index') ->with([
             'spot_photos'=>$spot_photo

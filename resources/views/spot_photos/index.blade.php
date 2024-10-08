@@ -10,7 +10,6 @@
    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
    <div class="p-6 text-gray-900">
    
-   <h1>管理者画面(スポットマスターへの画像挿入)</h1>
    
    <a href='/maneger/spot_photo/create'>新規作成</a>
    
@@ -29,6 +28,10 @@
       </form>
       
    @endforeach
+   
+   <div class='paginate'>
+      {{ $spot_photos->links() }}
+   </div>
    
    </div>
    </div>

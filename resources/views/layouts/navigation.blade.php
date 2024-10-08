@@ -25,7 +25,7 @@
                         {{ __('③スポット閲覧') }}
                     </x-nav-link>
                     <x-nav-link :href="route('read_travel_plans')" :active="request()->routeIs('read_travel_plans')">
-                        {{ __('④旅行スポット閲覧') }}
+                        {{ __('④旅行プラン閲覧') }}
                     </x-nav-link>
                     
                 </div>

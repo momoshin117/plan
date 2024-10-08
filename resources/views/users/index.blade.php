@@ -10,8 +10,6 @@
    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
    <div class="p-6 text-gray-900">
    
-   <h1>ニックネーム設定</h1>
-   
    @if($user->nickname=='')
    <a href='/user/nickname/create'>新規作成</a>
    
