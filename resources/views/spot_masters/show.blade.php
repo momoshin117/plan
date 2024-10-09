@@ -95,7 +95,7 @@
          
       </div>
       <h2>地図</h2>
-      <div id="map" style="height:500px">
+      <div id="map" style="width:500px; height:300px">
       </div>
 	   
       <script>
@@ -134,11 +134,12 @@
       
       <div class="picture">
          <h2>施設写真</h2>
-         <img src="{{$rakuten['hotelImageUrl']}}" alt="画像が読み込めません。">
-         <img src="{{$rakuten['roomImageUrl']}}" alt="画像が読み込めません。">
+         <img src="{{$rakuten['hotelImageUrl']}}" alt="画像が読み込めません。" width="500" height="500">
+         <br>
+         <img src="{{$rakuten['roomImageUrl']}}" alt="画像が読み込めません。" width="500" height="500">
          @if(isset($spot_photos))
          @foreach($spot_photos as $spot_photo)
-            <img src="{{$spot_photo->path}}" alt="画像が読み込めません。">
+            <img src="{{$spot_photo->path}}" alt="画像が読み込めません。" width="500" height="500">
          @endforeach
          @endif
       </div>
@@ -200,7 +201,7 @@
          </div>
          
          <h2>地図</h2>
-         <div id="map" style="height:500px">
+         <div id="map" style="width:500px; height:300px">
          </div>
 	   
          <script>
@@ -230,7 +231,7 @@
          <div class="picture">
             <h2>施設写真</h2>
             @foreach($spot_photos as $spot_photo)
-               <img src="{{$spot_photo->path}}" alt="画像が読み込めません。">
+               <img src="{{$spot_photo->path}}" alt="画像が読み込めません。" width="500" height="500">
             @endforeach
       </div>
          
@@ -255,7 +256,7 @@
          <div class="review_picture">
             <h6>　　投稿画像</h6>
             @foreach($spot_review_recently->spot_review_photos as $spot_review_photo)
-               <img src="{{$spot_review_photo->path}}"alt="画像が読み込めません。">
+               <img src="{{$spot_review_photo->path}}"alt="画像が読み込めません。" width="500" height="500">
             @endforeach
          </div>
          <a href='/spot_master/review/{{$spot_master->id}}/show'>口コミ詳細</a>
