@@ -53,6 +53,7 @@
             @endif
          @endforeach
       @endif
+      <a href="/spot_master/{{$favorite_exit==1?$spot_master->spot_master_id:$spot_master->id}}/show?before=read_spot_master">詳細</a>
       <br>
    @endforeach
    

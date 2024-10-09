@@ -71,6 +71,7 @@
             @endif
          @endforeach
       @endif
+      <a href="/spot_master/{{$spot_master->id}}/show?before=read_spot_master">詳細</a>
       <br>
    @endforeach
    
