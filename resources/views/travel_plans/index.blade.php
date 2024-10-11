@@ -40,17 +40,19 @@
        
     <div class='travel_plans'>
        
-            <p>自分が登録したプラン一覧</p>
+        <h2>【自分が登録したプラン一覧】</h2>
         @foreach($travel_plans as $travel_plan)
             @if($user_id == $travel_plan->user_id)
-                <p>{{$travel_plan->departure_date}}　{{$travel_plan->plan_name}}　
+                <div style="display:inline-flex">
+                    <p>{{$travel_plan->departure_date}}　{{$travel_plan->plan_name}}&emsp;</p>
                     <a href='/myplan/name/{{$travel_plan->id}}?before=myplan'>プラン詳細</a>
+                    <p>　　</p>
                     <form action="/myplan/name/{{ $travel_plan->id }}" id="form_{{ $travel_plan->id }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="button" onclick="deletePlan({{ $travel_plan->id }})" class="delete">削除</button> 
 　                  </form>
-　              </p>
+　              </div>
             @endif
         @endforeach   
     </div>
