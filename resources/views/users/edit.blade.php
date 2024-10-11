@@ -19,7 +19,7 @@
             <p class="nickname__error" style="color:red">{{ $errors->first('user.nickname') }}</p>
         </div>
         
-        <input type="submit" value="更新"></input>
+        <input type="submit" value="更新" class="button"></input>
         
     </form>
     

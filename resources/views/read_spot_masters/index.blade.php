@@ -38,7 +38,7 @@
          <input type="checkbox" name="read_spot_master_search[favorite]" value="1">お気に入りのみ</input>
       </div>
       <p class="category__error" style="color:red">{{ $errors->first('read_spot_master_search.category_id') }}</p>
-      <input type="submit" value="絞り込み"></input>
+      <input type="submit" value="絞り込み" class="button"></input>
    </form>
    ====
    <br>
@@ -71,7 +71,6 @@
             @endif
          @endforeach
       @endif
-      <a href="/spot_master/{{$spot_master->id}}/show?before=read_spot_master">詳細</a>
       <br>
    @endforeach
    

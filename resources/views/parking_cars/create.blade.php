@@ -10,7 +10,7 @@
         @csrf
         <div class="number">
             <input type="text" name="parking_cars[number]" placeholder="区分けの選択肢：(例)5台以下"></input>
-            <input type="submit" value="保存"></input>
+            <input type="submit" value="保存" class="button"></input>
         </div>
     </form>
        

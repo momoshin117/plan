@@ -11,7 +11,7 @@
    <div class="p-6 text-gray-900">
    
    @if($user->nickname=='')
-   <a href='/user/nickname/create'>新規作成</a>
+   <a href='/user/nickname/create' class="button">新規作成</a>
    
    <div class="user_name">
       <h2>ユーザー名</h2>
@@ -38,12 +38,12 @@
    <br>
    <br>
    @can('admin')
-      管理者画面(全ユーザーのニックネーム一覧)
+      【管理者画面(全ユーザーのニックネーム一覧)】
       <br>
       <div class="user_nickname_index">
          <h2>使用ニックネーム一覧</h2>
          @foreach($user_alls as $user_all)
-         <p>{{$user_all->nickname==""?'未登録':$user_all->nickname}}　(Id:{{$user_all->id}}、ユーザー名：{{$user_all->name}})</p>
+         <p>・{{$user_all->nickname==""?'未登録':$user_all->nickname}}　(Id:{{$user_all->id}}、ユーザー名：{{$user_all->name}})</p>
          @endforeach
       </div>
    @endcan

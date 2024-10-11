@@ -10,7 +10,7 @@
    <div class="p-6 text-gray-900">
       
    <div>
-      当サイト口コミ(最新順)
+      【当サイト口コミ(最新順)】
    </div>
       
    <div class="review">
@@ -34,7 +34,7 @@
             <h4>画像</h4>
                @foreach($spot_review_photos as $spot_review_photo)
                   @if($spot_review_photo->spot_review_id == $spot_review->id)
-                     <img src="{{$spot_review_photo->path}}"alt="画像が読み込めません。">
+                     <img src="{{$spot_review_photo->path}}"alt="画像が読み込めません。" width="500" height="500">
                   @endif
                @endforeach
             </div>

@@ -34,7 +34,7 @@
             <p class="path__error" style="color:red">{{ $errors->first('path') }}</p>
         </div>
         
-        <input type="submit" value="保存"></input>
+        <input type="submit" value="保存" class="button"></input>
         
     </form>
     <a href='/review/{{$spot_review->id}}/show'>戻る</a>

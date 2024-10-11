@@ -19,7 +19,7 @@
                 <option value="{{$spot_master->spot_name}}"></option>
             @endforeach
         </datalist>
-        <input type="submit" value="絞り込み"></input>
+        <input type="submit" value="絞り込み" class="button"></input>
         <p class="spot_name_error" style="color:red">{{ $errors->first('spot_master.spot_name') }}</p>
     </form>  
     

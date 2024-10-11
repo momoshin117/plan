@@ -11,7 +11,7 @@
    <div class="p-6 text-gray-900">
    
    
-   <a href='/maneger/spot_photo/create'>新規作成</a>
+   <a href='/maneger/spot_photo/create' class="button">新規画像登録</a>
    
    @foreach($spot_photos as $spot_photo)
       <h4>スポット名</h4>
@@ -24,7 +24,7 @@
       <form action="/maneger/spot_photo/{{$spot_photo->id}}/delete"  method="post">
          @csrf
          @method('DELETE')
-         <button type="submit">削除</button> 
+         <button type="submit" class="delete">削除</button> 
       </form>
       
    @endforeach

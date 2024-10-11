@@ -31,11 +31,11 @@
         </select>
         月
         
-        <input type="submit" value="絞り込み"></input>
+        <input type="submit" value="絞り込み" class="button"></input>
     </form>  
     
     <div class='new_plan'>
-        <a href='/myplan/name/create'>新規プラン登録</a>   
+        <a href='/myplan/name/create' class="button">新規プラン登録</a>   
     </div>
        
     <div class='travel_plans'>
@@ -48,7 +48,7 @@
                     <form action="/myplan/name/{{ $travel_plan->id }}" id="form_{{ $travel_plan->id }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="button" onclick="deletePlan({{ $travel_plan->id }})">削除</button> 
+                        <button type="button" onclick="deletePlan({{ $travel_plan->id }})" class="delete">削除</button> 
 　                  </form>
 　              </p>
             @endif

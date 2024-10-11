@@ -38,7 +38,7 @@
                <form action="/review/photo/{{ $spot_review_photo->id }}/delete" id="form_{{ $spot_review_photo->id }}" method="post">
                    @csrf
                    @method('DELETE')
-                   <button type="button" onclick="deletePlan({{ $spot_review_photo->id }})">削除</button> 
+                   <button type="button" onclick="deletePlan({{ $spot_review_photo->id }})" class="delete">削除</button> 
 　             </form>
 　          @endif
          @endforeach
@@ -46,7 +46,7 @@
       
       @if($user_id==$spot_review->user_id)
          <div class="create_photo">
-            <a href="/review/photo/create?spot_review_id={{$spot_review->id}}">口コミ画像登録(任意)</a>
+            <a href="/review/photo/create?spot_review_id={{$spot_review->id}}" class="button">口コミ画像登録(任意)</a>
          </div>
       @endif
       

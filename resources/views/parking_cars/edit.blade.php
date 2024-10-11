@@ -11,7 +11,7 @@
         @method('PUT')
         <div class="number">
             <input type="text" name="parking_car[number]" value={{$parking_car->number}} ></input>
-            <input type="submit" value="更新"></input>
+            <input type="submit" value="更新" class="button"></input>
                
         </div>
     </form>

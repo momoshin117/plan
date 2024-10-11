@@ -23,7 +23,7 @@
             @endforeach
          </select>
       </div>
-      <input type="submit" value="絞り込み"></input>
+      <input type="submit" value="絞り込み" class="button"></input>
    </form>
    ====
    <br>
@@ -57,7 +57,6 @@
             @endif
          @endforeach
       @endif
-      <a href="/spot_master/{{$spot_master->id}}/show?before=read_spot_master">詳細</a>
       <br>
    @endforeach
    
