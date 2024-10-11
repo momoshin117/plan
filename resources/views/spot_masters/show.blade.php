@@ -26,7 +26,7 @@
          
       </form>
       @endif
-      <h4>お気に入り登録者数：{{$user_count}}人中{{$favorite_count}}人</h4>
+      <p>お気に入り登録者数：{{$user_count}}人中{{$favorite_count}}人</p>
       
    </div>
    ================
@@ -41,8 +41,7 @@
       
       <div class="spot_adress">
          <h2>住所</h2>
-         <p>{{$spot_master->prefecture->prefecture}}</p>
-         <p>{{$spot_master->adress}}</p>
+         <p>{{$spot_master->prefecture->prefecture}}{{$spot_master->adress}}</p>
          
       </div>
       
@@ -245,16 +244,16 @@
             <p>　このスポットの口コミはまだ登録されていません。</p>
          @else
          <div class="review_point">
-            <h6>{{substr($spot_master->review_average_score,0,4)}}点({{$spot_master->review_count}}件)</h6>
+            <p>{{substr($spot_master->review_average_score,0,4)}}点({{$spot_master->review_count}}件)</p>
          </div>
          <div class="review_recently">
-            <h6>　最新の口コミ(更新日：{{$spot_review_recently->updated_at->format("Y-m-d　H:i")}})</h6>
+            <p>　最新の口コミ(更新日：{{$spot_review_recently->updated_at->format("Y-m-d　H:i")}})</p>
             <p>　　投稿者：{{$spot_review_recently->user->nickname}}</p>
             <p>　　点数：{{$spot_review_recently->score}}点</p>
             <p>　　コメント：{{$spot_review_recently->comment}}</p>
          </div>
          <div class="review_picture">
-            <h6>　　投稿画像</h6>
+            <p>　　投稿画像</p>
             @foreach($spot_review_recently->spot_review_photos as $spot_review_photo)
                <img src="{{$spot_review_photo->path}}"alt="画像が読み込めません。" width="500" height="500">
             @endforeach
@@ -268,7 +267,7 @@
       <div class="rakuten_review">
          <h4>●楽天トラベル口コミ</h2>
          <div class="rakuten_review_point">
-            <h6>{{$rakuten['reviewAverage']}}点({{$rakuten['reviewCount']}}件)</h6>
+            <p>{{$rakuten['reviewAverage']}}点({{$rakuten['reviewCount']}}件)</p>
          </div>
          <div class="rakuten_review_url">
             <a href='{{$rakuten['reviewUrl']}}'>楽天トラベル口コミURL</a>
