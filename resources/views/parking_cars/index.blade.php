@@ -13,13 +13,13 @@
             <form action="/parking_cars/delete/{{ $parking_car->id }}" id="form_{{ $parking_car->id }}" method="post">
                 @csrf
                 @method('DELETE')
-                <button type="button" onclick="deleteData({{ $parking_car->id }})">削除</button>
+                <button type="button" onclick="deleteData({{ $parking_car->id }})" class="delete">削除</button>
             </form>
         @endforeach
            
     </div>
     <br>
-    <a href='/parking_cars/create'>新規作成</a>
+    <a href='/parking_cars/create' class="button">新規作成</a>
     <script>
         function deleteData(id){
             'use strict'

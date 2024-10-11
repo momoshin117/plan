@@ -49,14 +49,14 @@
          @csrf
          @method('DELETE')
       
-         <button type="button" onclick="deletePlan({{ $travel_plan->id }})">削除</button> 
+         <button type="button" onclick="deletePlan({{ $travel_plan->id }})" class="delete">削除</button> 
 　    </form>
 　 @endif
 　 
 　 <h2>登録スポット一覧</h2>
 　 
 　 @if($user_id== $travel_plan->user_id)
-　    <a href='/myplan/spot/{{$travel_plan ->id}}/create?budget={{$travel_plan->money}}&total={{$money_total->total}}&first_day={{$travel_plan ->departure_date}}&long={{$travel_plan ->long}}'>新規スポット登録</a>
+　    <a href='/myplan/spot/{{$travel_plan ->id}}/create?budget={{$travel_plan->money}}&total={{$money_total->total}}&first_day={{$travel_plan ->departure_date}}&long={{$travel_plan ->long}}' class="button">新規スポット登録</a>
 　 @endif
 　 
 　 <div class='travel_plan_spots'>
@@ -67,7 +67,7 @@
             <h4>ジャンル</h4>
             <p>{{$travel_plan_spot->spot_master->category->category}}</p>
             <h4>スポット名</h4>
-            <a href='/spot_master/{{$travel_plan_spot->spot_master_id}}/show?travel_plan_id={{$travel_plan->id}}&before=travel_plan'>{{$travel_plan_spot->spot_master->spot_name}}</p>
+            <a href='/spot_master/{{$travel_plan_spot->spot_master_id}}/show?travel_plan_id={{$travel_plan->id}}&before=travel_plan'>{{$travel_plan_spot->spot_master->spot_name}}</a>
             
             <h4>滞在日時</h4>
             <p>{{$travel_plan_spot->arrive_date}}　{{substr($travel_plan_spot->arrive_time,0,5)}}～{{$travel_plan_spot->departure_date}}　{{substr($travel_plan_spot->departure_time,0,5)}}</p>
@@ -82,7 +82,7 @@
                   @csrf
                   @method('DELETE')
       
-                  <button type="button" onclick="deletePlan({{ $travel_plan_spot->id }})">削除</button> 
+                  <button type="button" onclick="deletePlan({{ $travel_plan_spot->id }})" class="delete">削除</button> 
 　             </form>
             @endif
         @endforeach

@@ -41,7 +41,7 @@
          <input type="checkbox" name="travel_plan_spot_search[favorite]" value="1">お気に入りのみ</input>
       </div>
             
-      <input type="submit" value="絞り込み"></input>
+      <input type="submit" value="絞り込み" class="button"></input>
    </form>
    <br>
    ========
@@ -98,7 +98,7 @@
       </div>
       </div>
       
-      <input type="submit" value="保存"></input>
+      <input type="submit" value="保存" class="button"></input>
 
    </form>
    

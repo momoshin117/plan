@@ -13,10 +13,10 @@
    
    @if($user->nickname=='')
    <p style="color:red">警告：ニックネームが未登録なため、口コミが登録できません。下記URLからニックネームを登録してください。</p>
-   <a href='/user/nickname/create'>ニックネーム登録</a>
+   <a href='/user/nickname/create' class="button">ニックネーム登録</a>
    
    @else
-   <a href='/review/create'>新規口コミ投稿</a>
+   <a href='/review/create' class="button">新規口コミ投稿</a>
    
    <h2>【過去に自分が登録したもの】</h2>
    
@@ -51,7 +51,7 @@
          <form action="/review/{{$spot_review->id}}/delete" id="form_{{ $spot_review->id }}" method="post">
             @csrf
             @method('DELETE')
-            <button type="button" onclick="deleteData({{ $spot_review->id }})">削除</button> 
+            <button type="button" onclick="deleteData({{ $spot_review->id }})" class="delete">削除</button> 
          </form>
          <br>
          <br>

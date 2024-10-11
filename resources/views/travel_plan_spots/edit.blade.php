@@ -69,7 +69,7 @@
          
       </div>
       
-      <input type="submit" value="更新"></input>
+      <input type="submit" value="更新" class="button"></input>
 
    </form>
    

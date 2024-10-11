@@ -48,7 +48,7 @@
             <p class="disclose__error" style="color:red">{{ $errors->first('travel_plan.disclose') }}</p>
          </div>
 
-         <input type="submit" value="更新"></input>
+         <input type="submit" value="更新" class="button"></input>
                
       </div>
    </form>

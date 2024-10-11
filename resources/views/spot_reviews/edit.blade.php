@@ -53,7 +53,7 @@
         <h4>公開設定</h4>
         <p>口コミは非公開にできません。他ユーザーに公開されます。</p>
         
-        <input type="submit" value="更新"></input>
+        <input type="submit" value="更新" class="button"></input>
         
     </form>
     
