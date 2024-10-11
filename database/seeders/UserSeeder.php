@@ -57,13 +57,5 @@ class UserSeeder extends Seeder
             'nickname' =>'review',
         ]);
         
-         DB::table('users')->insert([
-            'role_id'=>'1',
-            'name'=> 'Shintaro',
-            'email'=> 'shintaro.cm@gmail.com',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime(),
-        ]);
-        
     }
 }
