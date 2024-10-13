@@ -25,7 +25,7 @@
         
         <h4>口コミ</h4>
         <div class="score">
-            <h6>・点数(5点満点。良い：5点。悪い：1点)</h6>
+            <h4>・点数(5点満点。良い：5点。悪い：1点)</h4>
              <select name="spot_review[score]">
                 <option value="">--選択してください--</option>
                 <option value="5" @if( 5 == (int)old('spot_review.score')) selected @endif>5点</option>
@@ -38,7 +38,7 @@
         </div>
         
         <div class="comment">
-            <h6>・コメント</h6>
+            <h4>・コメント</h4>
             <textarea name="spot_review[comment]" placeholder="スタッフの対応が良かった。" >{{old('spot_review.comment')}}</textarea>
             <p class="comment__error" style="color:red">{{ $errors->first('spot_review.comment') }}</p>
         </div>
@@ -51,7 +51,7 @@
         
         <h4>公開設定</h4>
         <p>口コミは非公開にできません。他ユーザーに公開されます。</p>
-        
+        <br>
         <input type="submit" value="保存" class="button"></input>
         
     </form>

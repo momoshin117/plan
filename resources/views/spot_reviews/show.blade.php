@@ -19,20 +19,20 @@
       <h4>施設名</h4>
       <a href='/spot_master/{{$spot_review->spot_master_id}}/show?before=review_show&spot_review_id={{$spot_review->id}}'>{{$spot_review->spot_master->spot_name}}</a>
       
-      <h4>口コミ</h4>
-      <h6>点数</h6>
+      <h3>口コミ</h3>
+      <h4>・点数</h4>
       <p>{{$spot_review->score}}点</p>
       
-      <h6>内容</h6>
+      <h4>・内容</h4>
       <p>{{$spot_review->comment}}</p>
       
-      <h6>ニックネーム</h6>
+      <h4>・ニックネーム</h4>
       <p>{{$spot_review->user->nickname}}</p>
       
-      <h6>画像</h6>
+      <h4>・画像</h4>
       <div class="spot_review_photo">
          @foreach($spot_review_photos as $spot_review_photo)
-            <img src="{{ $spot_review_photo->path }}" alt="画像が読み込めません。">
+            <img src="{{ $spot_review_photo->path }}" alt="画像が読み込めません。" width="500" height="500">
             
             @if($user_id==$spot_review->user_id)
                <form action="/review/photo/{{ $spot_review_photo->id }}/delete" id="form_{{ $spot_review_photo->id }}" method="post">

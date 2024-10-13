@@ -10,7 +10,7 @@
    <div class="p-6 text-gray-900">
       
    <div>
-      【当サイト口コミ(最新順)】
+      <h2>【当サイト口コミ(最新順)】</h2>
    </div>
       
    <div class="review">

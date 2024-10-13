@@ -22,7 +22,7 @@
    
    @foreach($spot_reviews as $spot_review)
    
-         <h3>===============================</h3>
+         <p>===============================</p>
          <h4>更新日時</h4>
          <p>{{$spot_review->updated_at->format("Y-m-d　H:i")}}</p>
       
@@ -32,27 +32,27 @@
          <h4>施設名</h4>
          <a href='/spot_master/{{$spot_review->spot_master_id}}/show?before=review_index'>{{$spot_review->spot_master->spot_name}}</a>
       
-         <h4>口コミ</h4>
-         <h6>点数</h6>
+         <h3>口コミ</h3>
+         <h4>●点数</h4>
          <p>{{$spot_review->score}}点</p>
       
-         <h6>内容</h6>
+         <h4>●内容</h4>
          <p>{{$spot_review->comment}}</p>
       
-         <h6>ニックネーム</h6>
+         <h4>●ニックネーム</h4>
          <p>{{$spot_review->user->nickname}}</p>
-      
-         <div class="show">
+         <br>
+         <div style="display:inline-flex">
             <a href="/review/{{$spot_review->id}}/show">詳細</a>
-         </div>
-         <div class="edit">
+            <p>　　</p>
             <a href="/review/{{$spot_review->id}}/edit">編集</a>
+            <p>　　</p>
+            <form action="/review/{{$spot_review->id}}/delete" id="form_{{ $spot_review->id }}" method="post">
+               @csrf
+               @method('DELETE')
+               <button type="button" onclick="deleteData({{ $spot_review->id }})" class="delete">削除</button> 
+            </form>
          </div>
-         <form action="/review/{{$spot_review->id}}/delete" id="form_{{ $spot_review->id }}" method="post">
-            @csrf
-            @method('DELETE')
-            <button type="button" onclick="deleteData({{ $spot_review->id }})" class="delete">削除</button> 
-         </form>
          <br>
          <br>
    

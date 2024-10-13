@@ -11,7 +11,7 @@
    <div class="p-6 text-gray-900">
       
    =======
-   <h2>【スポット絞り込み】</h2>
+   <h3>【スポット絞り込み】</h3>
    <form action='/myplan/spot/{{$travel_plan}}/create/search?use_money={{$use_money}}&first_day={{$first_day}}&last_day={{$last_day}}' method='POST'>
       @csrf
            
@@ -40,13 +40,13 @@
          <input type="hidden" name="travel_plan_spot_search[favorite]" value="0">
          <input type="checkbox" name="travel_plan_spot_search[favorite]" value="1">お気に入りのみ</input>
       </div>
-            
+      <br>      
       <input type="submit" value="絞り込み" class="button"></input>
    </form>
    <br>
    ========
    <br>
-   <h2>絞り込みなし</h2>
+   <h3>【現在の表示条件】：絞り込みなし</h3>
    <form action='/myplan/spot/store' method='POST'>
       @csrf
       <div class="travel_plan_id">
@@ -68,22 +68,25 @@
       
       <div class="arrive_date">
          <h4>到着日時</h4>
-         <input type="text" name="travel_plan_spot[arrive_date]" placeholder="2024/8/9" value={{old('travel_plan_spot.arrive_date')}}></input>
+         <div style="display:inline-flex">
+            <input type="text" name="travel_plan_spot[arrive_date]" placeholder="2024/8/9" value={{old('travel_plan_spot.arrive_date')}}></input>
+            <p>　　</p>
+            <input type="text" name="travel_plan_spot[arrive_time]" placeholder="09:00" value={{old('travel_plan_spot.arrive_time')}}></input>
+         </div>
+         
          <p class="arrive_date__error" style="color:red">{{ $errors->first('travel_plan_spot.arrive_date') }}</p>
-      </div>
-      
-      <div class="arrive_time">
-         <input type="text" name="travel_plan_spot[arrive_time]" placeholder="09:00" value={{old('travel_plan_spot.arrive_time')}}></input>
          <p class="arrive_time__error" style="color:red">{{ $errors->first('travel_plan_spot.arrive_time') }}</p>
       </div>
       
       <div class="departure_date">
          <h4>出発日時</h4>
-         <input type="text" name="travel_plan_spot[departure_date]" placeholder="2024/8/10" value={{old('travel_plan_spot.departure_date')}}></input>
+         <div style="display:inline-flex">
+            <input type="text" name="travel_plan_spot[departure_date]" placeholder="2024/8/10" value={{old('travel_plan_spot.departure_date')}}></input>
+            <p>　　</p>
+            <input type="text" name="travel_plan_spot[departure_time]" placeholder="10:00" value={{old('travel_plan_spot.departure_time')}}></input>
+         </div>
+         
          <p class="departure_date__error" style="color:red">{{ $errors->first('travel_plan_spot.departure_date') }}</p>
-      
-      <div class="departure_time">
-         <input type="text" name="travel_plan_spot[departure_time]" placeholder="10:00" value={{old('travel_plan_spot.departure_time')}}></input>
          <p class="departure_time__error" style="color:red">{{ $errors->first('travel_plan_spot.departure_time') }}</p>
       </div>
       
@@ -91,13 +94,12 @@
          <h4>1人あたりの料金</h4>
          
          <input type="text" name="travel_plan_spot[money]" placeholder="1000" value={{old('travel_plan_spot.money')}}>円</input>
-         <h6>※使える金額は残り{{$use_money}}円以内</h6>
+         <p style="color:red">※使える金額は残り{{$use_money}}円以内</p>
          <p class="money__error" style="color:red">{{ $errors->first('travel_plan_spot.money') }}</p>
          
          <input type="hidden" name="travel_plan_spot[use_money]" value={{$use_money}}></input>
       </div>
-      </div>
-      
+      <br>
       <input type="submit" value="保存" class="button"></input>
 
    </form>
