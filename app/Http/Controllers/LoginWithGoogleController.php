@@ -22,7 +22,7 @@ class LoginWithGoogleController extends Controller
     public function handleGoogleCallback()
     {
         try {
-            $socialiteUser = Socialite::driver('google')->user();
+            $socialiteUser = Socialite::driver('google')->stateless()->user();
             $email = $socialiteUser->email;
 
             $user = User::firstOrCreate(['email' => $email], [
