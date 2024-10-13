@@ -12,6 +12,7 @@
     
     <form action='/read/travel_plan/spot_search' method='POST'>
       @csrf
+      <h3>【絞り込み】</h3>
       <input id="spot_master_input" name="spot_master[spot_name]" list="spot_master" placeholder="テキスト入力もしくはダブルクリック" autocomplete="off">
         
         <datalist id="spot_master">
@@ -24,7 +25,7 @@
     </form>  
     
     <div class='travel_plans'>
-       <p>他の人が登録したプラン一覧(更新日順)</p>
+       <h3>他の人が登録したプラン一覧(更新日順)</h3>
         @foreach($travel_plans as $travel_plan)
             <a href='/myplan/name/{{$travel_plan->id}}?before=read_travel_plans'>●{{$travel_plan->plan_name}}</a>
             <p>　(作成者：{{$travel_plan->user->nickname}}、更新日時：{{$travel_plan->updated_at->format("Y-m-d　H:i")}})</p>

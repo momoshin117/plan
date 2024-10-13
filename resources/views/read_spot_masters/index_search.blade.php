@@ -19,17 +19,15 @@
          <h4>都道府県：{{$prefecture->id==""?"絞り込みなし":$prefecture->prefecture}}</h4>
       </div>
       <div class="favorite">
-         <p>{{$favorite_exit=="1"?"お気に入りのみ":"お気に入りでの絞り込みなし"}}</p>
+         <h4>{{$favorite_exit=="1"?"お気に入りのみ":"お気に入りでの絞り込み：なし"}}</h4>
       </div>
       <p class="category__error" style="color:red">{{ $errors->first('read_spot_master_search.category_id') }}</p>
    ====
    <br>
-   <br>
-   口コミ評価高い順
-   <br>
+   <h3>表示順：口コミ評価高い順</h3>
    @foreach($spot_masters as $spot_master)
       <div class="spot_name">
-         <h2>●スポット名</h2>
+         <h3>●スポット名</h3>
          <a href="/spot_master/{{$favorite_exit==1?$spot_master->spot_master_id:$spot_master->id}}/show?before=read_spot_master">{{$spot_master->spot_name}}</a>
       </div>
       <div class="category">

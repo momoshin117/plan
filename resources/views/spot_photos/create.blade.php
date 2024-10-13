@@ -25,7 +25,7 @@
         
             <input type="file" name="path">
         </div>
-        
+        <br>
         <input type="submit" value="保存" class="button"></input>
         
     </form>

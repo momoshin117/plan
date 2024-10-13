@@ -21,7 +21,7 @@
       </div>
            
       <div class="spot_name">
-         <p>スポット名</p>
+         <h4>スポット名</h4>
          <select name="travel_plan_spot[spot_master_id]">
             <option value="{{$travel_plan_spot->spot_master->id}}">{{$travel_plan_spot->spot_master->spot_name}}</option>
             
@@ -38,37 +38,37 @@
       </div>
       
       <div class="arrive_date">
-         <p>到着日時</p>
-         <input type="text" name="travel_plan_spot[arrive_date]" value={{$travel_plan_spot->arrive_date}}></input>
+         <h4>到着日時</h4>
+         <div style="display:inline-flex">
+            <input type="text" name="travel_plan_spot[arrive_date]" value={{$travel_plan_spot->arrive_date}}></input>
+            <p>　　</p>
+            <input type="text" name="travel_plan_spot[arrive_time]" value={{substr($travel_plan_spot->arrive_time,0,5)}}></input>
+         </div>
          <p class="arrive_date__error" style="color:red">{{ $errors->first('travel_plan_spot.arrive_date') }}</p>
-      </div>
-      
-      <div class="arrive_time">
-         <input type="text" name="travel_plan_spot[arrive_time]" value={{substr($travel_plan_spot->arrive_time,0,5)}}></input>
          <p class="arrive_time__error" style="color:red">{{ $errors->first('travel_plan_spot.arrive_time') }}</p>
       </div>
       
       <div class="departure_date">
-         <p>出発日時</p>
-         <input type="text" name="travel_plan_spot[departure_date]" value={{$travel_plan_spot->departure_date}}></input>
+         <h4>出発日時</h4>
+         <div style="display:inline-flex">
+            <input type="text" name="travel_plan_spot[departure_date]" value={{$travel_plan_spot->departure_date}}></input>
+            <p>　　</p>
+            <input type="text" name="travel_plan_spot[departure_time]" value={{substr($travel_plan_spot->arrive_time,0,5)}}></input>
+         </div>
          <p class="departure_date__error" style="color:red">{{ $errors->first('travel_plan_spot.departure_date') }}</p>
-      </div>
-      
-      <div class="departure_time">
-         <input type="text" name="travel_plan_spot[departure_time]" value={{substr($travel_plan_spot->arrive_time,0,5)}}></input>
          <p class="departure_time__error" style="color:red">{{ $errors->first('travel_plan_spot.departure_time') }}</p>
       </div>
       
       <div class="money">
-         <p>1人あたりの料金</p>
+         <h4>1人あたりの料金</h4>
          <input type="text" name="travel_plan_spot[money]" value={{$travel_plan_spot->money}}>円</input>
-          <h6>※使える金額は残り{{$use_money}}円以内</h6>
+         <p style="color:red">※使える金額は残り{{$use_money}}円以内</p>
          <p class="money__error" style="color:red">{{ $errors->first('travel_plan_spot.money') }}</p>
          
          <input type="hidden" name="travel_plan_spot[use_money]" value={{$use_money}}></input>
          
       </div>
-      
+      <br>
       <input type="submit" value="更新" class="button"></input>
 
    </form>

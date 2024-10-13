@@ -19,13 +19,14 @@
       
       <h4>画像</h4>
       <div>
-         <img src="{{$spot_photo->path}}" alt="画像が読み込めません。">
+         <img src="{{$spot_photo->path}}" alt="画像が読み込めません。" width="500" height="500">
       </div>
       <form action="/maneger/spot_photo/{{$spot_photo->id}}/delete"  method="post">
          @csrf
          @method('DELETE')
          <button type="submit" class="delete">削除</button> 
       </form>
+      <h4>=============</h4>
       
    @endforeach
    

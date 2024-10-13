@@ -12,14 +12,14 @@
     
     <div class="review_registered">
         <h2>【口コミ登録内容】</h2>
-        <h4>スポット名</h4>
+        <h3>スポット名</h4>
         <p>{{$spot_review->spot_master->spot_name}}</p>
         
-        <h4>口コミ</h4>
-            <h6>点数</h6>
+        <h3>口コミ</h4>
+            <h4>・点数</h4>
             <p>{{$spot_review->score}}点</p>
       
-            <h6>内容</h6>
+            <h4>・内容</h4>
             <p>{{$spot_review->comment}}</p>
     </div>
     ====
@@ -33,7 +33,7 @@
             <input type="file" name="path">
             <p class="path__error" style="color:red">{{ $errors->first('path') }}</p>
         </div>
-        
+        <br>
         <input type="submit" value="保存" class="button"></input>
         
     </form>

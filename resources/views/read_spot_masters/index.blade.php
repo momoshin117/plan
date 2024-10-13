@@ -42,12 +42,10 @@
    </form>
    ====
    <br>
-   <br>
-   口コミ評価高い順
-   <br>
+   <h3>表示順：口コミ評価高い順</h3>
    @foreach($spot_masters as $spot_master)
       <div class="spot_name">
-         <h2>●スポット名</h2>
+         <h3>●スポット名</h3>
          <a href="/spot_master/{{$spot_master->id}}/show?before=read_spot_master">{{$spot_master->spot_name}}</a>
       </div>
       <div class="category">

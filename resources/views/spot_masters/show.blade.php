@@ -8,9 +8,10 @@
    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
    <div class="p-6 text-gray-900">
-      
-   ==============
+   
+  
    <div class="favorite">
+      <h3>【お気に入り】======</h3>   
       @if($favorite_exit)
       <form action="/spot_master/{{$spot_master->id}}/favotite/delete?url_before={{$url_before}}&travel_plan_id={{$travel_plan_id}}&spot_review_id={{$spot_review_id}}" method="POST">
          @csrf
@@ -27,42 +28,42 @@
       </form>
       @endif
       <p>お気に入り登録者数：{{$user_count}}人中{{$favorite_count}}人</p>
+      <h3>================</h3>
       
    </div>
-   ================
-   <br>
+
    <br>
    <div class="spot">
       
       <div class="spot_name">
-         <h2>施設名</h2>
+         <h3>施設名</h3>
          <p>{{$spot_master->spot_name}}</p>
       </div>
       
       <div class="spot_adress">
-         <h2>住所</h2>
+         <h4>住所</h4>
          <p>{{$spot_master->prefecture->prefecture}}{{$spot_master->adress}}</p>
          
       </div>
       
       @if ( $spot_master->category->category =='ホテル')
       <div class="hotel_info">
-         <h2>ホテルの特徴</h2>
+         <h4>ホテルの特徴</h4>
          <p>{{$rakuten['hotelSpecial']}}</p>
       </div>
       <div class="hotel_price_min">
-         <h2>宿泊料金(1泊)</h2>
+         <h4>宿泊料金(1泊)</h4>
          <p>最低{{$rakuten['hotelMinCharge']}}円から</p>
       
       </div>
       
       <div class="hotel_food">
-         <h2>食事プラン</h2>
+         <h4>食事プラン</h4>
          <p>{{$spot_master->hotel_food}}</p>
       </div>
       
       <div class="hotel_bath">
-         <h2>大浴場有無</h2>
+         <h4>大浴場有無</h4>
          @if( $spot_master->bath =='1')
          <p>あり</p>
          @else
@@ -71,20 +72,20 @@
       </div>
       
       <div class="access">
-         <h2>交通アクセス</h2>
+         <h3>交通アクセス</h3>
             <p>{{$rakuten['access']}}</p>
          </div>
          <div class="parking_cars">
-            <h4>駐車場有無</h4>
+            <h4>・駐車場有無</h4>
             <p>{{$rakuten['parkingInformation']}}</p>
          </div>
          <div class="nearest_station">
-            <h4>最寄り駅</h4>
+            <h4>・最寄り駅</h4>
             <p>{{$rakuten['nearestStation']}}駅</p>
          </div>
          
          <div class="bus">
-            <h4>シャトルバス有無</h4>
+            <h4>・シャトルバス有無</h4>
             @if( $spot_master->bus =='1')
             <p>あり</p>
             @else
@@ -93,7 +94,7 @@
          </div>
          
       </div>
-      <h2>地図</h2>
+      <h3>地図</h3>
       <div id="map" style="width:500px; height:300px">
       </div>
 	   
@@ -123,7 +124,7 @@
       
       
       <div class="tel">
-         <h2>連絡先</h2>
+         <h4>連絡先</h4>
          <p>TEL:{{$rakuten['telephoneNo']}}</p>
       </div>
       
@@ -132,7 +133,7 @@
       </div>
       
       <div class="picture">
-         <h2>施設写真</h2>
+         <h3>施設写真</h3>
          <img src="{{$rakuten['hotelImageUrl']}}" alt="画像が読み込めません。" width="500" height="500">
          <br>
          <img src="{{$rakuten['roomImageUrl']}}" alt="画像が読み込めません。" width="500" height="500">
@@ -148,12 +149,12 @@
       @if($spot_master->category->category =='レストラン' || $spot_master->category->category =='観光スポット')
       
       <div class="holiday">
-         <h2>定休日</h2>
+         <h4>定休日</h4>
          <p>{{$spot_master->holiday}}</p>
       </div>
       
       <div class="open_time">
-         <h2>営業時間</h2>
+         <h4>営業時間</h4>
          <p>{{$spot_master->open_time}}</p>
       </div>
       
@@ -162,7 +163,7 @@
       @if($spot_master->category->category =='観光スポット' )
       
       <div class="entrance_fee">
-         <h2>入場料金</h2>
+         <h4>入場料金</h4>
          <p>{{$spot_master->entrance_fee}}</p>
       </div>
       
@@ -171,7 +172,7 @@
       @if($spot_master->category->category =='レストラン' )
       
       <div class="seat">
-         <h2>席数</h2>
+         <h4>席数</h4>
          <p>{{$spot_master->seat}}</p>
       </div>
       
@@ -179,19 +180,19 @@
       
       @if($spot_master->category->category =='レストラン' || $spot_master->category->category =='観光スポット')
       <div class="access">
-         <h2>交通アクセス</h2>
+         <h3>交通アクセス</h3>
          <div class="parking_cars">
-            <h4>駐車場有無</h4>
+            <h4>・駐車場有無</h4>
             <p>{{$spot_master->parking_car->number}}</p>
          </div>
          
          <div class="foot">
-            <h4>最寄り駅からの徒歩での所要時間</h4>
+            <h4>・最寄り駅からの徒歩での所要時間</h4>
             <p>{{$spot_master->foot}}</p>
          </div>
          
          <div class="bus">
-            <h4>シャトルバス有無</h4>
+            <h4>・シャトルバス有無</h4>
             @if( $spot_master->bus =='1')
             <p>あり</p>
             @else
@@ -199,7 +200,7 @@
             @endif
          </div>
          
-         <h2>地図</h2>
+         <h3>地図</h3>
          <div id="map" style="width:500px; height:300px">
          </div>
 	   
@@ -228,7 +229,7 @@
          <script src={{$google_map_url}}></script>
          
          <div class="picture">
-            <h2>施設写真</h2>
+            <h3>施設写真</h3>
             @foreach($spot_photos as $spot_photo)
                <img src="{{$spot_photo->path}}" alt="画像が読み込めません。" width="500" height="500">
             @endforeach
@@ -238,7 +239,7 @@
       @endif
       
       <div class="review">
-         <h2>口コミ</h2>
+         <h3>口コミ</h3>
          <h4>●当サイト口コミ</h4>
          @if($spot_review_recently=="")
             <p>　このスポットの口コミはまだ登録されていません。</p>
@@ -276,7 +277,7 @@
       @endif
       <br>
       <div class="travel_plan">
-         <h2>●このスポットが登録されている旅行プラン(更新順。最大3件)</h2>
+         <h3>このスポットが登録されている旅行プラン(更新順。最大3件)</h3>
          @if($travel_plan_spots_isset!="")
             @foreach($travel_plan_spots as $travel_plan_spot)
                <p>・{{$travel_plan_spot->plan_name}}(作成者：{{$travel_plan_spot->nickname}}、更新日時：{{substr($travel_plan_spot->travel_plan_spot_updated_at,0,16)}})</p>

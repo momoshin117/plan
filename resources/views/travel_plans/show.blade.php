@@ -12,7 +12,7 @@
 
    <div class="plan">
       <div class="plan_name">
-         <h1>プラン名</h1>
+         <h2>【プラン名】</h2>
          <p>{{$travel_plan ->plan_name}}</p>
       </div>
                
@@ -41,19 +41,22 @@
          </div>
       @endif
    </div>
+   <br>
    
    @if($user_id== $travel_plan->user_id)
+   <div style="display:inline-flex">
       <a href='/myplan/name/{{$travel_plan ->id}}/edit'>編集</a>
-   
+      <p>　　</p>
       <form action="/myplan/name/{{ $travel_plan->id }}" id="form_{{ $travel_plan->id }}" method="post">
          @csrf
          @method('DELETE')
       
          <button type="button" onclick="deletePlan({{ $travel_plan->id }})" class="delete">削除</button> 
 　    </form>
+　 </div>
 　 @endif
 　 
-　 <h2>登録スポット一覧</h2>
+　 <h2>【登録スポット一覧】</h2>
 　 
 　 @if($user_id== $travel_plan->user_id)
 　    <a href='/myplan/spot/{{$travel_plan ->id}}/create?budget={{$travel_plan->money}}&total={{$money_total->total}}&first_day={{$travel_plan ->departure_date}}&long={{$travel_plan ->long}}' class="button">新規スポット登録</a>
@@ -74,17 +77,22 @@
             
             <h4>料金(1人あたり)</h4>
             <p>{{$travel_plan_spot->money}}円</p>
+            <br>
             
             @if($user_id== $travel_plan->user_id)
+            <div style="display:inline-flex">
                <a href='/myplan/spot/{{$travel_plan_spot->id}}/edit?budget={{$travel_plan->money}}&total={{$money_total->total}}&first_day={{$travel_plan ->departure_date}}&long={{$travel_plan ->long}}'>編集</a>
-            
+               <p>　　</p>
                <form action="/myplan/spot/{{ $travel_plan_spot->id }}/delete" id="form_{{ $travel_plan_spot->id }}" method="post">
                   @csrf
                   @method('DELETE')
       
                   <button type="button" onclick="deletePlan({{ $travel_plan_spot->id }})" class="delete">削除</button> 
 　             </form>
+　          </div>
             @endif
+            <br>
+            <br>
         @endforeach
            
    </div>
